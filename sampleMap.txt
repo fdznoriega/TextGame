@@ -1,0 +1,20 @@
+0 6 0 3 0
+2 5 0 2 0
+2 0 2 2 2
+3 2 2 0 2
+0 0 1 0 4 \0
+
+How this file is meant to work:
+-Scan text from left to right.
+-When \n is encountered, scan left to right on a new row.
+-When number is greater than zero, that turns into a tile.
+-Connect the new tile to other nearby tiles (N/E/W/S)
+-Set that tile's state to "connected".
+
+Number Notation:
+1 - Start tile.
+2 - Walking tile.
+3 - Enemy tile.
+4 - Treasure tile.
+5 - Refresh/Fountain tile.
+6 - Boss tile.

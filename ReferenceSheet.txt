@@ -1,0 +1,8 @@
+All values used in the project will be here.
+
+-----Inventory/Equipment Reference-----
+0: Nothing in space.
+1: Potion
+2: Key
+3: Sword
+4: Armor

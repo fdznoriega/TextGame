@@ -27,7 +27,7 @@ public class Player {
   }
 
 
-  //-------Getters-------\\
+  //-------Setters-------\\
   public void setHp(int newHp)          { hp = newHp;         }
   public void setLvl(int newLvl)        { lvl = newLvl;       }
   public void setAttack(int newAtt)     { attack = newAtt;    }
@@ -36,12 +36,12 @@ public class Player {
   public void setInventory(int[] param) { inventory = param;  }
   public void setEquipment(int[] param) { equipment = param;  }
 
-  //-------Setters-------\\
+  //-------Getters-------\\
   public int getHp()          { return hp;        }
   public int getLvl()         { return lvl;       }
   public int getAttack()      { return attack;    }
   public int getXp()          { return xp;        }
-  public int setGold()        { return gold;      }
+  public int getGold()        { return gold;      }
   public int[] getInventory() { return inventory; }
   public int[] getEquipment() { return equipment; }
 
@@ -73,9 +73,11 @@ public class Player {
     return -1;
   }
 
+  //Moves an item from invenotry and places it in equipment.
+  //Returns: item when equipped OR -1 when failed to equip.
+  //TODO
   public void equipItem(int item) {
     int inventoryLength = this.inventory.length;
     int equipmentLength = this.equipment.length;
   }
-
 }

@@ -47,6 +47,7 @@ public class Player {
 
 	//-------Interaction with Inventory and Equipment-------\\
 
+	//Prints equipment for console reading.
 	public void printEquipment() {
 		for(int i = 0; i < this.equipment.length; i++) {
 			System.out.print(this.equipment[i] + " ");
@@ -54,6 +55,7 @@ public class Player {
 		System.out.println("");
 	}
 
+	//Prints inventory for console reading
 	public void printInventory() {
 		for(int i = 0; i < this.inventory.length; i++) {
 			System.out.print(this.inventory[i] + " ");
@@ -89,7 +91,6 @@ public class Player {
 
 	//Searches inventory and equips sword or armor (item # 3 or 4)
 	//Returns -1 when failed to equip, -item when item already equipped.
-
 	public int equipItem(int item) {
 		int inventoryLength = this.inventory.length;
 		//Find item we want to equip.
@@ -129,8 +130,6 @@ public class Player {
 		return -1;
 	}
 
-
-
 	//Checks equipment and places given item in inventory. Null if full inven.
 	//Returns -1 when unequip failed OR item when succeeded
 	public int unequipItem(int item) {
@@ -153,45 +152,6 @@ public class Player {
 	}
 
 
-	/*
-  public int equipItem(int item) {
-    int inventoryLength = this.inventory.length;
-    //Find item we want to equip.
-    for(int i = 0; i < inventoryLength; i++) {
-      //Is the item in our inventory?
-      if(this.inventory[i] == item) {
-        //Is the item # 3 (sword)?
-        if(this.inventory[i] == 3) {
-          //Do we already have the sword equipped?
-          if(this.equipment[0] == 3) { return -3; }
-          //If the above is all good, then equip.
-          else {
-            this.equipment[0] = 3;
-            this.inventory[i] = 0;
-            //Return what you equipped.
-            return 3;
-          }
 
-        }
-        //Is the item # 4 (armor)?
-        else if(this.inventory[i] == 4) {
-          //Do we already have the armor equipped?
-          if(this.equipment[1] == 4) { return -4; }
-          //If the above is all good, then equip.
-          else {
-            this.equipment[1] = 4;
-            this.inventory[i] = 0;
-            //Return what you equipped.
-            return 4;
-          }
-
-
-        }
-      }
-    }
-    //if we got this far, nothing could be equipped.
-    return -1;
-  }
-	 */
 
 }

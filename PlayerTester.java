@@ -54,6 +54,7 @@ public class PlayerTester {
     System.out.print(p.addItem(6) + "\n");
 
     //View new inventory.
+    System.out.println(">Checking Inventory");
     p.printInventory();
 
     //Now that inventory is full, test equipping something.
@@ -94,8 +95,8 @@ public class PlayerTester {
     p.printInventory();
 
     //Unequip item 3.
-    System.out.println(">Unequipping item 3: ");
-    System.out.println(p.unequipItem(3));
+    System.out.print(">Unequipping item 3: ");
+    System.out.print(p.unequipItem(3) + "\n");
 
     //Check inven + equip menu.
     System.out.print(">Updated Inventory: ");
@@ -104,8 +105,12 @@ public class PlayerTester {
     p.printEquipment();
 
     //Attempt to unequip item 3 again.
+    System.out.print(">Unequipping item 3 and 4: ");
+    System.out.print(p.unequipItem(3) + " ");
+    System.out.print(p.unequipItem(4) + "\n");
 
-    //Unequip item 4.
+    //Testing done.
+    System.out.println(">Whoa, lookin' cool Joker!");
 
 
   }

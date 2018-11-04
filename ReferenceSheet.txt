@@ -7,9 +7,42 @@ All values used in the project will be here.
 3: Sword
 4: Armor
 
+-----Map Notation-----
+0 - Wall tile.
+1 - Start tile.
+2 - Walking tile.
+3 - Enemy tile.
+4 - Treasure tile.
+5 - Refresh/Fountain tile.
+6 - Boss tile.
 
-Potential idea for later: 1X where X is 0 - 9.
+Ideas:
+-----Revamped Item/Map Notation-----
+1X where X is 0 - 9.
 1X are healing items
 2X are keys
 3X are swords
 4X are armor.
+
+-----Battle Functionality-----
+When battle tiles are triggered, enemies will appear and fight the player.
+Special enemies appear in different tiles and are bosses. The player
+should be able to attack, defend, and use item. No escape.
+
+-----Floor Functionality-----
+LOW PRIORITY. Be able to move between floors into different maps by loading
+different text files.
+
+-----Play with Any Text File-----
+Instead of only playing with the given text file, users could make
+their own map by reading the notation and making a suitable text file.
+The game could then read this and you could play.
+
+-----Randomly Generated Maps-----
+As the game is based on a txt file, we could generate a random txt
+file to play with!
+
+
+-----Proceduraly Generated Maps-----
+Further, instead of generating a random txt file entirely, the game could
+generate the floor as the player explores.

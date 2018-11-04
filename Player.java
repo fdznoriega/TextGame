@@ -40,7 +40,7 @@ public class Player {
 	public void setEquipment(int[] param) 	{ equipment = param;  }
 
 	//-------Getters-------\\
-	public int getCurrentHp()		{ return currentHp; }
+	public int getCurrentHp()			{ return currentHp; }
 	public int getMaxHp()       	{ return maxHp;     }
 	public int getLvl()         	{ return lvl;       }
 	public int getAttack()     		{ return attack;    }

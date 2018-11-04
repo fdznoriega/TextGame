@@ -30,23 +30,19 @@ public class PlayerTester {
     System.out.println("Gold: " + p.getGold());
 
     //Inventory & Equipment Testing
-    System.out.println(">Viewing default inventory/equipment");
-    int[] demoI = p.getInventory();
-    int[] demoE = p.getEquipment();
-
-    //View current inventory.
-    System.out.print(">Current Inventory: ");
-    for(int i = 0; i < demoI.length; i++) {
-      System.out.print(demoI[i] + " ");
-    }
-    System.out.println("");
+    System.out.println(">Viewing default inventory");
+    p.printInventory();
 
     //View current equipment.
-    System.out.print(">Current Equipment: ");
-    for(int i = 0; i < demoE.length; i++) {
-      System.out.print(demoE[i] + " ");
-    }
-    System.out.println("");
+    System.out.println(">Viewing default equipment");
+    p.printEquipment();
+
+    //Try to equip something BEFORE inventory is occupied:
+    System.out.println(">Attempting to equip 0, 3, 4, and 5");
+    System.out.print(p.equipItem(0) + " ");
+    System.out.print(p.equipItem(3) + " ");
+    System.out.print(p.equipItem(4) + " ");
+    System.out.print(p.equipItem(5) + "\n");
 
     //Add items to inventory.
     System.out.println(">Adding 6 items into inventory");
@@ -55,17 +51,62 @@ public class PlayerTester {
     System.out.print(p.addItem(3) + " ");
     System.out.print(p.addItem(4) + " ");
     System.out.print(p.addItem(5) + " ");
-    System.out.print(p.addItem(6) + " ");
-    System.out.println("");
+    System.out.print(p.addItem(6) + "\n");
 
     //View new inventory.
-    System.out.print(">New Inventory: ");
-    for(int i = 0; i < demoI.length; i++) {
-      System.out.print(demoI[i] + " ");
-    }
-    System.out.println("");
+    p.printInventory();
 
     //Now that inventory is full, test equipping something.
+    System.out.println(">Equipping sword (#3)");
+    System.out.println(p.equipItem(3));
+    System.out.println(">Equipping armor (#4)");
+    System.out.println(p.equipItem(4));
+
+    //Check new equipment
+    System.out.print(">New Equipment: ");
+    p.printEquipment();
+
+    //See if items were removed from inventory
+    System.out.print(">Checking Updated Inventory: ");
+    p.printInventory();
+
+    //Add more items to inventory
+    System.out.println(">Adding to Inventory: ");
+    System.out.print(p.addItem(4) + " ");
+    System.out.print(p.addItem(3) + "\n");
+
+    //Checking updated inventory.
+    System.out.print(">Updated Inventory: ");
+    p.printInventory();
+
+    //Attempting to equip another sword and armor.
+    System.out.println(">Attempting to re-equip 0, 3, and 4");
+    System.out.print(p.equipItem(0) + " ");
+    System.out.print(p.equipItem(3) + " ");
+    System.out.print(p.equipItem(4) + "\n");
+
+    //Try delete an item.
+    System.out.println(">Deleting item 1 in inventory");
+    System.out.println(p.deleteItem(1));
+
+    //Check updated inventory
+    System.out.print(">Updated Inventory: ");
+    p.printInventory();
+
+    //Unequip item 3.
+    System.out.println(">Unequipping item 3: ");
+    System.out.println(p.unequipItem(3));
+
+    //Check inven + equip menu.
+    System.out.print(">Updated Inventory: ");
+    p.printInventory();
+    System.out.print(">New Equipment: ");
+    p.printEquipment();
+
+    //Attempt to unequip item 3 again.
+
+    //Unequip item 4.
+
 
   }
 }

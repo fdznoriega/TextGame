@@ -10,7 +10,8 @@
 public class Player {
 
 	//-------Player Qualities-------\\
-	private int hp;
+	private int currentHp;
+	private int maxHp;
 	private int lvl;
 	private int attack;
 	private int xp;
@@ -19,7 +20,8 @@ public class Player {
 	private int[] equipment = new int[2];  //equipment stored here.
 
 	public Player() {
-		this.hp = 10;
+		this.maxHp = 10;
+		this.currentHp = this.maxHp;
 		this.lvl = 1;
 		this.attack = 5;
 		this.xp = 0;
@@ -28,22 +30,24 @@ public class Player {
 
 
 	//-------Setters-------\\
-	public void setHp(int newHp)          { hp = newHp;         }
-	public void setLvl(int newLvl)        { lvl = newLvl;       }
-	public void setAttack(int newAtt)     { attack = newAtt;    }
-	public void setXp(int newXp)          { xp = newXp;         }
-	public void setGold(int newGold)      { gold = newGold;     }
-	public void setInventory(int[] param) { inventory = param;  }
-	public void setEquipment(int[] param) { equipment = param;  }
+	public void setCurrentHp(int newHp)		{ currentHp = newHp; 	}
+	public void setMaxHp(int newHp)       	{ maxHp = newHp;      }
+	public void setLvl(int newLvl)       	{ lvl = newLvl;       }
+	public void setAttack(int newAtt)     	{ attack = newAtt;    }
+	public void setXp(int newXp)          	{ xp = newXp;         }
+	public void setGold(int newGold)      	{ gold = newGold;     }
+	public void setInventory(int[] param) 	{ inventory = param;  }
+	public void setEquipment(int[] param) 	{ equipment = param;  }
 
 	//-------Getters-------\\
-	public int getHp()          { return hp;        }
-	public int getLvl()         { return lvl;       }
-	public int getAttack()      { return attack;    }
-	public int getXp()          { return xp;        }
-	public int getGold()        { return gold;      }
-	public int[] getInventory() { return inventory; }
-	public int[] getEquipment() { return equipment; }
+	public int getCurrentHp()		{ return currentHp; }
+	public int getMaxHp()       	{ return maxHp;     }
+	public int getLvl()         	{ return lvl;       }
+	public int getAttack()     		{ return attack;    }
+	public int getXp()          	{ return xp;        }
+	public int getGold()       	 	{ return gold;      }
+	public int[] getInventory() 	{ return inventory; }
+	public int[] getEquipment() 	{ return equipment; }
 
 	//-------Interaction with Inventory and Equipment-------\\
 

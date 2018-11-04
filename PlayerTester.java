@@ -9,7 +9,7 @@ public class PlayerTester {
 
     //Base
     System.out.println(">Checking player's base stats.");
-    System.out.println("HP: " + p.getHp());
+    System.out.println("Max HP: " + p.getMaxHp());
     System.out.println("Lvl: " + p.getLvl());
     System.out.println("Attack: " + p.getAttack());
     System.out.println("XP: " + p.getXp());
@@ -17,13 +17,13 @@ public class PlayerTester {
 
     //Modified
     System.out.println(">Modifying player's base stats.");
-    p.setHp(30);
+    p.setMaxHp(30);
     p.setLvl(40);
     p.setAttack(99);
     p.setXp(1000);
     p.setGold(1);
     System.out.println(">Checking player's new stats.");
-    System.out.println("HP: " + p.getHp());
+    System.out.println("Max HP: " + p.getMaxHp());
     System.out.println("Lvl: " + p.getLvl());
     System.out.println("Attack: " + p.getAttack());
     System.out.println("XP: " + p.getXp());

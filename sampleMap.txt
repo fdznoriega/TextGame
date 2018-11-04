@@ -12,9 +12,12 @@ How this file is meant to work:
 -Set that tile's state to "connected".
 
 Number Notation:
+0 - Wall tile.
 1 - Start tile.
 2 - Walking tile.
 3 - Enemy tile.
 4 - Treasure tile.
 5 - Refresh/Fountain tile.
 6 - Boss tile.
+
+Could also make the map randomly generated?

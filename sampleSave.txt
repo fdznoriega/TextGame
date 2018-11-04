@@ -1,0 +1,8 @@
+currentHp 10
+maxHp 10
+lvl 1
+attack 5
+xp 0
+gold 0
+inventory 00000
+equipment 00

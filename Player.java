@@ -73,11 +73,46 @@ public class Player {
     return -1;
   }
 
-  //Moves an item from invenotry and places it in equipment.
-  //Returns: item when equipped OR -1 when failed to equip.
-  //TODO
-  public void equipItem(int item) {
+  //Searches inventory and equips sword or armor (item # 3 or 4)
+  //Returns -1 when failed to equip, -item when item already equipped.
+  public int equipItem(int item) {
+    //Is the item equippable?
+    if(item != 3 && item != 4) { return -1; }
+
     int inventoryLength = this.inventory.length;
-    int equipmentLength = this.equipment.length;
+    //Find item we want to equip.
+    for(int i = 0; i < inventoryLength; i++) {
+      //Is the item in our inventory?
+      if(this.inventory[i] == item) {
+        //Is the item # 3 (sword)?
+        if(this.inventory[i] == 3) {
+          //Do we already have the sword equipped?
+          if(this.equipment[0] == 3) { return -3; }
+          //If the above is all good, then equip.
+          else {
+            this.equipment[0] = 3;
+            this.inventory[i] = 0;
+            //Return what you equipped.
+            return 3;
+          }
+
+        }
+        //Is the item # 4 (armor)?
+        else if(this.inventory[i] == 4) {
+          //Do we already have the armor equipped?
+          if(this.equipment[1] == 4) { return -4; }
+          //If the above is all good, then equip.
+          else {
+            this.equipment[1] = 4;
+            this.inventory[i] = 0;
+            //Return what you equipped.
+            return 4;
+          }
+
+
+        }
+      }
+    }
+
   }
 }

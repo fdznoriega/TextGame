@@ -6,3 +6,10 @@ All values used in the project will be here.
 2: Key
 3: Sword
 4: Armor
+
+
+Potential idea for later: 1X where X is 0 - 9.
+1X are healing items
+2X are keys
+3X are swords
+4X are armor.

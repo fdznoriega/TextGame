@@ -39,9 +39,9 @@ public class Map {
 			return -1;
 		}
 		//the arraylist is not empty, then get the vertical size.
-		for(int i = 0; i < this.grid.get(i).size(); i++) {
+		for(int i = 0; i < this.grid.get(0).size(); i++) {
 			//Get horizontal size j and print (repeat).
-			for(int j = 0; j < this.grid.get(j).size(); j ++) {
+			for(int j = 0; j < this.grid.get(i).size(); j++) {
 				System.out.print(this.grid.get(i).get(j) + " ");
 			}
 			System.out.println("");
@@ -53,7 +53,7 @@ public class Map {
 		Map map = new Map(1);
 		System.out.println("Filling grid.");
 		map.fillGridDemo();
-		// System.out.println("Printing grid.");
-		// map.printGrid();
+		System.out.println("Printing grid.");
+		map.printGrid();
 	}
 }

@@ -5,6 +5,7 @@
  * @author andresfernandez
  */
 import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,12 @@ public class Map {
 		}
 	}
 
+	//Reads a .txt file and prints it.
+	public static void readAFile(File file) {
+		
+	}
+
+
 	//Returns -1 if empty grid. Returns 1 if print happened.
 	public int printGrid() {
 		//if the arraylist is empty, then stop.
@@ -48,12 +55,9 @@ public class Map {
 		}
 		return 1;
 	}
+
+
 	public static void main(String[] args) {
-		System.out.println("Making map.");
-		Map map = new Map(1);
-		System.out.println("Filling grid.");
-		map.fillGridDemo();
-		System.out.println("Printing grid.");
-		map.printGrid();
+		// readAFile(new File("sampleMap.txt"));
 	}
 }

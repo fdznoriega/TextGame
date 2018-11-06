@@ -1,0 +1,23 @@
+Here is what needs to get done:
+
+--------PRESSING--------
+In Map.java:
+-add a function that reads txt file and creates a grid out of it.
+
+In game.java:
+-add a move(direction) function which changes player location accordingly
+
+
+--------Medium Priority--------
+In game.java:
+-add a refresh() function that heals player.
+-add a battle() function which starts battle when necessary.
+-add a save() function which saves the player's data.
+-add a load() function which loads player data.
+
+
+--------Low Priority--------
+-Randomly generated .txt files for random exploration
+-Proceduraly generated .txt files for pr. exploration.
+-Stair tiles to move up and down dungeons.
+-Add more types of equipment.

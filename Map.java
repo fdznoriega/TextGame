@@ -62,11 +62,22 @@ public class Map {
 	}
 
 	public static void readSampleFile() {
+		// implementing cleaner error handling.
+    String userDirectory = System.getProperty("user.dir");
+    String p = Paths.get(userDirectory + "/TextFiles/sampleText.txt").toString();
 
+		try {
+			String content = new String(Files.readAllBytes(Paths.get(p)));
+			System.out.println(content);
+		}
+    catch (IOException e) {
+			System.out.println("Could not retrieve file.");
+		}
 	}
 
 
 	public static void main(String[] args) {
 		readSampleFile();
+
 	}
 }

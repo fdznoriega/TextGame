@@ -16,8 +16,8 @@ public class Player {
 	private int attack;
 	private int xp;
 	private int gold;
-	private int[] inventory = new int[5]; //items stored here.
-	private int[] equipment = new int[2];  //equipment stored here.
+	private int[] inventory = new int[5];	//items stored here.
+	private int[] equipment = new int[2];	//equipment stored here.
 
 	public Player() {
 		this.maxHp = 10;
@@ -154,8 +154,5 @@ public class Player {
 	    return -1;
 	  }
 	}
-
-
-
 
 }

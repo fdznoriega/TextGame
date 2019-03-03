@@ -1,3 +1,9 @@
+In-Development by Andres Fernandez.
+Started during BC Hacks 2018.
+
+
+Reference:
+
 All values used in the project will be here.
 
 -----Inventory/Equipment Reference-----

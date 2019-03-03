@@ -4,11 +4,16 @@
  * Generates a connected linked list based off a given text input.
  * @author andresfernandez
  */
+//ArrayList and List Functionality
+import java.util.List;
+import java.util.ArrayList;
+
+//File Reading and Stream Functionality
 import java.io.File;
 import java.io.FileReader;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.io.IOException;
 
 public class Map {
 
@@ -33,9 +38,9 @@ public class Map {
 		}
 	}
 
-	//Reads a .txt file and prints it.
-	public static void readAFile(File file) {
-		
+	//Reads a .txt file and generates an array list.
+	public static void fillGrid() {
+
 	}
 
 
@@ -56,8 +61,12 @@ public class Map {
 		return 1;
 	}
 
+	public static void readSampleFile() {
+
+	}
+
 
 	public static void main(String[] args) {
-		// readAFile(new File("sampleMap.txt"));
+		readSampleFile();
 	}
 }

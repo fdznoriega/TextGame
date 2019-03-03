@@ -30,9 +30,9 @@ public class Player {
 
 
 	//-------Setters-------\\
-	public void setCurrentHp(int newHp)		{ currentHp = newHp; 	}
+	public void setCurrentHp(int newHp)			{ currentHp = newHp; 	}
 	public void setMaxHp(int newHp)       	{ maxHp = newHp;      }
-	public void setLvl(int newLvl)       	{ lvl = newLvl;       }
+	public void setLvl(int newLvl)       		{ lvl = newLvl;       }
 	public void setAttack(int newAtt)     	{ attack = newAtt;    }
 	public void setXp(int newXp)          	{ xp = newXp;         }
 	public void setGold(int newGold)      	{ gold = newGold;     }

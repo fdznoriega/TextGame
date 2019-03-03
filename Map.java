@@ -1,5 +1,5 @@
 /* WHAT DOES "Map" DO:
- * Map is a r x c
+ * 
  *
  *
  * @author andresfernandez

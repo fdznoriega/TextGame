@@ -17,30 +17,22 @@ import java.io.IOException;
 
 public class Map {
 
-	//to add: map.get(0) is the first row | map.get(0).get(0) is the first column
-	private int ID;
-	private List<List<Integer>> grid;
+	private int[][] grid;
 
 	public Map(int ID) {
-		this.ID = ID;
-		this.grid = new ArrayList<List<Integer>>();
-	}
-
-	public void fillGridDemo() {
-		//For the demo, make a 5x5 grid.
-		for(int i = 0; i < 5; i++) {
-			//Add a new arraylist of ints.
-			this.grid.add(new ArrayList<Integer>());
-			//fill the new arraylist of ints.
-			for(int j = 0; j < 5; j++) {
-				this.grid.get(i).add(j);
-			}
-		}
+		this.grid = new int[][];
 	}
 
 	//Reads a .txt file and generates an array list.
-	public static void fillGrid() {
+	public int[][] fillGrid(String content) {
+		for(int i = 0; i < content.length(); i++) {
+			if(content.charAt(i) == ']') {
+				break;
+			}
+			else {
 
+			}
+		}
 	}
 
 
@@ -61,23 +53,25 @@ public class Map {
 		return 1;
 	}
 
-	public static void readSampleFile() {
-		// implementing cleaner error handling.
-    String userDirectory = System.getProperty("user.dir");
-    String p = Paths.get(userDirectory + "/TextFiles/sampleText.txt").toString();
-
+	//Fetch file from its given name in string form
+	//Returns string of file's contents.
+	public static String fileToString(String p) {
 		try {
 			String content = new String(Files.readAllBytes(Paths.get(p)));
-			System.out.println(content);
+			return content;
 		}
     catch (IOException e) {
 			System.out.println("Could not retrieve file.");
+			return null;
 		}
 	}
 
 
 	public static void main(String[] args) {
-		readSampleFile();
+		String userDir = System.getProperty("user.dir");
+	 	String content = fileToString(userDir + "/TextFiles/sampleMap.txt");
+
+
 
 	}
 }

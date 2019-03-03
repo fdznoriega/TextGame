@@ -2,7 +2,7 @@
 2 5 0 2 0
 2 0 2 2 2
 3 2 2 0 2
-0 0 1 0 4 \0
+0 0 1 0 4 ]
 
 How this file is meant to work:
 -Scan text from left to right.
@@ -21,3 +21,4 @@ Number Notation:
 6 - Boss tile.
 
 Could also make the map randomly generated?
+Could also just make a 2x2 array if it won't grow as you play.

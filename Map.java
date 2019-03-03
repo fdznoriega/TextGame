@@ -1,7 +1,7 @@
 /* WHAT DOES "Map" DO:
- * Defines a tile (a linked list that can move in four directions).
- * A Tile is composed of a type (1 - 3) which will lead to unique traits when interacted with.
- * Generates a connected linked list based off a given text input.
+ * Map is a r x c
+ *
+ *
  * @author andresfernandez
  */
 
@@ -15,51 +15,84 @@ import java.io.IOException;
 public class Map {
 
 	private int[][] grid;
-	private int row = 0;
-	private int column = 0;
+	private int row;
+	private int column;
 
-	public Map() {
-		this.grid = new int[row][column];
+	public Map(int[] dimension) {
+		this.grid = new int[dimension[0]][dimension[1]];
+		row = dimension[0];
+		column = dimension[1];
 	}
 
-	//Sets the dimensions of the double array.
-	public void setMapDimensions(String content) {
+	//Sets the dimensions of the double array by going through .txt file.
+	public static int[] fetchDimensions(String content) {
+		int r = 0;
+		int c = 0;
 		for(int i = 0; i < content.length(); i++) {
-			//Find dimensions of the double array.
-
 			//"]" is the EOF flag, so break.
 			if(content.charAt(i) == ']') {
+				//sub 1 to column so we don't count the extra column.
+				c--;
 				break;
 			}
 			//we've reached a new row.
 			else if(content.charAt(i) == '\n') {
-				this.row++;
+				r++;
+				c = 0;
 			}
 			//we've reached a new column.
 			else if(content.charAt(i) == ' ') {
 				//idle.
 			}
 			else {
-				this.column++;
+				c++;
 			}
 		}
-
-		//"column" right now has been counting every item.
-		//to set the true column, divide by the number of rows + 1
-		//and subtract by 1 (because we start at 0 and not 1)
-		//will only work for regular shaped matrices
-		this.column = (this.column / (row + 1)) - 1;
+		//incresae D by 1 bc we will use it to create an array.
+		int[] dimensions = {r + 1,c + 1};
+		return dimensions;
 	}
 
-	//Reads a .txt file and generates an array list.
-	public int[][] fillGrid(String content) {
-		return this.grid;
+	//Reads a .txt file and updates grid.
+	public void fillMap(String content) {
+		int r = 0;
+		int c = 0;
+		for(int i = 0; i < content.length(); i++) {
+			//"]" is the EOF flag, so break.
+			char currentChar = content.charAt(i);
+			if(currentChar == ']') {
+				break;
+			}
+			//we've reached a new row.
+			else if(currentChar == '\n') {
+				r += 1;
+				c = 0;
+			}
+			//we've reached a new column.
+			else if(currentChar == ' ') {
+				//idle.
+			}
+			else {
+				//convert char to int and put it in the grid.
+				grid[r][c] = Integer.parseInt(String.valueOf(currentChar));
+				c++;
+			}
+		}
 	}
 
 
-	//Returns -1 if empty grid. Returns 1 if print happened.
-	public int printGrid() {
-		return 0;
+	//Prints the map.
+	public void printMap() {
+		for(int i = 0; i < this.row; i++) {
+			for(int j = 0; j < this.column; j++) {
+				if(j % this.column == 0 && i != 0) {
+					System.out.println();
+				}
+				System.out.print(grid[i][j]);
+			}
+		}
+		System.out.println();
+
 	}
 
 	//Fetch file from its given name in string form
@@ -79,8 +112,13 @@ public class Map {
 	public static void main(String[] args) {
 		String userDir = System.getProperty("user.dir");
 	 	String content = fileToString(userDir + "/TextFiles/sampleMap.txt");
-		Map demoMap = new Map();
-		demoMap.setMapDimensions(content);
+
+		//set up map we'll play with.
+		int[] d = fetchDimensions(content);
+		System.out.println("r: " + d[0] + " | " + "c: " + d[1]);
+		Map demoMap = new Map(d);
+		demoMap.fillMap(content);
+		demoMap.printMap();
 
 
 

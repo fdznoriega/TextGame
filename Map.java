@@ -4,9 +4,6 @@
  * Generates a connected linked list based off a given text input.
  * @author andresfernandez
  */
-//ArrayList and List Functionality
-import java.util.List;
-import java.util.ArrayList;
 
 //File Reading and Stream Functionality
 import java.io.File;
@@ -18,39 +15,51 @@ import java.io.IOException;
 public class Map {
 
 	private int[][] grid;
+	private int row = 0;
+	private int column = 0;
 
-	public Map(int ID) {
-		this.grid = new int[][];
+	public Map() {
+		this.grid = new int[row][column];
+	}
+
+	//Sets the dimensions of the double array.
+	public void setMapDimensions(String content) {
+		for(int i = 0; i < content.length(); i++) {
+			//Find dimensions of the double array.
+
+			//"]" is the EOF flag, so break.
+			if(content.charAt(i) == ']') {
+				break;
+			}
+			//we've reached a new row.
+			else if(content.charAt(i) == '\n') {
+				this.row++;
+			}
+			//we've reached a new column.
+			else if(content.charAt(i) == ' ') {
+				//idle.
+			}
+			else {
+				this.column++;
+			}
+		}
+
+		//"column" right now has been counting every item.
+		//to set the true column, divide by the number of rows + 1
+		//and subtract by 1 (because we start at 0 and not 1)
+		//will only work for regular shaped matrices
+		this.column = (this.column / (row + 1)) - 1;
 	}
 
 	//Reads a .txt file and generates an array list.
 	public int[][] fillGrid(String content) {
-		for(int i = 0; i < content.length(); i++) {
-			if(content.charAt(i) == ']') {
-				break;
-			}
-			else {
-
-			}
-		}
+		return this.grid;
 	}
 
 
 	//Returns -1 if empty grid. Returns 1 if print happened.
 	public int printGrid() {
-		//if the arraylist is empty, then stop.
-		if(this.grid.get(0).size() == 0) {
-			return -1;
-		}
-		//the arraylist is not empty, then get the vertical size.
-		for(int i = 0; i < this.grid.get(0).size(); i++) {
-			//Get horizontal size j and print (repeat).
-			for(int j = 0; j < this.grid.get(i).size(); j++) {
-				System.out.print(this.grid.get(i).get(j) + " ");
-			}
-			System.out.println("");
-		}
-		return 1;
+		return 0;
 	}
 
 	//Fetch file from its given name in string form
@@ -70,6 +79,8 @@ public class Map {
 	public static void main(String[] args) {
 		String userDir = System.getProperty("user.dir");
 	 	String content = fileToString(userDir + "/TextFiles/sampleMap.txt");
+		Map demoMap = new Map();
+		demoMap.setMapDimensions(content);
 
 
 

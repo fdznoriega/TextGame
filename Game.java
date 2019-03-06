@@ -28,13 +28,13 @@ public class Game {
 
     //Load Map
     Map m1 = loadMap("level1");
+    System.out.println(m1.row + " " + m1.column);
 
     //Update location to spawn point.
     location = findSpawn(m1);
-    System.out.println(location[0] + " " + location[1]);
 
     //Start
-    System.out.println("ENTERING MAZE");
+    System.out.println("INITIALIZED MAZE");
 
     //Game loop
     while(isPlaying) {
@@ -60,6 +60,9 @@ public class Game {
       //---------Moving Around---------
       //move(Map, Location, Direction)
       location = move(m1, location, playerInput);
+
+
+      System.out.println(m1.grid[location[0]][location[1]]);
 
     }
 
@@ -90,7 +93,7 @@ public class Game {
       }
     }
     else if(dir.equals("SOUTH")) {
-      if(l[0] + 1 > m1.row) {
+      if(l[0] + 1 >= m1.row) {
         System.out.println("Can't move that way.");
       }
       else {
@@ -106,7 +109,7 @@ public class Game {
       }
     }
     else if(dir.equals("EAST")) {
-      if(l[1] + 1 > m1.column) {
+      if(l[1] + 1 >= m1.column) {
         System.out.println("Can't move that way.");
       }
       else {
@@ -147,7 +150,6 @@ public class Game {
 
 		//set up map we'll play with.
 		int[] d = Map.fetchDimensions(content);
-		System.out.println("r: " + d[0] + " | " + "c: " + d[1]);
 		Map map = new Map(d);
 		map.fillMap(content);
 		return map;

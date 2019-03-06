@@ -49,7 +49,7 @@ public class Map {
 			}
 		}
 		//incresae D by 1 bc we will use it to create an array.
-		int[] dimensions = {r + 1,c + 1};
+		int[] dimensions = {r + 1 , c + 1};
 		return dimensions;
 	}
 

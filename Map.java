@@ -1,5 +1,5 @@
 /* WHAT DOES "Map" DO:
- * 
+ *
  *
  *
  * @author andresfernandez
@@ -14,9 +14,9 @@ import java.io.IOException;
 
 public class Map {
 
-	private int[][] grid;
-	private int row;
-	private int column;
+	public int[][] grid;
+	public int row;
+	public int column;
 
 	public Map(int[] dimension) {
 		this.grid = new int[dimension[0]][dimension[1]];
@@ -95,23 +95,9 @@ public class Map {
 
 	}
 
-	//Fetch file from its given name in string form
-	//Returns string of file's contents.
-	public static String fileToString(String p) {
-		try {
-			String content = new String(Files.readAllBytes(Paths.get(p)));
-			return content;
-		}
-    catch (IOException e) {
-			System.out.println("Could not retrieve file.");
-			return null;
-		}
-	}
-
-
 	public static void main(String[] args) {
 		String userDir = System.getProperty("user.dir");
-	 	String content = fileToString(userDir + "/TextFiles/sampleMap.txt");
+	 	String content = Game.fileToString(userDir + "/Levels/level1.txt");
 
 		//set up map we'll play with.
 		int[] d = fetchDimensions(content);

@@ -60,6 +60,7 @@ public class Game {
       //---------Moving Around---------
       //move(Map, Location, Direction)
       location = move(m1, location, playerInput);
+      event(m1.grid[location[0]][location[1]]);
 
 
       System.out.println(m1.grid[location[0]][location[1]]);
@@ -85,7 +86,8 @@ public class Game {
   //returns new location
   public static int[] move(Map m1, int[] l, String dir) {
     if(dir.equals("NORTH")) {
-      if(l[0] - 1 < 0) {
+      //Check if the tile above is out of bounds or 0.
+      if(l[0] - 1 < 0 || m1.grid[l[0] - 1][l[1]] == 0) {
         System.out.println("Can't move that way.");
       }
       else {
@@ -93,7 +95,7 @@ public class Game {
       }
     }
     else if(dir.equals("SOUTH")) {
-      if(l[0] + 1 >= m1.row) {
+      if(l[0] + 1 >= m1.row || m1.grid[l[0] + 1][l[1]] == 0) {
         System.out.println("Can't move that way.");
       }
       else {
@@ -101,7 +103,7 @@ public class Game {
       }
     }
     else if(dir.equals("WEST")) {
-      if(l[1] - 1 < 0) {
+      if(l[1] - 1 < 0 || m1.grid[l[0]][l[1] - 1] == 0) {
         System.out.println("Can't move that way.");
       }
       else {
@@ -109,7 +111,7 @@ public class Game {
       }
     }
     else if(dir.equals("EAST")) {
-      if(l[1] + 1 >= m1.column) {
+      if(l[1] + 1 >= m1.column || m1.grid[l[0]][l[1] + 1] == 0) {
         System.out.println("Can't move that way.");
       }
       else {
@@ -170,7 +172,7 @@ public class Game {
   }
 
   //this function will trigger game functions
-  public void event(int tileNum) {
+  public static void event(int tileNum) {
 
     switch(tileNum) {
       //1 is a spawn tile

@@ -26,15 +26,15 @@ public class Game {
 
     //---------Load Map---------
     Map m1 = loadMap("level1");
-    System.out.println(m1.row + " " + m1.column);
+    //System.out.println(m1.row + " " + m1.column);
 
     //---------Update location to spawn point---------
     location = findSpawn(m1);
 
-    //Start
+    //---------Start Game---------
     System.out.println("INITIALIZED MAZE");
 
-    //Game loop
+    //---------Game loop---------
     while(isPlaying) {
       String playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
 
@@ -61,15 +61,16 @@ public class Game {
       //2. Adventuring
       else if(isAdventure(playerInput)) {
         location = move(m1, location, playerInput);
-        event(m1.grid[location[0]][location[1]]);
+        m1.grid[location[0]][location[1]] = event(m1.grid[location[0]][location[1]]);
+        System.out.println(m1.grid[location[0]][location[1]]);
       }
-      //3. Wrong Input.
+      //3. Wrong Input
       else {
         System.out.println("I didn't quite catch that...");
       }
 
     }
-
+    System.out.println("Thanks for playing");
   }
 
   //Fetch file from its given name in string form
@@ -172,7 +173,7 @@ public class Game {
   }
 
   //this function will trigger game functions
-  public static void event(int tileNum) {
+  public static int event(int tileNum) {
 
     switch(tileNum) {
       //1 is a spawn tile
@@ -197,6 +198,7 @@ public class Game {
               break;
 
     }
+    return 2;
 
   }
 

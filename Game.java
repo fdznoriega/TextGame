@@ -62,7 +62,6 @@ public class Game {
       else if(isAdventure(playerInput)) {
         location = move(m1, location, playerInput);
         m1.grid[location[0]][location[1]] = event(m1.grid[location[0]][location[1]]);
-        System.out.println(m1.grid[location[0]][location[1]]);
       }
       //3. Wrong Input
       else {

@@ -68,16 +68,6 @@ public class Game {
         System.out.println("I didn't quite catch that...");
       }
 
-
-
-
-      //---------Moving Around---------
-      //move(Map, Location, Direction)
-
-
-      //Below prints the tile number we're on.
-      //System.out.println(m1.grid[location[0]][location[1]]);
-
     }
 
   }
@@ -210,11 +200,13 @@ public class Game {
 
   }
 
+  //checks if string belongs to System category
   public static boolean isSystem(String s) {
     return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E");
 
   }
 
+  //checks if string belongs to Adventure category.
   public static boolean isAdventure(String s) {
     return s.equals("NORTH") || s.equals("WEST") || s.equals("EAST") || s.equals("SOUTH");
   }

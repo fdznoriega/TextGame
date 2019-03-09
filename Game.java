@@ -51,10 +51,12 @@ public class Game {
         System.out.println("GAME SAVED.");
       }
       else if(playerInput.equals("I")) {
-        //open inventory
+        //show inventory
+
       }
       else if(playerInput.equals("E")) {
-        //open equipment
+        //show equipment
+        
       }
 
       //---------Moving Around---------
@@ -62,8 +64,8 @@ public class Game {
       location = move(m1, location, playerInput);
       event(m1.grid[location[0]][location[1]]);
 
-
-      System.out.println(m1.grid[location[0]][location[1]]);
+      //Below prints the tile number we're on.
+      //System.out.println(m1.grid[location[0]][location[1]]);
 
     }
 
@@ -119,7 +121,7 @@ public class Game {
       }
     }
     else {
-      return l;
+      System.out.println("I didn't quite catch that...");
     }
     return l;
   }
@@ -179,17 +181,21 @@ public class Game {
       case 1: break;
       //2 is a walk tile.
       case 2: break;
-      //3 is a enemy tile.
-      case 3: //battle();
+      //3 is a enemy tile. Will need to redefine to tile 2 after interaction.
+      case 3: System.out.println("Triggered battle!");
+              //battle();
               break;
-      //4 is a treasure tile.
-      case 4: //openTreasure();
+      //4 is a treasure tile. Will need to redefine to tile 2 after interaction.
+      case 4: System.out.println("Triggered treasure!");
+              //openTreasure();
               break;
-      //5 is a refresh tile.
-      case 5: //refreshPlayer();
+      //5 is a refresh tile. Will need to redefine to tile 2 after interaction.
+      case 5: System.out.println("Triggered refresh!");
+              //refreshPlayer();
               break;
-      //6 is a boss tile.
-      case 6: //bossBattle();
+      //6 is a boss tile. Will need to redefine to tile 2 after interaction.
+      case 6: System.out.println("Triggered boss!");
+              //bossBattle();
               break;
 
     }

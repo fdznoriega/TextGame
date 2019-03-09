@@ -10,8 +10,6 @@
 
 import java.io.IOException;
 import java.util.Scanner;
-
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -20,17 +18,17 @@ public class Game {
 
   public static void main(String[] args) {
 
-    //Setup
+    //---------Setup---------
     Scanner textInput = new Scanner(System.in);
     boolean isPlaying = true;
     Player p = new Player();
     int[] location = new int[2];  //array of 2 values bc row & column.
 
-    //Load Map
+    //---------Load Map---------
     Map m1 = loadMap("level1");
     System.out.println(m1.row + " " + m1.column);
 
-    //Update location to spawn point.
+    //---------Update location to spawn point---------
     location = findSpawn(m1);
 
     //Start
@@ -38,31 +36,44 @@ public class Game {
 
     //Game loop
     while(isPlaying) {
-      //use switch instead?
       String playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
 
-      //---------Pseudo Menus---------
-      if(playerInput.equals("QUIT")) {
-        //quit game
-        isPlaying = false;
-      }
-      else if(playerInput.equals("SAVE")) {
-        //save game
-        System.out.println("GAME SAVED.");
-      }
-      else if(playerInput.equals("I")) {
-        //show inventory
+      //---------Possible Interactions---------
+      //1. Systems Management
+      if(isSystem(playerInput)) {
 
+        if(playerInput.equals("QUIT")) {
+          isPlaying = false;
+        }
+        else if(playerInput.equals("SAVE")) {
+          //save game
+          System.out.println("GAME SAVED.");
+        }
+        else if(playerInput.equals("I")) {
+          //show inventory
+
+        }
+        else if(playerInput.equals("E")) {
+          //show equipment
+
+        }
       }
-      else if(playerInput.equals("E")) {
-        //show equipment
-        
+      //2. Adventuring
+      else if(isAdventure(playerInput)) {
+        location = move(m1, location, playerInput);
+        event(m1.grid[location[0]][location[1]]);
       }
+      //3. Wrong Input.
+      else {
+        System.out.println("I didn't quite catch that...");
+      }
+
+
+
 
       //---------Moving Around---------
       //move(Map, Location, Direction)
-      location = move(m1, location, playerInput);
-      event(m1.grid[location[0]][location[1]]);
+
 
       //Below prints the tile number we're on.
       //System.out.println(m1.grid[location[0]][location[1]]);
@@ -119,9 +130,6 @@ public class Game {
       else {
         l[1] += 1;
       }
-    }
-    else {
-      System.out.println("I didn't quite catch that...");
     }
     return l;
   }
@@ -200,5 +208,14 @@ public class Game {
 
     }
 
+  }
+
+  public static boolean isSystem(String s) {
+    return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E");
+
+  }
+
+  public static boolean isAdventure(String s) {
+    return s.equals("NORTH") || s.equals("WEST") || s.equals("EAST") || s.equals("SOUTH");
   }
 }

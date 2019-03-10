@@ -2,11 +2,9 @@ Here is what needs to get done:
 
 --------Next Time--------
 In game.java:
--add a move(direction) function which changes player location accordingly
+-add a refresh() function that heals player.
 
 --------Soon--------
-In game.java:
--add a refresh() function that heals player.
 -add a battle() function which starts battle when necessary.
 -add a save() function which saves the player's data.
 -add a load() function which loads player data.

@@ -15,7 +15,6 @@ import java.nio.file.Paths;
 
 public class Game {
 
-
   public static void main(String[] args) {
 
     //---------Setup---------
@@ -60,8 +59,11 @@ public class Game {
       }
       //2. Adventuring
       else if(isAdventure(playerInput)) {
+        //Update location based on where the player wants to move.
         location = move(m1, location, playerInput);
-        m1.grid[location[0]][location[1]] = event(m1.grid[location[0]][location[1]]);
+        //Update where we are standing if we battle or open a treasure.
+        m1.grid[location[0]][location[1]] = event(p, m1.grid[location[0]][location[1]]);
+
       }
       //3. Wrong Input
       else {
@@ -135,8 +137,16 @@ public class Game {
   }
 
   //Refill player's current HP to match max hp.
-  public int refresh() {
-    return 0;
+  //Returns 1 if action done, 0 if nothing done.
+  public static int refresh(Player p) {
+    if(p.currentHp == p.maxHp) {
+      return 0;
+    } else {
+      p.currentHp = p.maxHp;
+      return 1;
+    }
+
+
   }
 
   //Battles.
@@ -172,7 +182,7 @@ public class Game {
   }
 
   //this function will trigger game functions
-  public static int event(int tileNum) {
+  public static int event(Player p, int tileNum) {
 
     switch(tileNum) {
       //1 is a spawn tile
@@ -188,8 +198,8 @@ public class Game {
               //openTreasure();
               break;
       //5 is a refresh tile. Will need to redefine to tile 2 after interaction.
-      case 5: System.out.println("Triggered refresh!");
-              //refreshPlayer();
+      case 5: refresh(p);
+              System.out.println("Refreshed!");
               break;
       //6 is a boss tile. Will need to redefine to tile 2 after interaction.
       case 6: System.out.println("Triggered boss!");
@@ -211,4 +221,5 @@ public class Game {
   public static boolean isAdventure(String s) {
     return s.equals("NORTH") || s.equals("WEST") || s.equals("EAST") || s.equals("SOUTH");
   }
+
 }

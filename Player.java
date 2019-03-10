@@ -10,14 +10,16 @@
 public class Player {
 
 	//-------Player Qualities-------\\
-	private int currentHp;
-	private int maxHp;
-	private int lvl;
-	private int attack;
-	private int xp;
-	private int gold;
-	private int[] inventory = new int[5];	//items stored here.
-	private int[] equipment = new int[2];	//equipment stored here.
+	//Instead of making all these public, find out how to give Game.java
+	//exclusive access to player and map.
+	public int currentHp;
+	public int maxHp;
+	public int lvl;
+	public int attack;
+	public int xp;
+	public int gold;
+	public int[] inventory = new int[5];	//items stored here.
+	public int[] equipment = new int[2];	//equipment stored here.
 
 	public Player() {
 		this.maxHp = 10;

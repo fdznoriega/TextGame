@@ -59,10 +59,30 @@ public class Game {
       }
       //2. Adventuring
       else if(isAdventure(playerInput)) {
+        //Store previous location so we can verify if we moved.
+        int[] prevLocation = new int[2];
+        prevLocation[0] = location[0];
+        prevLocation[1] = location[1];
+
         //Update location based on where the player wants to move.
         location = move(m1, location, playerInput);
-        //Update where we are standing if we battle or open a treasure.
-        m1.grid[location[0]][location[1]] = event(p, m1.grid[location[0]][location[1]]);
+        
+        //Did the location change?
+        //Compare prev location to new. If same, we didn't move.
+        if(prevLocation[0] == location[0] && prevLocation[1] == location[1]) {
+          System.out.println("Couldn't go that way.");
+        }
+        //If different, do actions.
+        else {
+          //New tile so let's do an action.
+          int eventResult = event(p, m1.grid[location[0]][location[1]]);
+          //If we run into a fountain, don't remove it from the map.
+          if(eventResult == 5) {
+            m1.grid[location[0]][location[1]] = 5;
+          }
+
+
+        }
 
       }
       //3. Wrong Input
@@ -93,7 +113,7 @@ public class Game {
     if(dir.equals("NORTH")) {
       //Check if the tile above is out of bounds or 0.
       if(l[0] - 1 < 0 || m1.grid[l[0] - 1][l[1]] == 0) {
-        System.out.println("Can't move that way.");
+        //System.out.println("Can't move that way.");
       }
       else {
         l[0] -= 1;
@@ -101,7 +121,7 @@ public class Game {
     }
     else if(dir.equals("SOUTH")) {
       if(l[0] + 1 >= m1.row || m1.grid[l[0] + 1][l[1]] == 0) {
-        System.out.println("Can't move that way.");
+        //System.out.println("Can't move that way.");
       }
       else {
         l[0] += 1;
@@ -109,7 +129,7 @@ public class Game {
     }
     else if(dir.equals("WEST")) {
       if(l[1] - 1 < 0 || m1.grid[l[0]][l[1] - 1] == 0) {
-        System.out.println("Can't move that way.");
+        //System.out.println("Can't move that way.");
       }
       else {
         l[1] -= 1;
@@ -117,7 +137,7 @@ public class Game {
     }
     else if(dir.equals("EAST")) {
       if(l[1] + 1 >= m1.column || m1.grid[l[0]][l[1] + 1] == 0) {
-        System.out.println("Can't move that way.");
+        //System.out.println("Can't move that way.");
       }
       else {
         l[1] += 1;
@@ -197,10 +217,10 @@ public class Game {
       case 4: System.out.println("Triggered treasure!");
               //openTreasure();
               break;
-      //5 is a refresh tile. Will need to redefine to tile 2 after interaction.
+      //5 is a refresh tile. Keep it around after using it.
       case 5: refresh(p);
               System.out.println("Refreshed!");
-              break;
+              return 5;
       //6 is a boss tile. Will need to redefine to tile 2 after interaction.
       case 6: System.out.println("Triggered boss!");
               //bossBattle();

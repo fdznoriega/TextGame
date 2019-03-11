@@ -2,7 +2,7 @@ Here is what needs to get done:
 
 --------Next Time--------
 In game.java:
--add a refresh() function that heals player.
+-add a refresh() function that heals player and keeps the tile.
 
 --------Soon--------
 -add a battle() function which starts battle when necessary.
@@ -15,3 +15,6 @@ In game.java:
 -Procedural generation of .txt files?
 -Stair tiles to move up and down dungeons.
 -Add more types of equipment.
+-Consider making numbers on grid larger to have more types of things. Divide
+ them by using the space bar as the buffer. First number could indicate type,
+ while the second number could indicate type of type.

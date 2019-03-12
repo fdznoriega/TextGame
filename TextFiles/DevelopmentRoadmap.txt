@@ -1,8 +1,6 @@
 Here is what needs to get done:
 
 --------Next Time--------
--finalize boss detection.
--rework move() function.
 -battle system
 
 --------Soon--------

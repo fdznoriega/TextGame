@@ -22,6 +22,7 @@ public class Game {
     boolean isPlaying = true;
     Player p = new Player();
     int[] location = new int[2];  //array of 2 values bc row & column.
+    int[] prevLocation = new int[2]; //array that keeps track of prev value.
 
     //---------Load Map---------
     Map m1 = loadMap("level1");
@@ -35,7 +36,15 @@ public class Game {
 
     //---------Game loop---------
     while(isPlaying) {
+      //trash previous location calculation. won't work.
+
+      //Print stuff for debug.
+      System.out.println(location[0] + ":" + location[1]);
+      System.out.println(m1.grid[location[0]][location[1]]);
+
+      //Take input from player.
       String playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
+
 
       //---------Possible Interactions---------
       //1. Systems Management
@@ -59,30 +68,21 @@ public class Game {
       }
       //2. Adventuring
       else if(isAdventure(playerInput)) {
-        //Store previous location so we can verify if we moved.
-        int[] prevLocation = new int[2];
-        prevLocation[0] = location[0];
-        prevLocation[1] = location[1];
 
-        //Update location based on where the player wants to move.
-        location = move(m1, location, playerInput);
-        
-        //Did the location change?
-        //Compare prev location to new. If same, we didn't move.
-        if(prevLocation[0] == location[0] && prevLocation[1] == location[1]) {
-          System.out.println("Couldn't go that way.");
+        //Let's try move player where they want to go.
+        if(view(m1, location, playerInput) == 0) {
+          System.out.println("Can't move that way.");
         }
-        //If different, do actions.
         else {
-          //New tile so let's do an action.
-          int eventResult = event(p, m1.grid[location[0]][location[1]]);
-          //If we run into a fountain, don't remove it from the map.
-          if(eventResult == 5) {
-            m1.grid[location[0]][location[1]] = 5;
+          //Update location based on where the player wants to move.
+          location = move(m1, location, playerInput);
+
+          //Are we near the boss? Let's notify the player.
+          if(bossNear(m1, location)) {
+            System.out.println("The boss is near...");
           }
-
-
         }
+
 
       }
       //3. Wrong Input
@@ -109,7 +109,9 @@ public class Game {
 
   //Moves player to a certain location
   //returns new location
+  //---UPDATE---
   public static int[] move(Map m1, int[] l, String dir) {
+    //System.out.println("Move method called.");
     if(dir.equals("NORTH")) {
       //Check if the tile above is out of bounds or 0.
       if(l[0] - 1 < 0 || m1.grid[l[0] - 1][l[1]] == 0) {
@@ -117,7 +119,10 @@ public class Game {
       }
       else {
         l[0] -= 1;
+        System.out.println("Moved " + dir);
+        return l;
       }
+
     }
     else if(dir.equals("SOUTH")) {
       if(l[0] + 1 >= m1.row || m1.grid[l[0] + 1][l[1]] == 0) {
@@ -125,7 +130,10 @@ public class Game {
       }
       else {
         l[0] += 1;
+        System.out.println("Moved " + dir);
+        return l;
       }
+
     }
     else if(dir.equals("WEST")) {
       if(l[1] - 1 < 0 || m1.grid[l[0]][l[1] - 1] == 0) {
@@ -133,7 +141,10 @@ public class Game {
       }
       else {
         l[1] -= 1;
+        System.out.println("Moved " + dir);
+        return l;
       }
+
     }
     else if(dir.equals("EAST")) {
       if(l[1] + 1 >= m1.column || m1.grid[l[0]][l[1] + 1] == 0) {
@@ -141,9 +152,25 @@ public class Game {
       }
       else {
         l[1] += 1;
+        System.out.println("Moved " + dir);
+        return l;
       }
+
     }
+
+    System.out.println("Did not move.");
     return l;
+
+  }
+
+  //Looks at the tile in the direction specified.
+  public static boolean bossNear(Map m1, int[] l) {
+    //System.out.println("/Looking for boss."); //debug code.
+    int v = view(m1, l, "NORTH"); if(v == 6) { return true; }
+    v = view(m1, l, "SOUTH"); if(v == 6) { return true; }
+    v = view(m1, l, "EAST");  if(v == 6) { return true; }
+    v = view(m1, l, "WEST");  if(v == 6) { return true; }
+    return false;
   }
 
   //Take player data and input it in a .txt file.
@@ -167,11 +194,6 @@ public class Game {
     }
 
 
-  }
-
-  //Battles.
-  public int battle() {
-    return 0;
   }
 
   //Loads a map from a given txt file.
@@ -201,36 +223,6 @@ public class Game {
     return null;
   }
 
-  //this function will trigger game functions
-  public static int event(Player p, int tileNum) {
-
-    switch(tileNum) {
-      //1 is a spawn tile
-      case 1: break;
-      //2 is a walk tile.
-      case 2: break;
-      //3 is a enemy tile. Will need to redefine to tile 2 after interaction.
-      case 3: System.out.println("Triggered battle!");
-              //battle();
-              break;
-      //4 is a treasure tile. Will need to redefine to tile 2 after interaction.
-      case 4: System.out.println("Triggered treasure!");
-              //openTreasure();
-              break;
-      //5 is a refresh tile. Keep it around after using it.
-      case 5: refresh(p);
-              System.out.println("Refreshed!");
-              return 5;
-      //6 is a boss tile. Will need to redefine to tile 2 after interaction.
-      case 6: System.out.println("Triggered boss!");
-              //bossBattle();
-              break;
-
-    }
-    return 2;
-
-  }
-
   //checks if string belongs to System category
   public static boolean isSystem(String s) {
     return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E");
@@ -240,6 +232,55 @@ public class Game {
   //checks if string belongs to Adventure category.
   public static boolean isAdventure(String s) {
     return s.equals("NORTH") || s.equals("WEST") || s.equals("EAST") || s.equals("SOUTH");
+  }
+
+  //finds the tile in the direction desired.
+  public static int view(Map m1, int[] l, String dir) {
+    //System.out.println("/View method called.");
+    if(dir.equals("NORTH")) {
+      //Check if the tile above is out of bounds or 0.
+      if(l[0] - 1 < 0) {
+        //System.out.println("Can't move that way.");
+      }
+      else {
+        //return the one above.
+        return m1.grid[l[0] - 1][l[1]];
+      }
+
+    }
+    else if(dir.equals("SOUTH")) {
+      if(l[0] + 1 >= m1.row) {
+        //System.out.println("Can't move that way.");
+      }
+      else {
+        //return the one below.
+        return m1.grid[l[0] + 1][l[1]];
+      }
+
+    }
+    else if(dir.equals("WEST")) {
+      if(l[1] - 1 < 0) {
+        //System.out.println("Can't move that way.");
+      }
+      else {
+        //return the one left.
+        return m1.grid[l[0]][l[1] - 1];
+      }
+
+    }
+    else if(dir.equals("EAST")) {
+      if(l[1] + 1 >= m1.column) {
+        //System.out.println("Can't move that way.");
+      }
+      else {
+        //return the one right.
+        return m1.grid[l[0]][l[1] + 1];
+      }
+
+    }
+
+    //return self;
+    return m1.grid[l[0]][l[1]];
   }
 
 }

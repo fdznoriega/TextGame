@@ -1,10 +1,11 @@
 Here is what needs to get done:
 
 --------Next Time--------
+-finalize boss detection.
+-rework move() function.
 -battle system
 
 --------Soon--------
-
 -add a save() function which saves the player's data.
 -add a load() function which loads player data.
 

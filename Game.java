@@ -69,8 +69,8 @@ public class Game {
       //2. Adventuring
       else if(isAdventure(playerInput)) {
 
-        //Let's try move player where they want to go.
-        if(view(m1, location, playerInput) == 0) {
+        //if we try move to a 0 or out of bounds, stop.
+        if(view(m1, location, playerInput) == 0 || view(m1, location, playerInput) == -1) {
           System.out.println("Can't move that way.");
         }
         else {
@@ -78,6 +78,7 @@ public class Game {
           location = move(m1, location, playerInput);
 
           //Are we near the boss? Let's notify the player.
+          //Notifies them when they are on the tile...fix
           if(bossNear(m1, location)) {
             System.out.println("The boss is near...");
           }
@@ -113,49 +114,24 @@ public class Game {
   public static int[] move(Map m1, int[] l, String dir) {
     //System.out.println("Move method called.");
     if(dir.equals("NORTH")) {
-      //Check if the tile above is out of bounds or 0.
-      if(l[0] - 1 < 0 || m1.grid[l[0] - 1][l[1]] == 0) {
-        //System.out.println("Can't move that way.");
-      }
-      else {
-        l[0] -= 1;
-        System.out.println("Moved " + dir);
-        return l;
-      }
-
+      l[0] -= 1;
+      System.out.println("Moved " + dir);
+      return l;
     }
     else if(dir.equals("SOUTH")) {
-      if(l[0] + 1 >= m1.row || m1.grid[l[0] + 1][l[1]] == 0) {
-        //System.out.println("Can't move that way.");
-      }
-      else {
-        l[0] += 1;
-        System.out.println("Moved " + dir);
-        return l;
-      }
-
+      l[0] += 1;
+      System.out.println("Moved " + dir);
+      return l;
     }
     else if(dir.equals("WEST")) {
-      if(l[1] - 1 < 0 || m1.grid[l[0]][l[1] - 1] == 0) {
-        //System.out.println("Can't move that way.");
-      }
-      else {
-        l[1] -= 1;
-        System.out.println("Moved " + dir);
-        return l;
-      }
-
+      l[1] -= 1;
+      System.out.println("Moved " + dir);
+      return l;
     }
     else if(dir.equals("EAST")) {
-      if(l[1] + 1 >= m1.column || m1.grid[l[0]][l[1] + 1] == 0) {
-        //System.out.println("Can't move that way.");
-      }
-      else {
-        l[1] += 1;
-        System.out.println("Moved " + dir);
-        return l;
-      }
-
+      l[1] += 1;
+      System.out.println("Moved " + dir);
+      return l;
     }
 
     System.out.println("Did not move.");
@@ -240,7 +216,7 @@ public class Game {
     if(dir.equals("NORTH")) {
       //Check if the tile above is out of bounds or 0.
       if(l[0] - 1 < 0) {
-        //System.out.println("Can't move that way.");
+        return -1;
       }
       else {
         //return the one above.
@@ -250,7 +226,7 @@ public class Game {
     }
     else if(dir.equals("SOUTH")) {
       if(l[0] + 1 >= m1.row) {
-        //System.out.println("Can't move that way.");
+        return -1;
       }
       else {
         //return the one below.
@@ -260,7 +236,7 @@ public class Game {
     }
     else if(dir.equals("WEST")) {
       if(l[1] - 1 < 0) {
-        //System.out.println("Can't move that way.");
+        return -1;
       }
       else {
         //return the one left.
@@ -270,7 +246,7 @@ public class Game {
     }
     else if(dir.equals("EAST")) {
       if(l[1] + 1 >= m1.column) {
-        //System.out.println("Can't move that way.");
+        return -1;
       }
       else {
         //return the one right.

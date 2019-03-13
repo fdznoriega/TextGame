@@ -36,8 +36,6 @@ public class Game {
 
     //---------Game loop---------
     while(isPlaying) {
-      //trash previous location calculation. won't work.
-
       //Print stuff for debug.
       //System.out.println(location[0] + ":" + location[1]);
       //System.out.println(m1.grid[location[0]][location[1]]);

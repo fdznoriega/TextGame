@@ -32,15 +32,15 @@ public class Game {
     location = findSpawn(m1);
 
     //---------Start Game---------
-    System.out.println("INITIALIZED MAZE");
+    System.out.println(">INITIALIZED MAZE");
 
     //---------Game loop---------
     while(isPlaying) {
       //trash previous location calculation. won't work.
 
       //Print stuff for debug.
-      System.out.println(location[0] + ":" + location[1]);
-      System.out.println(m1.grid[location[0]][location[1]]);
+      //System.out.println(location[0] + ":" + location[1]);
+      //System.out.println(m1.grid[location[0]][location[1]]);
 
       //Take input from player.
       String playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
@@ -71,16 +71,30 @@ public class Game {
 
         //if we try move to a 0 or out of bounds, stop.
         if(view(m1, location, playerInput) == 0 || view(m1, location, playerInput) == -1) {
-          System.out.println("Can't move that way.");
+          System.out.println(">Can't move that way.");
         }
         else {
           //Update location based on where the player wants to move.
           location = move(m1, location, playerInput);
 
           //Are we near the boss? Let's notify the player.
-          //Notifies them when they are on the tile...fix
-          if(bossNear(m1, location)) {
-            System.out.println("The boss is near...");
+          if(bossNear(m1, location)) { System.out.println(">The boss is near..."); }
+
+          //We're on a new tile now so let's find out what we should do.
+          int tileNum = m1.grid[location[0]][location[1]];
+          switch(tileNum) {
+            //Spawn tile.
+            case 1: //spawnMessage();
+            //Walk tile.
+            case 2: //walkMessage();
+            //battle tile
+            case 3:
+            //treasure tile
+            case 4:
+            //fountain tile
+            case 5: refresh(p);
+            //boss tile
+            case 6:
           }
         }
 
@@ -88,11 +102,11 @@ public class Game {
       }
       //3. Wrong Input
       else {
-        System.out.println("I didn't quite catch that...");
+        System.out.println(">Didn't quite catch that...");
       }
 
     }
-    System.out.println("Thanks for playing");
+    System.out.println(">Thanks for playing");
   }
 
   //Fetch file from its given name in string form
@@ -115,28 +129,18 @@ public class Game {
     //System.out.println("Move method called.");
     if(dir.equals("NORTH")) {
       l[0] -= 1;
-      System.out.println("Moved " + dir);
-      return l;
     }
     else if(dir.equals("SOUTH")) {
       l[0] += 1;
-      System.out.println("Moved " + dir);
-      return l;
     }
     else if(dir.equals("WEST")) {
       l[1] -= 1;
-      System.out.println("Moved " + dir);
-      return l;
     }
     else if(dir.equals("EAST")) {
       l[1] += 1;
-      System.out.println("Moved " + dir);
-      return l;
     }
-
-    System.out.println("Did not move.");
+    System.out.println(">Moved " + dir);
     return l;
-
   }
 
   //Looks at the tile in the direction specified.
@@ -166,6 +170,7 @@ public class Game {
       return 0;
     } else {
       p.currentHp = p.maxHp;
+      System.out.println(">Refreshed!");
       return 1;
     }
 

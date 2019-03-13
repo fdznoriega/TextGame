@@ -176,8 +176,6 @@ public class Game {
       p.currentHp = p.maxHp;
       return 1;
     }
-
-
   }
 
   //Loads a map from a given txt file.
@@ -201,7 +199,6 @@ public class Game {
           int[] l = {r, c};
           return l;
         }
-
       }
     }
     return null;
@@ -210,7 +207,6 @@ public class Game {
   //checks if string belongs to System category
   public static boolean isSystem(String s) {
     return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E");
-
   }
 
   //checks if string belongs to Adventure category.
@@ -230,7 +226,6 @@ public class Game {
         //return the one above.
         return m1.grid[l[0] - 1][l[1]];
       }
-
     }
     else if(dir.equals("SOUTH")) {
       if(l[0] + 1 >= m1.row) {
@@ -240,7 +235,6 @@ public class Game {
         //return the one below.
         return m1.grid[l[0] + 1][l[1]];
       }
-
     }
     else if(dir.equals("WEST")) {
       if(l[1] - 1 < 0) {
@@ -250,7 +244,6 @@ public class Game {
         //return the one left.
         return m1.grid[l[0]][l[1] - 1];
       }
-
     }
     else if(dir.equals("EAST")) {
       if(l[1] + 1 >= m1.column) {
@@ -260,7 +253,6 @@ public class Game {
         //return the one right.
         return m1.grid[l[0]][l[1] + 1];
       }
-
     }
 
     //return self;

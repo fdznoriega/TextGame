@@ -85,16 +85,22 @@ public class Game {
           switch(tileNum) {
             //Spawn tile.
             case 1: //spawnMessage();
+                    break;
             //Walk tile.
             case 2: //walkMessage();
+                    break;
             //battle tile
-            case 3:
+            case 3: System.out.println(">Battle found.");
+                    break;
             //treasure tile
-            case 4:
+            case 4: System.out.println(">Treasure found.");
+                    break;
             //fountain tile
-            case 5: refresh(p);
+            case 5: if(refresh(p) == 1) { System.out.println(">Refreshed!"); }
+                    break;
             //boss tile
-            case 6:
+            case 6: System.out.println(">Boss found.");
+                    break;
           }
         }
 
@@ -170,7 +176,6 @@ public class Game {
       return 0;
     } else {
       p.currentHp = p.maxHp;
-      System.out.println(">Refreshed!");
       return 1;
     }
 

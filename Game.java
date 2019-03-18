@@ -60,49 +60,64 @@ public class Game {
         }
         else if(playerInput.equals("E")) {
           p.showEquipment();
-          System.out.println(">Pick one to equip or CANCEL");
-          p.showInventory();
-          boolean flag = true;
-          while(flag) {
-            playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
-            int ID = itemID(playerInput);
-            System.out.println("Input translated: " + ID);
-            //If the player asks to equip a sword OR a shield...
-            if(ID == 3 || ID == 4) {
-              //Check if item is in player's inventory
-              if(p.inInventory(ID)) {
-                //Check to see if there's space in equipment.
-                if(p.equipment[0] != 0 && p.equipment[1] != 0) {
-                  System.out.println(">Equipment fully occupied.");
+          //Prompt player to equip something
+          System.out.println(">Would you like to equip something? (y/n)");
+          playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
+          //If yes, let's enter equip loop.
+          if(playerInput.equals("Y") || playerInput.equals("YES")) {
+            System.out.println(">Pick one to equip or CANCEL");
+            p.showInventory();
+            boolean flag = true;
+            while(flag) {
+              playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
+              int ID = itemID(playerInput);
+              //If the player asks to equip a sword OR a shield...
+              if(ID == 3 || ID == 4) {
+                //Check if item is in player's inventory
+                if(p.inInventory(ID)) {
+                  //Check to see if there's space in equipment.
+                  if(p.equipment[0] != 0 && p.equipment[1] != 0) {
+                    System.out.println(">Equipment fully occupied.");
+                  }
+                  else {
+                    //Check/place spot 1
+                    if(p.equipment[0] == 0) {
+                      p.equipment[0] = ID;
+                    }
+                    //Check/place spot 2
+                    else {
+                      p.equipment[1] = ID;
+                    }
+                    System.out.println(">Equipped.");
+                    //Remove from inventory and break.
+                    p.deleteItem(ID);
+                    break;
+                  }
                 }
                 else {
-                  //Check/place spot 1
-                  if(p.equipment[0] == 0) {
-                    p.equipment[0] = ID;
-                  }
-                  //Check/place spot 2
-                  else {
-                    p.equipment[1] = ID;
-                  }
-                  //Remove from inventory and break.
-                  p.deleteItem(ID);
-                  break;
+                  System.out.println(">Not in your inventory.");
                 }
+
+              }
+              else if(playerInput.equals("CANCEL")) {
+                flag = false;
+                System.out.println(">Canceled equipment changes.");
               }
               else {
-                System.out.println(">You don't have that.");
+                System.out.println(">Choose an item or CANCEL");
               }
 
             }
-            else if(playerInput.equals("CANCEL")) {
-              flag = false;
-              System.out.println(">Canceled equipment changes.");
-            }
-            else {
-              System.out.println(">Choose an item or CANCEL");
-            }
-
           }
+          else if(playerInput.equals("N") || playerInput.equals("NO")) {
+            System.out.println(">Understood.");
+          }
+          else {
+            System.out.println(">Enter: y/n");
+          }
+
+
+
 
         }
 

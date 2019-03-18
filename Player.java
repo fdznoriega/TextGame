@@ -76,7 +76,7 @@ public class Player {
 		for(int i = 0; i < inventoryLength; i++) {
 			if(this.inventory[i] == 0) {
 				this.inventory[i] = item;
-				return item;
+				return 1;
 			}
 		}
 		return -1;

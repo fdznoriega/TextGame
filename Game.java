@@ -56,11 +56,32 @@ public class Game {
           System.out.println("GAME SAVED.");
         }
         else if(playerInput.equals("I")) {
-          //show inventory
+          int[] inven = p.getInventory();
+          System.out.println(">Showing Inventory");
+          for(int i = 0; i < inven.length; i++) {
+            switch(inven[i]) {
+              case 0: System.out.println("-FREE"); break;
+              case 1: System.out.println("-POTION"); break;
+              case 2: System.out.println("-KEY"); break;
+              case 3: System.out.println("-SWORD"); break;
+              case 4: System.out.println("-ARMOR"); break;
+            }
+
+          }
 
         }
         else if(playerInput.equals("E")) {
           //show equipment
+          int[] equip = p.getEquipment();
+          System.out.println(">Showing Equipment");
+          for(int i = 0; i < equip.length; i++) {
+            switch(equip[i]) {
+              case 0: System.out.println("-FREE"); break;
+              case 3: System.out.println("-SWORD"); break;
+              case 4: System.out.println("-ARMOR"); break;
+            }
+
+          }
 
         }
       }
@@ -90,8 +111,14 @@ public class Game {
             //battle tile
             case 3: System.out.println(">Battle found.");
                     break;
-            //treasure tile
-            case 4: System.out.println(">Treasure found.");
+            //sword treasure tile
+            case 4: System.out.println(">Sword found.");
+                    if(p.addItem(3) == 1) {
+                      System.out.println(">Sword added to inventory.");
+                    } else {
+                      System.out.println(">Inventory full.");
+                    }
+
                     break;
             //fountain tile
             case 5: if(refresh(p) == 1) { System.out.println(">Refreshed!"); }

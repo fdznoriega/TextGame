@@ -56,34 +56,32 @@ public class Game {
           System.out.println("GAME SAVED.");
         }
         else if(playerInput.equals("I")) {
-          int[] inven = p.getInventory();
-          System.out.println(">Showing Inventory");
-          for(int i = 0; i < inven.length; i++) {
-            switch(inven[i]) {
-              case 0: System.out.println("-FREE"); break;
-              case 1: System.out.println("-POTION"); break;
-              case 2: System.out.println("-KEY"); break;
-              case 3: System.out.println("-SWORD"); break;
-              case 4: System.out.println("-ARMOR"); break;
-            }
-
-          }
-
+          p.showInventory();
         }
         else if(playerInput.equals("E")) {
-          //show equipment
-          int[] equip = p.getEquipment();
-          System.out.println(">Showing Equipment");
-          for(int i = 0; i < equip.length; i++) {
-            switch(equip[i]) {
-              case 0: System.out.println("-FREE"); break;
-              case 3: System.out.println("-SWORD"); break;
-              case 4: System.out.println("-ARMOR"); break;
+          p.showEquipment();
+          System.out.println(">Pick one to equip or CANCEL");
+          p.showInventory();
+          boolean flag = true;
+          while(flag) {
+            playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
+            if(playerInput.equals("SWORD") || playerInput.equals("ARMOR")) {
+              //Check if item is in player's inventory
+              
+            }
+            else if(playerInput.equals("CANCEL")) {
+              flag = false;
+              System.out.println(">Canceled equipment changes.");
+            }
+            else {
+              System.out.println(">Choose an item or CANCEL");
             }
 
           }
 
         }
+
+        System.out.println(">Back to exploring.");
       }
       //2. Adventuring
       else if(isAdventure(playerInput)) {

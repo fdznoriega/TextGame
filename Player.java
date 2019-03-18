@@ -61,6 +61,18 @@ public class Player {
 		System.out.println("");
 	}
 
+	//Translates numbers into text for the player.
+	public void showEquipment() {
+		int[] equip = equipment;
+		System.out.println(">Showing Current Equipment");
+		for(int i = 0; i < equip.length; i++) {
+			switch(equip[i]) {
+				case 0: System.out.println("-FREE"); break;
+				case 3: System.out.println("-SWORD"); break;
+				case 4: System.out.println("-ARMOR"); break;
+			}
+		}
+	}
 	//Prints inventory for console reading
 	public void printInventory() {
 		for(int i = 0; i < this.inventory.length; i++) {
@@ -69,6 +81,20 @@ public class Player {
 		System.out.println("");
 	}
 
+	public void showInventory() {
+		int[] inven = inventory;
+		System.out.println(">Showing Inventory");
+		for(int i = 0; i < inven.length; i++) {
+			switch(inven[i]) {
+				case 0: System.out.println("-FREE"); break;
+				case 1: System.out.println("-POTION"); break;
+				case 2: System.out.println("-KEY"); break;
+				case 3: System.out.println("-SWORD"); break;
+				case 4: System.out.println("-ARMOR"); break;
+			}
+
+		}
+	}
 	//Replaces only 0 with new item.
 	//Returns: item when inserted OR -1 when item couldn't fit.
 	public int addItem(int item) {

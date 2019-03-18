@@ -43,7 +43,6 @@ public class Game {
       //Take input from player.
       String playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
 
-
       //---------Possible Interactions---------
       //1. Systems Management
       if(isSystem(playerInput)) {
@@ -63,7 +62,7 @@ public class Game {
           //Prompt player to equip something
           System.out.println(">Would you like to equip something? (y/n)");
           playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
-          //If yes, let's enter equip loop.
+          //If yes, begin looping until change made.
           if(playerInput.equals("Y") || playerInput.equals("YES")) {
             System.out.println(">Pick one to equip or CANCEL");
             p.showInventory();
@@ -91,7 +90,7 @@ public class Game {
                     System.out.println(">Equipped.");
                     //Remove from inventory and break.
                     p.deleteItem(ID);
-                    break;
+                    flag = false;
                   }
                 }
                 else {
@@ -109,15 +108,14 @@ public class Game {
 
             }
           }
+          //If no, we're done.
           else if(playerInput.equals("N") || playerInput.equals("NO")) {
             System.out.println(">Understood.");
           }
+          //If anything else, break out.
           else {
-            System.out.println(">Enter: y/n");
+            System.out.println(">Invalid input");
           }
-
-
-
 
         }
 
@@ -147,10 +145,10 @@ public class Game {
             case 2: //walkMessage();
                     break;
             //battle tile
-            case 3: System.out.println(">Battle found.");
+            case 3: System.out.println(">Battle!");
                     break;
             //sword treasure tile
-            case 4: System.out.println(">Sword found.");
+            case 4: System.out.println(">Treasure found.");
                     if(p.addItem(3) == 1) {
                       System.out.println(">Sword added to inventory.");
                     } else {
@@ -166,7 +164,6 @@ public class Game {
                     break;
           }
         }
-
 
       }
       //3. Wrong Input
@@ -333,4 +330,5 @@ public class Game {
     if(s.equals("ARMOR")) return 4;
     return -1;
 	}
+
 }

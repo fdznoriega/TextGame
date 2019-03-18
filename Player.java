@@ -1,10 +1,7 @@
 /* WHAT DOES "Player" DO?
- * Traverse the map (4 way linked list)
- * Trigger events on the Map
- * Save progress (level/exp/items)
- * Continue traveling from where they left off (if saved)
- * Detect danger when near ("sense danger in nearby room...")
- * Has inventory
+ * Sees/Contains inventory
+ * Sees/Contains equipment
+ * Has stats which influence battles
  */
 
 public class Player {

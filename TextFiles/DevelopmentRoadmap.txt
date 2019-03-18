@@ -1,9 +1,12 @@
 Here is what needs to get done:
 
 --------Next Time--------
--battle system
+
 
 --------Soon--------
+-define enemies and their stats.
+-make player equipment change stats.
+-draft battle system.
 -add a save() function which saves the player's data.
 -add a load() function which loads player data.
 

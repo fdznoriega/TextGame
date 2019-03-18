@@ -65,9 +65,34 @@ public class Game {
           boolean flag = true;
           while(flag) {
             playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
-            if(playerInput.equals("SWORD") || playerInput.equals("ARMOR")) {
+            int ID = itemID(playerInput);
+            System.out.println("Input translated: " + ID);
+            //If the player asks to equip a sword OR a shield...
+            if(ID == 3 || ID == 4) {
               //Check if item is in player's inventory
-              
+              if(p.inInventory(ID)) {
+                //Check to see if there's space in equipment.
+                if(p.equipment[0] != 0 && p.equipment[1] != 0) {
+                  System.out.println(">Equipment fully occupied.");
+                }
+                else {
+                  //Check/place spot 1
+                  if(p.equipment[0] == 0) {
+                    p.equipment[0] = ID;
+                  }
+                  //Check/place spot 2
+                  else {
+                    p.equipment[1] = ID;
+                  }
+                  //Remove from inventory and break.
+                  p.deleteItem(ID);
+                  break;
+                }
+              }
+              else {
+                System.out.println(">You don't have that.");
+              }
+
             }
             else if(playerInput.equals("CANCEL")) {
               flag = false;
@@ -284,4 +309,13 @@ public class Game {
     return m1.grid[l[0]][l[1]];
   }
 
+  //Translates player input into int.
+	//Returns -1 if there is no value assigned to that string.
+	public static int itemID(String s) {
+    if(s.equals("POTION")) return 1;
+    if(s.equals("KEY")) return 2;
+    if(s.equals("SWORD")) return 3;
+    if(s.equals("ARMOR")) return 4;
+    return -1;
+	}
 }

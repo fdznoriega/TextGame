@@ -63,16 +63,16 @@ public class Player {
 
 	//Translates numbers into text for the player.
 	public void showEquipment() {
-		int[] equip = equipment;
 		System.out.println(">Showing Current Equipment");
-		for(int i = 0; i < equip.length; i++) {
-			switch(equip[i]) {
+		for(int i = 0; i < equipment.length; i++) {
+			switch(equipment[i]) {
 				case 0: System.out.println("-FREE"); break;
 				case 3: System.out.println("-SWORD"); break;
 				case 4: System.out.println("-ARMOR"); break;
 			}
 		}
 	}
+
 	//Prints inventory for console reading
 	public void printInventory() {
 		for(int i = 0; i < this.inventory.length; i++) {
@@ -82,10 +82,9 @@ public class Player {
 	}
 
 	public void showInventory() {
-		int[] inven = inventory;
 		System.out.println(">Showing Inventory");
-		for(int i = 0; i < inven.length; i++) {
-			switch(inven[i]) {
+		for(int i = 0; i < inventory.length; i++) {
+			switch(inventory[i]) {
 				case 0: System.out.println("-FREE"); break;
 				case 1: System.out.println("-POTION"); break;
 				case 2: System.out.println("-KEY"); break;
@@ -95,11 +94,30 @@ public class Player {
 
 		}
 	}
+
+	//Checks if the given item is in the player's inventory
+	public boolean inInventory(int item) {
+		for(int i = 0; i < inventory.length; i++) {
+			if(inventory[i] == item) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	//Checks if the given item is
+	public boolean inEquipment(int item) {
+		for(int i = 0; i < equipment.length; i++) {
+			if(equipment[i] == item) {
+				return true;
+			}
+		}
+		return false;
+	}
 	//Replaces only 0 with new item.
 	//Returns: item when inserted OR -1 when item couldn't fit.
 	public int addItem(int item) {
-		int inventoryLength = this.inventory.length;
-		for(int i = 0; i < inventoryLength; i++) {
+		for(int i = 0; i < this.inventory.length; i++) {
 			if(this.inventory[i] == 0) {
 				this.inventory[i] = item;
 				return 1;

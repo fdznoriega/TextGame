@@ -147,8 +147,8 @@ public class Game {
             //battle tile
             case 3: System.out.println(">Battle!");
                     break;
-            //sword treasure tile
-            case 4: System.out.println(">Treasure found.");
+            //sword tile
+            case 4: System.out.println(">Sword found.");
                     if(p.addItem(3) == 1) {
                       System.out.println(">Sword added to inventory.");
                     } else {

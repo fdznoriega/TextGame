@@ -1,14 +1,13 @@
 Here is what needs to get done:
 
 --------Next Time--------
-
+-finish up equipment/inventory
+-define enemies and their stats.
 
 --------Soon--------
--define enemies and their stats.
 -make player equipment change stats.
 -draft battle system.
--add a save() function which saves the player's data.
--add a load() function which loads player data.
+
 
 
 --------Low Priority--------
@@ -21,3 +20,5 @@ Here is what needs to get done:
 -Consider making numbers on grid larger to have more types of things. Divide
  them by using the space bar as the buffer. First number could indicate type,
  while the second number could indicate type of type.
+ -add a save() function which saves the player's data.
+ -add a load() function which loads player data.

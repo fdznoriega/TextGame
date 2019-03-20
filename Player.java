@@ -1,48 +1,37 @@
-/* WHAT DOES "Player" DO?
+/* WHAT IS "Player"?
+ * An actor with an inventory and player-specific stats.
  * Sees/Contains inventory
  * Sees/Contains equipment
  * Has stats which influence battles
  */
 
-public class Player {
+public class Player extends Actor {
 
 	//-------Player Qualities-------\\
-	//Instead of making all these public, find out how to give Game.java
-	//exclusive access to player and map.
-	public int currentHp;
-	public int maxHp;
+	//New vars that actor does not have.
 	public int lvl;
-	public int attack;
 	public int xp;
 	public int gold;
 	public int[] inventory = new int[5];	//items stored here.
 	public int[] equipment = new int[2];	//equipment stored here.
 
+	//Quickly generate a player with base stats.
 	public Player() {
-		this.maxHp = 10;
-		this.currentHp = this.maxHp;
 		this.lvl = 1;
-		this.attack = 5;
 		this.xp = 0;
 		this.gold = 0;
 	}
 
 
 	//-------Setters-------\\
-	public void setCurrentHp(int newHp)			{ currentHp = newHp; 	}
-	public void setMaxHp(int newHp)       	{ maxHp = newHp;      }
 	public void setLvl(int newLvl)       		{ lvl = newLvl;       }
-	public void setAttack(int newAtt)     	{ attack = newAtt;    }
 	public void setXp(int newXp)          	{ xp = newXp;         }
 	public void setGold(int newGold)      	{ gold = newGold;     }
 	public void setInventory(int[] param) 	{ inventory = param;  }
 	public void setEquipment(int[] param) 	{ equipment = param;  }
 
 	//-------Getters-------\\
-	public int getCurrentHp()			{ return currentHp; }
-	public int getMaxHp()       	{ return maxHp;     }
 	public int getLvl()         	{ return lvl;       }
-	public int getAttack()     		{ return attack;    }
 	public int getXp()          	{ return xp;        }
 	public int getGold()       	 	{ return gold;      }
 	public int[] getInventory() 	{ return inventory; }

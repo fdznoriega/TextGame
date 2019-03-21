@@ -4,13 +4,15 @@
 public class Actor {
 
   //Actor has basic stats the game will use.
+  public String name;
   public int currentHp;
   public int maxHp;
   public int attack;
   public int defense;
 
   //Actor(maxHp, attack, defense)
-  public Actor(int mHP, int attack, int defense) {
+  public Actor(String n, int mHP, int attack, int defense) {
+    name = n;
     this.maxHp = mHP;
     this.currentHp = this.maxHp;
     this.attack = attack;

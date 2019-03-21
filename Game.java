@@ -128,6 +128,7 @@ public class Game {
         if(view(m1, location, playerInput) == 0 || view(m1, location, playerInput) == -1) {
           System.out.println(">Can't move that way.");
         }
+        //Tried to move and it worked!
         else {
           //Update location based on where the player wants to move.
           location = move(m1, location, playerInput);
@@ -146,6 +147,10 @@ public class Game {
                     break;
             //battle tile
             case 3: System.out.println(">Battle!");
+                    //Spawn random enemy.
+                    int randID = (int) (Math.random() * 2);
+                    Actor enemy = spawnEnemy(randID);
+                    battle(p, enemy);
                     break;
             //sword tile
             case 4: System.out.println(">Sword found.");
@@ -330,5 +335,27 @@ public class Game {
     if(s.equals("ARMOR")) return 4;
     return -1;
 	}
+
+  //Simulates a battle between a player and an actor.
+  public static int battle(Player p, Actor a) {
+    while(p.currentHp > 0 || a.currentHp > 0) {
+      System.out.println(">You encountered a " + a.name + "!");
+      break;
+    }
+    return 0;
+  }
+
+  public static Actor spawnEnemy(int ID) {
+    //Two kinds of enemies, Spider and Skeleton.
+    switch(ID) {
+      //Spider base stats: "spider", 10, 3, 3.
+      case 0: return new Actor("spider", 10, 3, 3);
+      //Skeleton base stats: "skeleton", 8, 5, 2
+      case 1: return new Actor("skeleton", 8, 5, 2);
+
+    }
+    return null;
+  }
+
 
 }

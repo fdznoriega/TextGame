@@ -139,12 +139,6 @@ public class Game {
           //We're on a new tile now so let's find out what we should do.
           int tileNum = m1.grid[location[0]][location[1]];
           switch(tileNum) {
-            //Spawn tile.
-            case 1: //spawnMessage();
-                    break;
-            //Walk tile.
-            case 2: //walkMessage();
-                    break;
             //battle tile
             case 3: System.out.println(">Battle!");
                     //Spawn random enemy.

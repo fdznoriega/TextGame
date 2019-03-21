@@ -1,13 +1,13 @@
 Here is what needs to get done:
 
 --------Next Time--------
--finish up equipment/inventory
--define enemies and their stats.
-
---------Soon--------
--make player equipment change stats.
 -draft battle system.
 
+
+--------Soon--------
+-wrap-up equipment/inventory
+-make player equipment change stats.
+-boss battle.
 
 
 --------Low Priority--------

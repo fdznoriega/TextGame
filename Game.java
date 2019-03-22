@@ -151,6 +151,11 @@ public class Game {
                       System.out.println(">Darkness envelops you...");
                       isPlaying = false;
                     }
+                    else {
+                      System.out.println(">You win!");
+                      //Turn enemy tile into a normal walking tile.
+                      m1.grid[location[0]][location[1]] = 2;
+                    }
                     break;
             //sword tile
             case 4: System.out.println(">Sword found.");

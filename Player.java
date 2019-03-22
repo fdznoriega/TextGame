@@ -9,11 +9,11 @@ public class Player extends Actor {
 
 	//-------Player Qualities-------\\
 	//New vars that actor does not have.
-	public int lvl;
-	public int xp;
-	public int gold;
-	public int[] inventory = new int[5];	//items stored here.
-	public int[] equipment = new int[2];	//equipment stored here.
+	private int lvl;
+	private int xp;
+	private int gold;
+	private int[] inventory = new int[5];	//items stored here.
+	private int[] equipment = new int[2];	//equipment stored here.
 
 	//Quickly generate a player with base stats.
 	public Player() {

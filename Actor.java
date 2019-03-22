@@ -4,11 +4,11 @@
 public class Actor {
 
   //Actor has basic stats the game will use.
-  public String name;
-  public int currentHp;
-  public int maxHp;
-  public int attack;
-  public int defense;
+  private String name;
+  private int currentHp;
+  private int maxHp;
+  private int attack;
+  private int defense;
 
   //Actor(maxHp, attack, defense)
   public Actor(String n, int mHP, int attack, int defense) {
@@ -23,20 +23,26 @@ public class Actor {
     this.maxHp = 10;
 		this.currentHp = this.maxHp;
 		this.attack = 5;
-		this.defense = 1;
+		this.defense = 3;
   }
 
   //-------Getters-------\\
+  public String getName()       { return name;      }
 	public int getCurrentHp()			{ return currentHp; }
 	public int getMaxHp()       	{ return maxHp;     }
 	public int getAttack()     		{ return attack;    }
-	public int getDefense()       { return defense; }
+	public int getDefense()       { return defense;   }
 
   //-------Setters-------\\
   public void setCurrentHp(int newHp)			{ currentHp = newHp; 	}
 	public void setMaxHp(int newHp)       	{ maxHp = newHp;      }
   public void setAttack(int newAtt)     	{ attack = newAtt;    }
   public void setDefense(int newDef)      { defense = newDef;   }
+
+  public String toString() {
+    return name + ": " + "HP: " + currentHp
+    + "/" + maxHp + " | " + "ATT: " + attack + "; DEF: " + defense;
+  }
 
 
 

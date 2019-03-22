@@ -60,6 +60,7 @@ public class Game {
         else if(playerInput.equals("E")) {
           p.showEquipment();
           //Prompt player to equip something
+          //Consider re-writing this so it's a method that takes in a player and input.
           System.out.println(">Would you like to equip something? (y/n)");
           playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
           //If yes, begin looping until change made.
@@ -75,17 +76,17 @@ public class Game {
                 //Check if item is in player's inventory
                 if(p.inInventory(ID)) {
                   //Check to see if there's space in equipment.
-                  if(p.equipment[0] != 0 && p.equipment[1] != 0) {
+                  if(p.getEquipment()[0] != 0 && p.getEquipment()[1] != 0) {
                     System.out.println(">Equipment fully occupied.");
                   }
                   else {
                     //Check/place spot 1
-                    if(p.equipment[0] == 0) {
-                      p.equipment[0] = ID;
+                    if(p.getEquipment()[0] == 0) {
+                      p.getEquipment()[0] = ID;
                     }
                     //Check/place spot 2
                     else {
-                      p.equipment[1] = ID;
+                      p.getEquipment()[1] = ID;
                     }
                     System.out.println(">Equipped.");
                     //Remove from inventory and break.
@@ -144,7 +145,12 @@ public class Game {
                     //Spawn random enemy.
                     int randID = (int) (Math.random() * 2);
                     Actor enemy = spawnEnemy(randID);
-                    battle(p, enemy);
+                    //Pass text input in so we can fetch strings.
+                    if(battle(p, enemy, textInput) == 0) {
+                      //Player lost
+                      System.out.println(">Darkness envelops you...");
+                      isPlaying = false;
+                    }
                     break;
             //sword tile
             case 4: System.out.println(">Sword found.");
@@ -231,10 +237,10 @@ public class Game {
   //Refill player's current HP to match max hp.
   //Returns 1 if action done, 0 if nothing done.
   public static int refresh(Player p) {
-    if(p.currentHp == p.maxHp) {
+    if(p.getCurrentHp() == p.getMaxHp()) {
       return 0;
     } else {
-      p.currentHp = p.maxHp;
+      p.setCurrentHp(p.getMaxHp());
       return 1;
     }
   }
@@ -331,12 +337,56 @@ public class Game {
 	}
 
   //Simulates a battle between a player and an actor.
-  public static int battle(Player p, Actor a) {
-    while(p.currentHp > 0 || a.currentHp > 0) {
-      System.out.println(">You encountered a " + a.name + "!");
-      break;
+  public static int battle(Player p, Actor a, Scanner s) {
+    s = new Scanner(System.in);
+    System.out.println(">You encountered a " + a.getName() + "!");
+    Boolean flag = true;
+    while(flag) {
+      //Player phase
+      int action = 0; //this will indicate if the player has expended an action point.
+      while(action < 1) {
+        System.out.println("[ ATTACK (AT) | ANALYZE (AN) | INVENTORY (I)]");
+        String textInput = s.nextLine().replaceAll(" ", "").toUpperCase();
+        if(textInput.equals("AT") || textInput.equals("ATTACK")) {
+          int dmg = p.getAttack() - a.getDefense();
+          a.setCurrentHp(a.getCurrentHp() - dmg);
+          System.out.println(">You deal " + dmg + " damgage!");
+          action = 1;
+        }
+        else if(textInput.equals("AN") || textInput.equals("ANALYZE")) {
+          System.out.println(">You take a good look at the enemy...");
+          System.out.println(">" + a.toString());
+        }
+        else if(textInput.equals("I") || textInput.equals("INVENTORY")) {
+          System.out.println(">You open your pouch...");
+          p.showInventory();
+          //System.out.println(">You open your pouch...");
+          //only add 1 to action if you use an item.
+
+        }
+        else {
+          System.out.println("Pick one of the three");
+        }
+      }
+      if(a.getCurrentHp() <= 0) { break; }
+
+      //Enemy phase
+      System.out.println(">" + a.getName() + " strikes!");
+      int dmg;
+      if(a.getAttack() - p.getDefense() <= 0) {
+        dmg = 1;
+      }
+      else {
+        dmg = a.getAttack() - p.getDefense();
+      }
+      p.setCurrentHp(p.getCurrentHp() - dmg);
+      System.out.println(">Took " + dmg + " damage!");
+      System.out.println("Your HP: " + p.getCurrentHp() + "/" + p.getMaxHp());
+      if(p.getCurrentHp() <= 0) { break; }
     }
-    return 0;
+    //Who won?
+    if(p.getCurrentHp() <= 0) { return 0; } //player lost.
+    else                 { return 1; } //player won.
   }
 
   public static Actor spawnEnemy(int ID) {

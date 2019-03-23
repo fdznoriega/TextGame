@@ -1,6 +1,6 @@
-In-Development by Andres Fernandez.
-Started during BC Hacks 2018.
-
+Text-based adventure game that takes inputs through terminal.
+Not exactly elegant, but the main intent is to observe how some design
+decision might impact future development. Also I'm bored.
 
 Reference:
 

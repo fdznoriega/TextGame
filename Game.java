@@ -390,6 +390,15 @@ public class Game {
             System.out.println(">Equipped.");
             //Remove from inventory and break.
             p.deleteItem(ID);
+            //Update the player's stats
+            if(ID == 3) {
+              p.setAttack(p.getAttack() + 3);
+              System.out.println("Attack increased by " + 3);
+            }
+            if(ID == 4) {
+              p.setDefense(p.getDefense() + 3);
+              System.out.println("Defense increased by " + 3);
+            }
             flag = false;
           }
         }

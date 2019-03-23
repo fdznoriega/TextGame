@@ -65,49 +65,7 @@ public class Game {
           playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
           //If yes, begin looping until change made.
           if(playerInput.equals("Y") || playerInput.equals("YES")) {
-            System.out.println(">Pick one to equip or CANCEL");
-            p.showInventory();
-            boolean flag = true;
-            while(flag) {
-              playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
-              int ID = itemID(playerInput);
-              //If the player asks to equip a sword OR a shield...
-              if(ID == 3 || ID == 4) {
-                //Check if item is in player's inventory
-                if(p.inInventory(ID)) {
-                  //Check to see if there's space in equipment.
-                  if(p.getEquipment()[0] != 0 && p.getEquipment()[1] != 0) {
-                    System.out.println(">Equipment fully occupied.");
-                  }
-                  else {
-                    //Check/place spot 1
-                    if(p.getEquipment()[0] == 0) {
-                      p.getEquipment()[0] = ID;
-                    }
-                    //Check/place spot 2
-                    else {
-                      p.getEquipment()[1] = ID;
-                    }
-                    System.out.println(">Equipped.");
-                    //Remove from inventory and break.
-                    p.deleteItem(ID);
-                    flag = false;
-                  }
-                }
-                else {
-                  System.out.println(">Not in your inventory.");
-                }
-
-              }
-              else if(playerInput.equals("CANCEL")) {
-                flag = false;
-                System.out.println(">Canceled equipment changes.");
-              }
-              else {
-                System.out.println(">Choose an item or CANCEL");
-              }
-
-            }
+            tryToEquip(p, textInput);
           }
           //If no, we're done.
           else if(playerInput.equals("N") || playerInput.equals("NO")) {
@@ -164,7 +122,6 @@ public class Game {
                     } else {
                       System.out.println(">Inventory full.");
                     }
-
                     break;
             //fountain tile
             case 5: if(refresh(p) == 1) { System.out.println(">Refreshed!"); }
@@ -406,5 +363,51 @@ public class Game {
     return null;
   }
 
+  public static void tryToEquip(Player p, Scanner textInput) {
+    System.out.println(">Pick one to equip or CANCEL");
+    p.showInventory();
+    boolean flag = true;
+    while(flag) {
+      String playerInput = textInput.nextLine().replaceAll(" ", "").toUpperCase();
+      int ID = itemID(playerInput);
+      //If the player asks to equip a sword OR a shield...
+      if(ID == 3 || ID == 4) {
+        //Check if item is in player's inventory
+        if(p.inInventory(ID)) {
+          //Check to see if there's space in equipment.
+          if(p.getEquipment()[0] != 0 && p.getEquipment()[1] != 0) {
+            System.out.println(">Equipment fully occupied.");
+          }
+          else {
+            //Check/place spot 1
+            if(p.getEquipment()[0] == 0) {
+              p.getEquipment()[0] = ID;
+            }
+            //Check/place spot 2
+            else {
+              p.getEquipment()[1] = ID;
+            }
+            System.out.println(">Equipped.");
+            //Remove from inventory and break.
+            p.deleteItem(ID);
+            flag = false;
+          }
+        }
+        else {
+          System.out.println(">Not in your inventory.");
+        }
+
+      }
+      else if(playerInput.equals("CANCEL")) {
+        flag = false;
+        System.out.println(">Canceled equipment changes.");
+      }
+      else {
+        System.out.println(">Choose an item or CANCEL");
+      }
+
+    }
+
+  }
 
 }

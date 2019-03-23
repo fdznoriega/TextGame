@@ -26,6 +26,7 @@ public class Game {
 
     //---------Load Map---------
     Map m1 = loadMap("level1");
+    //Map m2 = loadMap("level2");
     //System.out.println(m1.row + " " + m1.column);
 
     //---------Update location to spawn point---------
@@ -111,6 +112,9 @@ public class Game {
                     }
                     else {
                       System.out.println(">You win!");
+                      int xp = calcXp(enemy);
+                      p.setXp(p.getXp() + xp);
+                      System.out.println(">You gained " + xp + " EXP!");
                       //Turn enemy tile into a normal walking tile.
                       m1.grid[location[0]][location[1]] = 2;
                     }
@@ -155,9 +159,8 @@ public class Game {
 		}
 	}
 
-  //Moves player to a certain location
+  //Moves player to a certain location. Pair with view().
   //returns new location
-  //---UPDATE---
   public static int[] move(Map m1, int[] l, String dir) {
     //System.out.println("Move method called.");
     if(dir.equals("NORTH")) {
@@ -292,9 +295,9 @@ public class Game {
 	//Returns -1 if there is no value assigned to that string.
 	public static int itemID(String s) {
     if(s.equals("POTION")) return 1;
-    if(s.equals("KEY")) return 2;
-    if(s.equals("SWORD")) return 3;
-    if(s.equals("ARMOR")) return 4;
+    if(s.equals("KEY"))    return 2;
+    if(s.equals("SWORD"))  return 3;
+    if(s.equals("ARMOR"))  return 4;
     return -1;
 	}
 
@@ -351,6 +354,7 @@ public class Game {
     else                 { return 1; } //player won.
   }
 
+  //spawns a random enemy.
   public static Actor spawnEnemy(int ID) {
     //Two kinds of enemies, Spider and Skeleton.
     switch(ID) {
@@ -363,6 +367,7 @@ public class Game {
     return null;
   }
 
+  //Tries to equip item into player inventory.
   public static void tryToEquip(Player p, Scanner textInput) {
     System.out.println(">Pick one to equip or CANCEL");
     p.showInventory();
@@ -391,13 +396,14 @@ public class Game {
             //Remove from inventory and break.
             p.deleteItem(ID);
             //Update the player's stats
+            //Sword and armor will increase stats by 3.
             if(ID == 3) {
               p.setAttack(p.getAttack() + 3);
-              System.out.println("Attack increased by " + 3);
+              System.out.println(">ATT increased by " + 3);
             }
             if(ID == 4) {
               p.setDefense(p.getDefense() + 3);
-              System.out.println("Defense increased by " + 3);
+              System.out.println(">DEF increased by " + 3);
             }
             flag = false;
           }
@@ -418,5 +424,11 @@ public class Game {
     }
 
   }
+
+  //Calculates worth of enemy.
+  public static int calcXp(Actor enemy) {
+    return (enemy.getMaxHp() + enemy.getAttack() + enemy.getDefense() / 3);
+  }
+
 
 }

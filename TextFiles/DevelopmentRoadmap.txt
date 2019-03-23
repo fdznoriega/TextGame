@@ -1,12 +1,11 @@
 Here is what needs to get done:
 
 --------Next Time--------
--draft battle system.
+-Revamp treasure system.
 
 
 --------Soon--------
--wrap-up equipment/inventory
--make player equipment change stats.
+
 -boss battle.
 
 

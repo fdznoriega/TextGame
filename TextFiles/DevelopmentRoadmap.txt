@@ -1,7 +1,6 @@
 Here is what needs to get done:
 
 --------Next Time--------
--Give player gold for defeating an enemy.
 -Revamp treasure system.
 
 

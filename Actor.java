@@ -27,6 +27,7 @@ public class Actor {
   }
 
   //-------Getters-------\\
+  public String getHpRatio()    { return currentHp + "/" + maxHp; }
   public String getName()       { return name;      }
 	public int getCurrentHp()			{ return currentHp; }
 	public int getMaxHp()       	{ return maxHp;     }

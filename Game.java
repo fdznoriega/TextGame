@@ -70,16 +70,15 @@ public class Game {
           }
           //If no, we're done.
           else if(playerInput.equals("N") || playerInput.equals("NO")) {
-            System.out.println(">Understood.");
+            //Nothing here!
           }
           //If anything else, break out.
           else {
-            System.out.println(">Invalid input");
+            System.out.println(">Invalid input.");
           }
-
+          System.out.println(">Back to exploring.");
         }
 
-        System.out.println(">Back to exploring.");
       }
       //2. Adventuring
       else if(isAdventure(playerInput)) {
@@ -88,12 +87,12 @@ public class Game {
         if(view(m1, location, playerInput) == 0 || view(m1, location, playerInput) == -1) {
           System.out.println(">Can't move that way.");
         }
-        //Tried to move and it worked!
+        //Else, player can move that way
         else {
           //Update location based on where the player wants to move.
           location = move(m1, location, playerInput);
 
-          //Are we near the boss? Let's notify the player.
+          //Are we near the boss? Let's check + notify the player.
           if(bossNear(m1, location)) { System.out.println(">The boss is near..."); }
 
           //We're on a new tile now so let's find out what we should do.
@@ -116,7 +115,10 @@ public class Game {
                       p.setXp(p.getXp() + xp);
                       System.out.println(">You gained " + xp + " EXP!");
                       //Turn enemy tile into a normal walking tile.
+                      //This could be changed and we could make random encounters a thing.
                       m1.grid[location[0]][location[1]] = 2;
+                      //Back to exploring
+                      System.out.println(">Back to exploring.");
                     }
                     break;
             //sword tile
@@ -310,6 +312,8 @@ public class Game {
       //Player phase
       int action = 0; //this will indicate if the player has expended an action point.
       while(action < 1) {
+        System.out.print("[ Player HP: " + p.getHpRatio() + " | ");
+        System.out.print(a.getName() + ": " + a.getHpRatio() + " ] \n");
         System.out.println("[ ATTACK (AT) | ANALYZE (AN) | INVENTORY (I)]");
         String textInput = s.nextLine().replaceAll(" ", "").toUpperCase();
         if(textInput.equals("AT") || textInput.equals("ATTACK")) {
@@ -338,6 +342,7 @@ public class Game {
       //Enemy phase
       System.out.println(">" + a.getName() + " strikes!");
       int dmg;
+      //Minimum damage is always 1.
       if(a.getAttack() - p.getDefense() <= 0) {
         dmg = 1;
       }
@@ -346,12 +351,11 @@ public class Game {
       }
       p.setCurrentHp(p.getCurrentHp() - dmg);
       System.out.println(">Took " + dmg + " damage!");
-      System.out.println("Your HP: " + p.getCurrentHp() + "/" + p.getMaxHp());
       if(p.getCurrentHp() <= 0) { break; }
     }
     //Who won?
     if(p.getCurrentHp() <= 0) { return 0; } //player lost.
-    else                 { return 1; } //player won.
+    else                      { return 1; } //player won.
   }
 
   //spawns a random enemy.

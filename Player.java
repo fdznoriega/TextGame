@@ -39,6 +39,16 @@ public class Player extends Actor {
 
 	//-------Interaction with Inventory and Equipment-------\\
 
+	//Prints out the player's stats
+	public String toString() {
+		String name = "[ Player: ";
+		String pHp = "HP: " + this.getHpRatio() + " | ";
+		String att = "ATT: " + this.getAttack() + " ";
+		String def = "DEF: " + this.getDefense() + " | ";
+		String xp = "EXP: " + this.getXp() + " | ";
+		String gold = "G: " + this.getGold() + " ] ";
+		return name + pHp + att + def + xp + gold;
+	}
 	//Prints equipment for console reading.
 	public void printEquipment() {
 		for(int i = 0; i < this.equipment.length; i++) {

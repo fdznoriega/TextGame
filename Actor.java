@@ -41,8 +41,8 @@ public class Actor {
   public void setDefense(int newDef)      { defense = newDef;   }
 
   public String toString() {
-    return name + ": " + "HP: " + currentHp
-    + "/" + maxHp + " | " + "ATT: " + attack + "; DEF: " + defense;
+    return "{ " + name + ": " + "HP: " + this.getHpRatio() +  " | "
+    + "ATT: " + attack + "; DEF: " + defense + " } ";
   }
 
 }

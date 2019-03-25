@@ -79,6 +79,9 @@ public class Game {
           System.out.println(">Back to exploring.");
         }
 
+        else if(playerInput.equals("S")) {
+          System.out.println(p.toString());
+        }
       }
       //2. Adventuring
       else if(isAdventure(playerInput)) {
@@ -244,7 +247,8 @@ public class Game {
 
   //checks if string belongs to System category
   public static boolean isSystem(String s) {
-    return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E");
+    return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E")
+    || s.equals("S");
   }
 
   //checks if string belongs to Adventure category.
@@ -328,7 +332,7 @@ public class Game {
         }
         else if(textInput.equals("AN") || textInput.equals("ANALYZE")) {
           System.out.println(">You take a good look at the enemy...");
-          System.out.println(">" + a.toString());
+          System.out.println(a.toString());
         }
         else if(textInput.equals("I") || textInput.equals("INVENTORY")) {
           System.out.println(">You open your pouch...");

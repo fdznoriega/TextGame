@@ -19,12 +19,22 @@ All values used in the project will be here.
 6 - Boss tile.
 
 Ideas:
------Revamped Item/Map Notation-----
-1X where X is 0 - 9.
-1X are healing items
-2X are keys
-3X are swords
-4X are armor.
+-----Revamped Treasure Notation-----
+Approach 1: Giving the player what I want them to have.
+Approach 2: Giving the player what they don't have
+Approach 3: Giving the player anything.
+
+Approach 1 works best if the game will not be randomly generated so let's do that.
+Treasure tile: 4.
+4X means Treasure that gives X where X is:
+1: Potion
+2: Key
+3: Sword
+4: Armor
+
+For now, there will only be 1 kind of sword and 1 kind of armor, but what
+if I had more than 1? I could write 431 for 1, and 432 for another. This
+feels kind of sloppy but would work because I would not have more than 10 swords.
 
 -----Battle Functionality-----
 When battle tiles are triggered, enemies will appear and fight the player.

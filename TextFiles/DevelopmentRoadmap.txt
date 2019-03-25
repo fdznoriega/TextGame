@@ -1,15 +1,16 @@
 Here is what needs to get done:
 
 --------Next Time--------
+-Give player gold for defeating an enemy.
 -Revamp treasure system.
 
 
 --------Soon--------
-
 -boss battle.
 
 
 --------Low Priority--------
+-Add a shop so that the player can purchase items.
 -Randomly generated .txt files that can be completed.
 -Procedural generation of .txt files?
 -Stair tiles to move up and down dungeons.

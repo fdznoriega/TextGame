@@ -114,6 +114,10 @@ public class Game {
                       int xp = calcXp(enemy);
                       p.setXp(p.getXp() + xp);
                       System.out.println(">You gained " + xp + " EXP!");
+                      int gold = calcGold(enemy);
+                      p.setGold(p.getGold() + gold);
+                      System.out.println(">You gained " + gold + " Gold!");
+
                       //Turn enemy tile into a normal walking tile.
                       //This could be changed and we could make random encounters a thing.
                       m1.grid[location[0]][location[1]] = 2;
@@ -434,5 +438,11 @@ public class Game {
     return (enemy.getMaxHp() + enemy.getAttack() + enemy.getDefense() / 3);
   }
 
+  //Calculates gold worth of the enemy.
+  public static int calcGold(Actor enemy) {
+    int xp = calcXp(enemy);
+    int bonus = (int) (Math.random() * 2.5);
+    return xp + bonus;
+  }
 
 }

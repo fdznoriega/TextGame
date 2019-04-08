@@ -22,3 +22,8 @@ Commands: I, E.
 
 /Battles
 Commands: Provided. May change as dev continues.
+
+/Systems:
+Commands: quit, help
+-quit will exit the game.
+-help will present all possible actions while navigating.

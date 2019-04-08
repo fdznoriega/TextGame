@@ -47,14 +47,13 @@ public class Game {
       //---------Possible Interactions---------
       //1. Systems Management
       if(isSystem(playerInput)) {
-
         if(playerInput.equals("QUIT")) {
           isPlaying = false;
-        }
+        }       //wip?
         else if(playerInput.equals("SAVE")) {
           //save game
           System.out.println("GAME SAVED.");
-        }
+        } //wip?
         else if(playerInput.equals("I")) {
           p.showInventory();
         }
@@ -78,9 +77,19 @@ public class Game {
           }
           System.out.println(">Back to exploring.");
         }
-
         else if(playerInput.equals("S")) {
           System.out.println(p.toString());
+        }
+        else if(playerInput.equals("HELP")) {
+          System.out.println(">Available commands are: ");
+          System.out.println(">[ north -  move north          ]");
+          System.out.println(">[ south -  move south          ]");
+          System.out.println(">[ west  -  move west           ]");
+          System.out.println(">[ east  -  move east           ]");
+          System.out.println(">[ quit  -  exit game           ]");
+          System.out.println(">[ i     -  open inventory      ]");
+          System.out.println(">[ e     -  open and equip item ] ");
+          System.out.println(">[ s     -  view player status  ] ");
         }
       }
       //2. Adventuring
@@ -248,7 +257,7 @@ public class Game {
   //checks if string belongs to System category
   public static boolean isSystem(String s) {
     return s.equals("QUIT") || s.equals("SAVE") || s.equals("I") || s.equals("E")
-    || s.equals("S");
+    || s.equals("S") || s.equals("HELP");
   }
 
   //checks if string belongs to Adventure category.

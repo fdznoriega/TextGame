@@ -1,6 +1,7 @@
 /* What is an Actor?
  * Object that has base stats.
 */
+
 public class Actor {
 
   //Actor has basic stats the game will use.

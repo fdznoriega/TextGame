@@ -1,8 +1,5 @@
 /* WHAT DOES "Map" DO:
- *
- *
- *
- * @author andresfernandez
+ * Converts text file into matrix
  */
 
 //File Reading and Stream Functionality

@@ -1,5 +1,4 @@
 //This file will test all the methods that player has!
-//Hello?
 
 public class PlayerTester {
 

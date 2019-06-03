@@ -2,6 +2,8 @@
 Text-based adventure game that takes inputs through terminal.
 Not exactly elegant, but the main intent is to observe how some design
 decision might impact future development. Also I'm bored.
+I plan on using this as a launching point from which I will implement a true user interface 
+(possibly through JavaFX) rather than the crude console IO that is in place.
 
 ----How do I use it?----
 Download, then access folder with terminal. In terminal,

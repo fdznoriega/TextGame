@@ -1,4 +1,4 @@
-/* WHAT DOES "Map" DO:
+/* WHAT DOES "Maze" DO:
  * Converts text file into matrix
  */
 
@@ -9,13 +9,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.IOException;
 
-public class Map {
+public class Maze {
 
 	public int[][] grid;
 	public int row;
 	public int column;
 
-	public Map(int[] dimension) {
+	public Maze(int[] dimension) {
 		this.grid = new int[dimension[0]][dimension[1]];
 		row = dimension[0];
 		column = dimension[1];
@@ -51,7 +51,7 @@ public class Map {
 	}
 
 	//Reads a .txt file and updates grid.
-	public void fillMap(String content) {
+	public void fillMaze(String content) {
 		int r = 0;
 		int c = 0;
 		for(int i = 0; i < content.length(); i++) {
@@ -78,8 +78,8 @@ public class Map {
 	}
 
 
-	//Prints the map.
-	public void printMap() {
+	//Prints the Maze.
+	public void printMaze() {
 		for(int i = 0; i < this.row; i++) {
 			for(int j = 0; j < this.column; j++) {
 				if(j % this.column == 0 && i != 0) {
@@ -96,12 +96,12 @@ public class Map {
 		String userDir = System.getProperty("user.dir");
 	 	String content = Game.fileToString(userDir + "/Levels/level1.txt");
 
-		//set up map we'll play with.
+		//set up Maze we'll play with.
 		int[] d = fetchDimensions(content);
 		System.out.println("r: " + d[0] + " | " + "c: " + d[1]);
-		Map demoMap = new Map(d);
-		demoMap.fillMap(content);
-		demoMap.printMap();
+		Maze demoMaze = new Maze(d);
+		demoMaze.fillMaze(content);
+		demoMaze.printMaze();
 
 
 

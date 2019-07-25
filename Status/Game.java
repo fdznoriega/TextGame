@@ -28,9 +28,9 @@ public class Game {
 
     System.out.println(">Starting game...")
 
-    //---------Load Map---------
-    Map m1 = loadMap("level1");
-    //Map m2 = loadMap("level2");
+    //---------Load Maze---------
+    Maze m1 = loadMaze("level1");
+    //Maze m2 = loadMaze("level2");
 
     //---------Update location to spawn point---------
     location = findSpawn(m1);
@@ -183,7 +183,7 @@ public class Game {
 
   //Moves player to a certain location. Pair with view().
   //returns new location
-  public static int[] move(Map m1, int[] l, String dir) {
+  public static int[] move(Maze m1, int[] l, String dir) {
     //System.out.println("Move method called.");
     if(dir.equals("NORTH")) {
       l[0] -= 1;
@@ -202,7 +202,7 @@ public class Game {
   }
 
   //Looks at the tile in the direction specified.
-  public static boolean bossNear(Map m1, int[] l) {
+  public static boolean bossNear(Maze m1, int[] l) {
     //System.out.println("/Looking for boss."); //debug code.
     int v = view(m1, l, "NORTH"); if(v == 6) { return true; }
     v = view(m1, l, "SOUTH"); if(v == 6) { return true; }
@@ -232,21 +232,21 @@ public class Game {
     }
   }
 
-  //Loads a map from a given txt file.
-	public static Map loadMap(String s) {
-    //Map m = new loadMap("level1.txt");
+  //Loads a Maze from a given txt file.
+	public static Maze loadMaze(String s) {
+    //Maze m = new loadMaze("level1.txt");
     String userDir = System.getProperty("user.dir");
 	 	String content = fileToString(userDir + "/Levels/" + s + ".txt");
 
-		//set up map we'll play with.
-		int[] d = Map.fetchDimensions(content);
-		Map map = new Map(d);
-		map.fillMap(content);
-		return map;
+		//set up Maze we'll play with.
+		int[] d = Maze.fetchDimensions(content);
+		Maze Maze = new Maze(d);
+		Maze.fillMaze(content);
+		return Maze;
   }
 
   //Finds the spawn point and returns the row-column location as an array
-  public static int[] findSpawn(Map m) {
+  public static int[] findSpawn(Maze m) {
     for(int r = 0; r < m.row; r++) {
       for(int c = 0; c < m.column; c++) {
         if(m.grid[r][c] == 1) {
@@ -270,7 +270,7 @@ public class Game {
   }
 
   //finds the tile in the direction desired.
-  public static int view(Map m1, int[] l, String dir) {
+  public static int view(Maze m1, int[] l, String dir) {
     //System.out.println("/View method called.");
     if(dir.equals("NORTH")) {
       //Check if the tile above is out of bounds or 0.

@@ -1,6 +1,7 @@
 ----What is this?----
 Text-based adventure game that takes inputs through terminal.
 
+
 ----How do I use it?----
 Download, then access folder with terminal. In terminal,
 Input: javac *.java

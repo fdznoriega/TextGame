@@ -23,11 +23,14 @@ public class Game {
     Player p = new Player();
     int[] location = new int[2];  //array of 2 values bc row & column.
     int[] prevLocation = new int[2]; //array that keeps track of prev value.
+    int locationID = 0;
+    int depthUnlocked = 1;
+
+    System.out.println(">Starting game...")
 
     //---------Load Map---------
     Map m1 = loadMap("level1");
     //Map m2 = loadMap("level2");
-    //System.out.println(m1.row + " " + m1.column);
 
     //---------Update location to spawn point---------
     location = findSpawn(m1);
@@ -35,6 +38,7 @@ public class Game {
     //---------Start Game---------
     System.out.println(">INITIALIZED MAZE");
 
+    //navigateMaze()
     //---------Game loop---------
     while(isPlaying) {
       //Print stuff for debug.

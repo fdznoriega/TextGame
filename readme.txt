@@ -1,7 +1,5 @@
 ----What is this?----
 Text-based adventure game that takes inputs through terminal.
-Not exactly elegant, but the main intent is to observe how some design
-decision might impact future development. Also I'm bored.
 
 ----How do I use it?----
 Download, then access folder with terminal. In terminal,

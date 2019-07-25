@@ -1,12 +1,14 @@
 Here is what needs to get done:
 
 --------Next Time--------
--Revamp item notation.
--Revamp treasure system.
--Create a shop system.
+-Use design ideas learned from internship to re-design this project.
+
 
 
 --------Soon--------
+-Revamp item notation.
+-Revamp treasure system.
+-Create a shop system.
 -boss battle.
 
 
@@ -16,6 +18,7 @@ Here is what needs to get done:
 -Procedural generation of .txt files?
 -Stair tiles to move up and down dungeons.
 -Add more types of equipment.
+-add a pre-dungeon inn where the player can rest, speak with locals, buy items.
 
 --------Future Ideas--------
 -Consider making numbers on grid larger to have more types of things. Divide
@@ -23,3 +26,4 @@ Here is what needs to get done:
  while the second number could indicate type of type.
  -add a save() function which saves the player's data.
  -add a load() function which loads player data.
+ -add an actual UI instead of using terminal.

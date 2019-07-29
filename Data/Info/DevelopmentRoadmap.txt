@@ -2,16 +2,11 @@ Here is what needs to get done:
 
 --------Next Time--------
 -Use design ideas learned from internship to re-design this project.
-
-
-
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.
 -Create a shop system.
 -boss battle.
-
-
 --------Low Priority--------
 -Add a shop so that the player can purchase items.
 -Randomly generated .txt files that can be completed.
@@ -19,7 +14,6 @@ Here is what needs to get done:
 -Stair tiles to move up and down dungeons.
 -Add more types of equipment.
 -add a pre-dungeon inn where the player can rest, speak with locals, buy items.
-
 --------Future Ideas--------
 -Consider making numbers on grid larger to have more types of things. Divide
  them by using the space bar as the buffer. First number could indicate type,

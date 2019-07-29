@@ -23,20 +23,21 @@ public class Player {
 	public String statsToString() {
 		String name = "[ Player: ";
 		String pHp = "HP: " + this.stats.HpRatioToString() + " | ";
-		String att = "ATT: " + this.stats.attack + " ";
+		String att = "ATT: " + this.stats.attack + " | ";
 		String def = "DEF: " + this.stats.defense + " | ";
+		String spd = "SPD: " + this.stats.speed + " | ";
 		String xp = "EXP: " + this.xp + " | ";
 		String gold = "G: " + this.gold + " ] ";
-		return name + pHp + att + def + xp + gold;
+		return name + pHp + att + def + spd + xp + gold;
 	}
 
 	//string of player inventory
 	public String inventoryToString() {
 		String inven = "[ Inventory: ";
 		for(int i = 0; i < this.inventory.length; i++) {
-			inven += this.inventory[i] + ", ";
+			inven += this.inventory[i] + " ";
 		}
-		inven += " ] ";
+		inven += "]";
 		return inven;
 	}
 
@@ -44,9 +45,9 @@ public class Player {
 	public String equipmentToString() {
 		String equ = "[ Equipment: ";
 		for(int i = 0; i < this.equipment.length; i++) {
-			equ += this.equipment[i] + ", ";
+			equ += this.equipment[i] + " ";
 		}
-		equ += " ] ";
+		equ += "]";
 		return equ;
 	}
 

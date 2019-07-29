@@ -6,15 +6,15 @@ import Domain.Entities.Player;
 public class PlayerTester {
 
   public static void main(String[] args) {
-    System.out.println(">Creating player.");
+    //Make player
     Player p = new Player();
-
-    //Base
+    //Check toString vals
     System.out.println(">Checking toString methods");
     System.out.println(p.statsToString());
     System.out.println(p.inventoryToString());
     System.out.println(p.equipmentToString());
     System.out.println(p.toString());
+    //Make player interactor (wip)
 
   }
 }

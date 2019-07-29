@@ -1,19 +1,9 @@
-/* WHAT DOES "Maze" DO:
- * Converts text file into matrix
- */
-
-//File Reading and Stream Functionality
-import java.io.File;
-import java.io.FileReader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.io.IOException;
+package Domain.Entities;
 
 public class Maze {
 
-	public int[][] grid;
-	public int row;
-	public int column;
+	public int[][] grid;		//matrix of ints
+	public int row, column;	//dimensions of matrix
 
 	public Maze(int[] dimension) {
 		this.grid = new int[dimension[0]][dimension[1]];
@@ -77,33 +67,21 @@ public class Maze {
 		}
 	}
 
-
 	//Prints the Maze.
-	public void printMaze() {
+	public String toString() {
+		String info = "";
 		for(int i = 0; i < this.row; i++) {
 			for(int j = 0; j < this.column; j++) {
 				if(j % this.column == 0 && i != 0) {
-					System.out.println();
+					//System.out.println();
+					info += "\n";
 				}
-				System.out.print(grid[i][j]);
+				info += grid[i][j] + " ";
 			}
 		}
-		System.out.println();
+		//System.out.println();
+		return info;
 
 	}
 
-	public static void main(String[] args) {
-		String userDir = System.getProperty("user.dir");
-	 	String content = Game.fileToString(userDir + "/Levels/level1.txt");
-
-		//set up Maze we'll play with.
-		int[] d = fetchDimensions(content);
-		System.out.println("r: " + d[0] + " | " + "c: " + d[1]);
-		Maze demoMaze = new Maze(d);
-		demoMaze.fillMaze(content);
-		demoMaze.printMaze();
-
-
-
-	}
 }

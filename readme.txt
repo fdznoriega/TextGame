@@ -1,5 +1,6 @@
 ----What is this?----
-Text-based adventure game that takes inputs through terminal.
+Text-based adventure game written in Java.
+Planned to take inputs through terminal, but designed to do more.
 
 
 ----How do I use it?----

@@ -1,7 +1,8 @@
 Here is what needs to get done:
 
 --------Next Time--------
--Use design ideas learned from internship to re-design this project.
+-make inventory interactor.
+
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.

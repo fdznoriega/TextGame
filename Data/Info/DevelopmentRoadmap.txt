@@ -1,7 +1,7 @@
 Here is what needs to get done:
 
 --------Next Time--------
--make inventory interactor.
+-test inventory interactor
 
 --------Soon--------
 -Revamp item notation.

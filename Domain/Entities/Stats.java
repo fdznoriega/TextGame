@@ -17,7 +17,6 @@ public class Stats {
     this.speed = s;
   }
 
-  //stat manipulation
   public String ToString() {
     return "HP: " + HpRatioToString() + " | " +
            "Attack: " + this.attack + " | " +

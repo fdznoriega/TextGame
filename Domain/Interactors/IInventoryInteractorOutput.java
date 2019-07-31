@@ -4,14 +4,12 @@ import Domain.Entities.Inventory;
 import Domain.Entities.Item;
 
 public interface IInventoryInteractorOutput {
-  void showBag();
+  void showBag(Inventory i);
+  void showEquipment(Inventory i);
+  void showInventory(Inventory i);
   void showBagIsFull();
-  void showEquipment();
-  void showCannotEquip();
   void showEquipmentIsFull();
-  void showBagAndEquipment();
-  void showSuccess();
-  void showIndexedItem(int index);
-  void showItemOfId(int id);
+  void showCannotEquip();
   void showItemNotFound();
+  void showSuccess();
 }

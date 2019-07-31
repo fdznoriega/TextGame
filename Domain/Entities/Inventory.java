@@ -24,31 +24,25 @@ public class Inventory {
   }
 
   public String bagToString() {
-    String inv = "Bag:\n";
+    String inv = "Bag:";
     int counter = 0;
     while(counter < bag.length) {
       if(bag[counter] != null) {
-        inv += counter + ": " + bag[counter].toString() + "\n";
-        counter++;
+        inv += "\n" + counter + ": " + bag[counter].toString();
       }
-      else {
-        break;
-      }
+      counter++;
     }
     return inv;
   }
 
   public String equipmentToString() {
-    String eq = "Equipment:\n";
+    String eq = "Equipment:";
     int counter = 0;
     while(counter < equipment.length) {
       if(equipment[counter] != null) {
-        eq += counter + ": " + equipment[counter].toString() + "\n";
-        counter++;
+        eq += "\n" + counter + ": " + equipment[counter].toString() + "\n";
       }
-      else {
-        break;
-      }
+      counter++;
     }
     return eq;
   }

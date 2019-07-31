@@ -68,7 +68,7 @@ public class InventoryInteractor {
 
   public void removeItem(Item item) {
     for(int i = 0; i < inven.bag.length; i++) {
-      if(inven.bag[i].equals(item)) {
+      if(inven.bag[i] != null && inven.bag[i].equals(item)) {
         inven.bag[i] = null;
         invenInteractorOut.showSuccess();
         return;

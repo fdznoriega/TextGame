@@ -11,8 +11,6 @@ public class PlayerTester {
     //Check toString vals
     System.out.println(">Checking toString methods");
     System.out.println(p.statsToString());
-    System.out.println(p.inventoryToString());
-    System.out.println(p.equipmentToString());
     System.out.println(p.toString());
     //Make player interactor (wip)
 

@@ -6,8 +6,15 @@ public class Item {
   public ItemType type;
   public int id;
 
+  public Item(String n, ItemType t, int i) {
+    name = n;
+    type = t;
+    id  = i;
+
+  }
+
   public String toString() {
-    return "[ Item Name: " + name + ", Type: " + type +  ", Id " + id + " ]";
+    return "[ Item Name: " + name + ", Type: " + type +  ", Id: " + id + " ]";
   }
 
 

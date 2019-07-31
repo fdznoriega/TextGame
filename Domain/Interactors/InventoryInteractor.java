@@ -11,11 +11,10 @@ public class InventoryInteractor {
   public IInventoryInteractorOutput invenInteractorOut;
 
   //returns 0/1 (false, true), and index of empty space (int; -1 = no empty space)
-  private int[] inventoryIsFull() {
+  private int[] bagIsFull() {
     int counter = 0;
-    while(counter < inven.inventory.length) {
-      if(inven.inventory[counter] == null ||
-         inven.inventory[counter] == new Item()) {
+    while(counter < inven.bag.length) {
+      if(inven.bag[counter] == null) {
            return new int[] {0, counter};
       }
       counter++;
@@ -27,8 +26,7 @@ public class InventoryInteractor {
   private int[] equipmentIsFull() {
     int counter = 0;
     while(counter < inven.equipment.length) {
-      if(inven.equipment[counter] == null ||
-         inven.equipment[counter] == new Item()) {
+      if(inven.equipment[counter] == null) {
            return new int[] {0, counter};
       }
       counter++;
@@ -37,14 +35,14 @@ public class InventoryInteractor {
   }
 
   public void insertItem(Item item) {
-    int[] fullAndIndex = inventoryIsFull();
-    int inventoryIsFull = fullAndIndex[0];
+    int[] fullAndIndex = bagIsFull();
+    int bagIsFull = fullAndIndex[0];
     int indexOfEmptySpace = fullAndIndex[1];
-    if(inventoryIsFull == 1) {
-      invenInteractorOut.showInventoryIsFull();
+    if(bagIsFull == 1) {
+      invenInteractorOut.showBagIsFull();
     }
     else {
-      inven.inventory[indexOfEmptySpace] = item;
+      inven.bag[indexOfEmptySpace] = item;
       invenInteractorOut.showSuccess();
     }
   }
@@ -69,9 +67,9 @@ public class InventoryInteractor {
   }
 
   public void removeItem(Item item) {
-    for(int i = 0; i < inven.inventory.length; i++) {
-      if(inven.inventory[i].equals(item)) {
-        inven.inventory[i] = new Item();
+    for(int i = 0; i < inven.bag.length; i++) {
+      if(inven.bag[i].equals(item)) {
+        inven.bag[i] = null;
         invenInteractorOut.showSuccess();
         return;
       }
@@ -82,7 +80,7 @@ public class InventoryInteractor {
   public void unequipItem(Item item) {
     for(int i = 0; i < inven.equipment.length; i++) {
       if(inven.equipment[i].equals(item)) {
-        inven.equipment[i] = new Item();
+        inven.equipment[i] = null;
         invenInteractorOut.showSuccess();
         return;
       }
@@ -91,16 +89,16 @@ public class InventoryInteractor {
 
   }
 
-  public void clearInventory() {
-    for(int i = 0; i < inven.inventory.length; i++) {
-      inven.inventory[i] = new Item();
+  public void clearBag() {
+    for(int i = 0; i < inven.bag.length; i++) {
+      inven.bag[i] = null;
     }
     invenInteractorOut.showSuccess();
   }
 
   public void clearEquipment() {
     for(int i = 0; i < inven.equipment.length; i++) {
-      inven.equipment[i] = new Item();
+      inven.equipment[i] = null;
     }
     invenInteractorOut.showSuccess();
   }

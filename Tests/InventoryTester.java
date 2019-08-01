@@ -21,7 +21,7 @@ public class InventoryTester {
     i3 = new Item("Key", ItemType.unlock, 1);
     i4 = new Item("Sword", ItemType.equip, 1);
     i5 = new Item("Bone", ItemType.equip, 2);
-    i6 = new Item("Key", ItemType.unlock, 1);
+    i6 = new Item("Amulet", ItemType.equip, 1);
     i7 = new Item("Hp Potion", ItemType.restore, 1);
     i8 = new Item("Hp Potion", ItemType.restore, 1);
     i9 = new Item("Mana Potion", ItemType.restore, 2);
@@ -62,13 +62,18 @@ public class InventoryTester {
     invenInteractor.insertItem(i11);
     System.out.println(i.bagToString());
     //Equip 2 items
-    System.out.println(">TESTER: Equip 2 items");
+    System.out.println(">TESTER: Equip 3 items");
     invenInteractor.equipItem(i4);
     invenInteractor.equipItem(i5);
+    invenInteractor.equipItem(i6);
     System.out.println(i.equipmentToString());
     //Equip item 3 (overflow)
-    System.out.println(">TESTER: Equip item 3 (overflow)");
+    System.out.println(">TESTER: Equip item 4 (overflow)");
     invenInteractor.equipItem(i10);
+    System.out.println(i.toString());
+    //try equip item not in inventory
+    //System.out.println(">TESTER: Equip item not in bag");
+
     //Unequip 3 items
 
 

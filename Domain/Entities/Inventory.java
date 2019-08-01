@@ -15,7 +15,7 @@ public class Inventory {
       string += "Empty/Null" + "\n";
     }
     if(equipment != null){
-      string += equipmentToString();
+      string += "\n" + equipmentToString();
     }
     else {
       string += "Empty/Null" + "\n";

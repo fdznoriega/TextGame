@@ -34,6 +34,15 @@ public class InventoryInteractor {
     return new int[] {1, -1};
   }
 
+  private boolean isItemInBag(Item item) {
+    for(int counter = 0; counter < inven.bag.length; counter++) {
+      if(inven.bag[counter] != null && inven.bag[counter].equals(item)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public void insertItem(Item item) {
     int[] fullAndIndex = bagIsFull();
     int bagIsFull = fullAndIndex[0];
@@ -48,7 +57,12 @@ public class InventoryInteractor {
   }
 
   //itemtype must be equip!
+  //equipped items moved from bag to equip slot
   public void equipItem(Item item) {
+    if(!isItemInBag(item)) {
+      invenInteractorOut.showItemNotFound();
+      return;
+    }
     if(item.type != ItemType.equip) {
       invenInteractorOut.showCannotEquip();
       return;
@@ -61,7 +75,8 @@ public class InventoryInteractor {
     }
     else {
       inven.equipment[indexOfEmptySpace] = item;
-      invenInteractorOut.showSuccess();
+      removeItem(item);
+      //invenInteractorOut.showSuccess();
     }
 
   }

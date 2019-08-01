@@ -40,7 +40,7 @@ public class Inventory {
     int counter = 0;
     while(counter < equipment.length) {
       if(equipment[counter] != null) {
-        eq += "\n" + counter + ": " + equipment[counter].toString() + "\n";
+        eq += "\n" + counter + ": " + equipment[counter].toString();
       }
       counter++;
     }

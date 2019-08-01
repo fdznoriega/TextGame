@@ -8,13 +8,17 @@ import Game.ConsoleUserInterface;
 
 public class InventoryTester {
 
+  private static void sopl(String s) {
+    System.out.println(s);
+  }
+
   public static void main(String[] args) {
     //Make inven
-    System.out.println(">TESTER: Making inventory");
+    sopl(">TESTER: Making inventory");
     Inventory i = new Inventory();
     //Make 10 items
     //Item(name, type, id);
-    System.out.println(">TESTER: Making 10 items");
+    sopl(">TESTER: Making 10 items");
     Item i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
     i1 = new Item("Hp Potion", ItemType.restore, 1);
     i2 = new Item("Mana Potion", ItemType.restore, 2);
@@ -40,67 +44,64 @@ public class InventoryTester {
     System.out.println(i.equipmentToString());
     */
     //Make inventory interactor & output
-    System.out.println(">TESTER: Fully defining inventory interactor");
+    sopl(">TESTER: Fully defining inventory interactor");
     InventoryInteractor invenInteractor = new InventoryInteractor();
     //----------this can be changed into any other kind of output----------
     ConsoleUserInterface cui = new ConsoleUserInterface();
     //---------------------------------------------------------------------
     invenInteractor.inven = i;
     invenInteractor.invenInteractorOut = cui;
-    System.out.println(">TESTER: Testing methods");
+    sopl(">TESTER: Testing methods");
 
     //Inserting when full
     Item i11 = new Item("Bus", ItemType.enhance, 1);
-    System.out.println(">TESTER: Inserting when full");
+    sopl(">TESTER: Inserting when full");
     invenInteractor.insertItem(i11);
     //Removing an item by item
-    System.out.println(">TESTER: Removing an item by item");
+    sopl(">TESTER: Removing an item by item");
     invenInteractor.removeItem(i2);
-    System.out.println(i.bagToString());
+    sopl(i.bagToString());
     //Adding an item when spot available
-    System.out.println(">TESTER: Adding an item when spot available");
+    sopl(">TESTER: Adding an item when spot available");
     invenInteractor.insertItem(i11);
-    System.out.println(i.bagToString());
+    sopl(i.bagToString());
     //Equip 2 items
-    System.out.println(">TESTER: Equip 3 items");
+    sopl(">TESTER: Equip 3 items");
     invenInteractor.equipItem(i4);
     invenInteractor.equipItem(i5);
     invenInteractor.equipItem(i6);
-    System.out.println(i.equipmentToString());
+    sopl(i.equipmentToString());
     //Equip item 3 (overflow)
-    System.out.println(">TESTER: Equip item 4 (overflow)");
+    sopl(">TESTER: Equip item 4 (overflow)");
     invenInteractor.equipItem(i10);
-    System.out.println(i.toString());
+    sopl(i.toString());
+    //unequip item
+    sopl(">TESTER: Unequip item");
+    invenInteractor.unequipItem(i10);
+    sopl(i.toString());
     //try equip item not in inventory
-    //System.out.println(">TESTER: Equip item not in bag");
-
+    sopl(">TESTER: Try equip item not in inven");
+    invenInteractor.equipItem(new Item("Freako", ItemType.enhance, 1));
     //Unequip 3 items
+    sopl(">TESTER: Unequip 3 items");
+    invenInteractor.unequipItem(i4);
+    invenInteractor.unequipItem(i5);
+    invenInteractor.unequipItem(i6);
+    sopl(i.equipmentToString());
 
 
     //Clearing the bag when full
-    System.out.println(">TESTER: clearBag()");
+    sopl(">TESTER: clearBag()");
     invenInteractor.clearBag();
-    System.out.println(i.bagToString());
+    sopl(i.bagToString());
     //Removing item from empty bag
-    System.out.println(">TESTER: removeItem(Item item)");
+    sopl(">TESTER: removeItem(Item item)");
     invenInteractor.removeItem(i3);
-    System.out.println(i.bagToString());
+    sopl(i.bagToString());
+    sopl(">TESTER: clearEquipment()");
+    invenInteractor.clearEquipment();
+    sopl(i.equipmentToString());
 
-    //Removing an item
-
-    //equipItem(Item item);
-    //removeItem(Item item);
-    //unequipItem(Item item);
-    //clearBag();
-    //clearEquipment();
-
-
-
-    //Make 3 items
-    //Item[] equipItemArr = { e1, e2, e3 };
-    //i.equipment = equipItemArr;
-    //test toString methods
-    //make inventory interactor
   }
 
 }

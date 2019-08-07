@@ -93,15 +93,18 @@ public class InventoryInteractor {
   }
 
   public void unequipItem(Item item) {
-    for(int i = 0; i < inven.equipment.length; i++) {
-      if(inven.equipment[i].equals(item)) {
-        inven.equipment[i] = null;
-        invenInteractorOut.showSuccess();
-        return;
+    if(item != null && inven.equipment.length > 0) {
+      for(int i = 0; i < inven.equipment.length; i++) {
+        if(inven.equipment[i] != null) {
+          if(inven.equipment[i].equals(item)) {
+            inven.equipment[i] = null;
+            invenInteractorOut.showSuccess();
+            return;
+          }
+        }
       }
     }
     invenInteractorOut.showItemNotFound();
-
   }
 
   public void clearBag() {

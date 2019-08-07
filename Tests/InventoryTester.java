@@ -88,14 +88,12 @@ public class InventoryTester {
     invenInteractor.unequipItem(i5);
     invenInteractor.unequipItem(i6);
     sopl(i.equipmentToString());
-
-
     //Clearing the bag when full
     sopl(">TESTER: clearBag()");
     invenInteractor.clearBag();
     sopl(i.bagToString());
     //Removing item from empty bag
-    sopl(">TESTER: removeItem(Item item)");
+    sopl(">TESTER: Remove item Key");
     invenInteractor.removeItem(i3);
     sopl(i.bagToString());
     sopl(">TESTER: clearEquipment()");

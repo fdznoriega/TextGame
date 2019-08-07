@@ -1,7 +1,8 @@
 Here is what needs to get done:
 
 --------Next Time--------
--debug equipment methods
+CURRENT MAJOR: rewriting the entire code w better design.
+-write the player interactor
 
 --------Soon--------
 -Revamp item notation.

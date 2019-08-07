@@ -20,16 +20,16 @@ public class InventoryTester {
     //Item(name, type, id);
     sopl(">TESTER: Making 10 items");
     Item i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
-    i1 = new Item("Hp Potion", ItemType.restore, 1);
-    i2 = new Item("Mana Potion", ItemType.restore, 2);
-    i3 = new Item("Key", ItemType.unlock, 1);
-    i4 = new Item("Sword", ItemType.equip, 1);
-    i5 = new Item("Bone", ItemType.equip, 2);
-    i6 = new Item("Amulet", ItemType.equip, 1);
-    i7 = new Item("Hp Potion", ItemType.restore, 1);
-    i8 = new Item("Hp Potion", ItemType.restore, 1);
-    i9 = new Item("Mana Potion", ItemType.restore, 2);
-    i10 = new Item("Rubber Duck", ItemType.equip, 1);
+    i1 = new Item("Hp Potion", ItemType.Restore, 1);
+    i2 = new Item("Mana Potion", ItemType.Restore, 2);
+    i3 = new Item("Key", ItemType.Unlock, 1);
+    i4 = new Item("Sword", ItemType.Equip, 1);
+    i5 = new Item("Bone", ItemType.Equip, 2);
+    i6 = new Item("Amulet", ItemType.Equip, 1);
+    i7 = new Item("Hp Potion", ItemType.Restore, 1);
+    i8 = new Item("Hp Potion", ItemType.Restore, 1);
+    i9 = new Item("Mana Potion", ItemType.Restore, 2);
+    i10 = new Item("Rubber Duck", ItemType.Equip, 1);
     //Put em in an array
     Item[] itemArr = new Item[] { i1, i2, i3, i4, i5, i6, i7, i8, i9, i10 };
     i.bag = itemArr;
@@ -54,7 +54,7 @@ public class InventoryTester {
     sopl(">TESTER: Testing methods");
 
     //Inserting when full
-    Item i11 = new Item("Bus", ItemType.enhance, 1);
+    Item i11 = new Item("Bus", ItemType.Enhance, 1);
     sopl(">TESTER: Inserting when full");
     invenInteractor.insertItem(i11);
     //Removing an item by item
@@ -65,14 +65,14 @@ public class InventoryTester {
     sopl(">TESTER: Adding an item when spot available");
     invenInteractor.insertItem(i11);
     sopl(i.bagToString());
-    //Equip 2 items
-    sopl(">TESTER: Equip 3 items");
+    //equip 2 items
+    sopl(">TESTER: equip 3 items");
     invenInteractor.equipItem(i4);
     invenInteractor.equipItem(i5);
     invenInteractor.equipItem(i6);
     sopl(i.equipmentToString());
-    //Equip item 3 (overflow)
-    sopl(">TESTER: Equip item 4 (overflow)");
+    //equip item 3 (overflow)
+    sopl(">TESTER: equip item 4 (overflow)");
     invenInteractor.equipItem(i10);
     sopl(i.toString());
     //unequip item
@@ -81,7 +81,7 @@ public class InventoryTester {
     sopl(i.toString());
     //try equip item not in inventory
     sopl(">TESTER: Try equip item not in inven");
-    invenInteractor.equipItem(new Item("Freako", ItemType.enhance, 1));
+    invenInteractor.equipItem(new Item("Freako", ItemType.Enhance, 1));
     //Unequip 3 items
     sopl(">TESTER: Unequip 3 items");
     invenInteractor.unequipItem(i4);
@@ -96,7 +96,7 @@ public class InventoryTester {
     sopl(">TESTER: Remove item Key");
     invenInteractor.removeItem(i3);
     sopl(i.bagToString());
-    sopl(">TESTER: clearEquipment()");
+    sopl(">TESTER: clearequipment()");
     invenInteractor.clearEquipment();
     sopl(i.equipmentToString());
 

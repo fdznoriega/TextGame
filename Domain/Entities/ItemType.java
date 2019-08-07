@@ -1,5 +1,5 @@
 package Domain.Entities;
 
 public enum ItemType {
-  restore, enhance, equip, unlock;
+  Restore, Enhance, Equip, Unlock;
 }

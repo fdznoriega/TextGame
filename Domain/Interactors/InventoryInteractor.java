@@ -63,7 +63,7 @@ public class InventoryInteractor {
       invenInteractorOut.showItemNotFound();
       return;
     }
-    if(item.type != ItemType.equip) {
+    if(item.type != ItemType.Equip) {
       invenInteractorOut.showCannotEquip();
       return;
     }
@@ -121,10 +121,5 @@ public class InventoryInteractor {
     invenInteractorOut.showSuccess();
   }
 
-  //should this be here? seems more like a game system...
-  // public void useItem(Item item) {
-  //   return null;
-  //
-  // }
 
 }

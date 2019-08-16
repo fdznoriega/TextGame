@@ -3,7 +3,7 @@ Here is what needs to get done:
 --------Next Time--------
 CURRENT MAJOR: rewriting the entire code w better design.
 -write the player interactor
-
+-ask about using threads to run the game state algorithm
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.

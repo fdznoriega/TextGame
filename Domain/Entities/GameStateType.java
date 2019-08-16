@@ -1,5 +1,5 @@
 package Domain.Entities;
 
-public enum GameState {
+public enum GameStateType {
   Explore, Fight, Pause, GameOver;
 }

@@ -34,7 +34,6 @@ public class Player {
 		return name + pHp + att + def + spd + xp + gold;
 	}
 
-
 	//full player toString
 	public String toString() {
 		return statsToString() + "\n" + inventory.toString();

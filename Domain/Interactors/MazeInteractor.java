@@ -13,23 +13,48 @@ public class MazeInteractor {
 
   public void initializeMaze(String fileName) {
     //turn file into string content
-    String content = textFileToString(fileName);
+    String content;
+    int[] d;
+    try {
+      content = levelFileToString(fileName);
+    }
+    catch(Exception e) {
+      mOut.showReadFailure();
+      return;
+    }
     //get dimensions of that content
-    int[] d = stringMatrixDimension(content);
+    try {
+      d = stringMatrixDimension(content);
+    }
+    catch(NullPointerException e) {
+      mOut.showDimensionFailure();
+      return;
+    }
     //make empty matrix from those dimensions
-    Maze m = new Maze(d);
     //fill zero matrix
-    //m.matrix = fillMatrix(content);
+    try {
+      Maze wipMaze = new Maze(d);
+      wipMaze.matrix = transcribeMatrix(d, content);
+    }
+    catch(Exception e) {
+      mOut.showMatrixFailure();
+      return;
+    }
     //show success
-
+    mOut.showInitializeSuccess();
   }
 
-  private static String textFileToString(String fileName) {
+  //turns files under level into string
+  private static String levelFileToString(String fileName) {
     String userDir = System.getProperty("user.dir");
 	 	return fileToString(userDir + "/Levels/" + fileName + ".txt");
   }
 
+  //browses through string maze and returns dimensions
   private static int[] stringMatrixDimension(String content) {
+    if(content == null) {
+      return null;
+    }
     int r = 0;
 		int c = 0;
 		for(int i = 0; i < content.length(); i++) {
@@ -57,7 +82,7 @@ public class MazeInteractor {
 		return dimensions;
   }
 
-  //finds/turns text file into string given a file name
+  //finds and turns text file into string given a file name
   private static String fileToString(String p) {
      try {
 			String content = new String(Files.readAllBytes(Paths.get(p)));
@@ -67,5 +92,34 @@ public class MazeInteractor {
 			return null;
 		}
 	}
+
+  //copies a zero int matrix from a char matrix
+  private static int[][] transcribeMatrix(int[] d, String content) {
+    int r = 0;
+		int c = 0;
+    int[][] matrix = new int[d[0]][d[1]];
+		for(int i = 0; i < content.length(); i++) {
+			//"]" is the EOF flag, so break.
+			char currentChar = content.charAt(i);
+			if(currentChar == ']') {
+				break;
+			}
+			//we've reached a new row.
+			else if(currentChar == '\n') {
+				r += 1;
+				c = 0;
+			}
+			//we've reached a new column.
+			else if(currentChar == ' ') {
+				//idle.
+			}
+			else {
+				//convert char to int and put it in the grid.
+				matrix[r][c] = Integer.parseInt(String.valueOf(currentChar));
+				c++;
+			}
+		}
+    return matrix;
+  }
 
 }

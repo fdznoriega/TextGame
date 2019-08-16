@@ -1,14 +1,15 @@
 Here is what needs to get done:
 
+WIP: rewriting the entire code w better design.
+
 --------Next Time--------
-CURRENT MAJOR: rewriting the entire code w better design.
--write the player interactor
--ask about using threads to run the game state algorithm
+-write maze interactor
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.
 -Create a shop system.
 -boss battle.
+-use threads to check game state.
 --------Low Priority--------
 -Add a shop so that the player can purchase items.
 -Randomly generated .txt files that can be completed.

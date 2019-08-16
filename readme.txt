@@ -1,7 +1,6 @@
 ----What is this?----
-Text-based adventure game written in Java.
-Planned to take inputs through terminal, but designed to do more.
-
+Text-based adventure game written in Java and designed with clean
+architecture in mind.
 
 ----How do I use it?----
 Download, then access folder with terminal. In terminal,
@@ -10,7 +9,7 @@ Input: java Game
 And from there the game will run.
 
 ----Controls?----
-Everything is a text input you provide.
+Currently, commands are sent through console text input.
 
 /Navigating the Map
 Commands: north, south, east, west.

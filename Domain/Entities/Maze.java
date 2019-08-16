@@ -5,6 +5,7 @@ public class Maze {
 	public int[][] matrix;		//matrix of ints
 	public int row, column;	//dimensions of matrix
 
+	//makes empty maze of dimension (m x n)
 	public Maze(int[] dimension) {
 		this.matrix = new int[dimension[0]][dimension[1]];
 		row = dimension[0];

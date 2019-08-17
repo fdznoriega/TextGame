@@ -3,7 +3,7 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--write maze interactor
+-debug maze interactor in test section
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.

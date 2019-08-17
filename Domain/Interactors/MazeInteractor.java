@@ -6,11 +6,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.IOException;
 
+//this interactor reads data from levels folder
+//another maze interactor could read data from another source.
 public class MazeInteractor {
 
   public Maze maze;
   public IMazeInteractorOutput mOut;
 
+  //initializes maze from given level text file.
   public void initializeMaze(String fileName) {
     //turn file into string content
     String content;

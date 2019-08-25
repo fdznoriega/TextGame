@@ -4,8 +4,10 @@ import Domain.Interactors.IInventoryInteractorOutput;
 import Domain.Entities.Inventory;
 
 //implements many interactors?
-public class ConsoleUserInterface implements IInventoryInteractorOutput {
+public class ConsoleUserInterface implements
+  IInventoryInteractorOutput, IMazeInteractorOutput {
 
+  //Inventory Interactor Section
   public void showBag(Inventory i) {
     System.out.println(i.bag.toString());
   }
@@ -33,8 +35,18 @@ public class ConsoleUserInterface implements IInventoryInteractorOutput {
   public void showItemNotFound() {
     System.out.println(">Could not find item");
   }
-  
+
   public void showSuccess() {
     System.out.println(">Success");
   }
+
+  //Maze Interactor section
+  public void showMaze();
+  public void showInitializeSuccess();
+  public void showDimensionSuccess();
+  public void showMatrixSuccess();
+  public void showMatrixFailure();
+  public void showDimensionFailure();
+  public void showReadFailure();
+  public void showReadSuccess();
 }

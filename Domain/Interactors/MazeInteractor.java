@@ -40,11 +40,23 @@ public class MazeInteractor {
       wipMaze.matrix = transcribeMatrix(d, content);
     }
     catch(Exception e) {
+      System.out.println("Whoop");
       mOut.showMatrixFailure();
+      System.out.println("Joop");
       return;
     }
     //show success
     mOut.showInitializeSuccess();
+  }
+
+  //find location given id
+  public int[] locateSpace(int id) {
+    switch(id) {
+      case 1: //spawn
+      case 4: //treasure
+    }
+    //wip
+    return new int[] {0,0};
   }
 
   //turns files under level into string

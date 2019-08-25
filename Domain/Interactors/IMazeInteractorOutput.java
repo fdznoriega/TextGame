@@ -1,7 +1,9 @@
 package Domain.Interactors;
 
+import Domain.Entities.Maze;
+
 public interface IMazeInteractorOutput {
-  void showMaze();
+  void showMaze(Maze m);
   void showInitializeSuccess();
   void showDimensionSuccess();
   void showMatrixSuccess();

@@ -6,13 +6,13 @@ import Game.ConsoleUserInterface;
 
 public class MazeTester {
   public static void main(String[] args) {
-    Maze m;
-    ConsoleUserInterface cli = new ConsoleUserInterface();
+    //Setup the output
+    ConsoleUserInterface cui = new ConsoleUserInterface();
     MazeInteractor mInteractor = new MazeInteractor();
-    mInteractor.maze = m;
     mInteractor.mOut = cui;
-
+    //Initialize Maze
     mInteractor.initializeMaze("level1");
+    //Print it out.
 
   }
 }

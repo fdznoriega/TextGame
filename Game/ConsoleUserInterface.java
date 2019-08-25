@@ -1,11 +1,12 @@
 package Game;
 
 import Domain.Interactors.IInventoryInteractorOutput;
+import Domain.Interactors.IMazeInteractorOutput;
 import Domain.Entities.Inventory;
+import Domain.Entities.Maze;
 
 //implements many interactors?
-public class ConsoleUserInterface implements
-  IInventoryInteractorOutput, IMazeInteractorOutput {
+public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeInteractorOutput {
 
   //Inventory Interactor Section
   public void showBag(Inventory i) {
@@ -41,12 +42,35 @@ public class ConsoleUserInterface implements
   }
 
   //Maze Interactor section
-  public void showMaze();
-  public void showInitializeSuccess();
-  public void showDimensionSuccess();
-  public void showMatrixSuccess();
-  public void showMatrixFailure();
-  public void showDimensionFailure();
-  public void showReadFailure();
-  public void showReadSuccess();
+  public void showMaze(Maze m) {
+    System.out.println(m.toString());
+  }
+
+  public void showInitializeSuccess() {
+    System.out.println("Maze Initialized");
+  }
+
+  public void showDimensionSuccess() {
+    System.out.println("Dimensions calculated");
+  }
+
+  public void showMatrixSuccess() {
+    System.out.println("Matrix setup success");
+  }
+
+  public void showMatrixFailure() {
+    System.out.println("Matrix setup failure");
+  }
+
+  public void showDimensionFailure() {
+    System.out.println("Dimensions not calculated");
+  }
+
+  public void showReadFailure() {
+    System.out.println("Could not read file");
+  }
+
+  public void showReadSuccess() {
+    System.out.println("File read successfully");
+  }
 }

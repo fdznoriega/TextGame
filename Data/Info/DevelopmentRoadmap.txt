@@ -3,13 +3,14 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--debug maze interactor in test section
+-debug Maze entity and interactor in MazeTester.java
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.
 -Create a shop system.
 -boss battle.
 -use threads to check game state.
+-game master class that oversees the whole operation
 --------Low Priority--------
 -Add a shop so that the player can purchase items.
 -Randomly generated .txt files that can be completed.

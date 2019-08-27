@@ -19,7 +19,9 @@ public class MazeInteractor {
     String content;
     int[] d;
     try {
+      System.out.println("Get content");
       content = levelFileToString(fileName);
+      System.out.println(content);
     }
     catch(Exception e) {
       mOut.showReadFailure();
@@ -27,6 +29,7 @@ public class MazeInteractor {
     }
     //get dimensions of that content
     try {
+      System.out.println("Get dimension");
       d = stringMatrixDimension(content);
     }
     catch(NullPointerException e) {
@@ -36,7 +39,9 @@ public class MazeInteractor {
     //make empty matrix from those dimensions
     //fill zero matrix
     try {
+      System.out.println("Making new maze with dimensions d");
       Maze wipMaze = new Maze(d);
+      System.out.println("Transcribing matrix from char to int");
       wipMaze.matrix = transcribeMatrix(d, content);
     }
     catch(Exception e) {
@@ -61,9 +66,22 @@ public class MazeInteractor {
 
   //turns files under level into string
   private static String levelFileToString(String fileName) {
-    String userDir = System.getProperty("user.dir");
-	 	return fileToString(userDir + "/Levels/" + fileName + ".txt");
+    //path TextGame folder and reach desired level
+    String dir = System.getProperty("user.dir") + "/Data/Levels/" + fileName + ".txt";
+    System.out.println(dir);
+	 	return fileToString(dir + "/Data/Levels/" + fileName + ".txt");
   }
+
+  //finds and turns text file into string given a file name
+  private static String fileToString(String p) {
+     try {
+			String content = new String(Files.readAllBytes(Paths.get(p)));
+			return content;
+		}
+    catch (IOException e) {
+			return null;
+		}
+	}
 
   //browses through string maze and returns dimensions
   private static int[] stringMatrixDimension(String content) {
@@ -96,17 +114,6 @@ public class MazeInteractor {
 		int[] dimensions = {r + 1 , c + 1};
 		return dimensions;
   }
-
-  //finds and turns text file into string given a file name
-  private static String fileToString(String p) {
-     try {
-			String content = new String(Files.readAllBytes(Paths.get(p)));
-			return content;
-		}
-    catch (IOException e) {
-			return null;
-		}
-	}
 
   //copies a zero int matrix from a char matrix
   private static int[][] transcribeMatrix(int[] d, String content) {

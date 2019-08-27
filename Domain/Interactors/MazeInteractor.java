@@ -19,9 +19,7 @@ public class MazeInteractor {
     String content;
     int[] d;
     try {
-      System.out.println("Get content");
       content = levelFileToString(fileName);
-      System.out.println(content);
     }
     catch(Exception e) {
       mOut.showReadFailure();
@@ -29,7 +27,6 @@ public class MazeInteractor {
     }
     //get dimensions of that content
     try {
-      System.out.println("Get dimension");
       d = stringMatrixDimension(content);
     }
     catch(NullPointerException e) {
@@ -39,28 +36,23 @@ public class MazeInteractor {
     //make empty matrix from those dimensions
     //fill zero matrix
     try {
-      System.out.println("Making new maze with dimensions d");
       Maze wipMaze = new Maze(d);
-      System.out.println("Transcribing matrix from char to int");
       wipMaze.matrix = transcribeMatrix(d, content);
     }
     catch(Exception e) {
-      System.out.println("Whoop");
       mOut.showMatrixFailure();
-      System.out.println("Joop");
       return;
     }
     //show success
     mOut.showInitializeSuccess();
   }
 
-  //find location given id
+  //find location given id -- WIP METHOD
   public int[] locateSpace(int id) {
     switch(id) {
       case 1: //spawn
       case 4: //treasure
     }
-    //wip
     return new int[] {0,0};
   }
 
@@ -68,7 +60,6 @@ public class MazeInteractor {
   private static String levelFileToString(String fileName) {
     //path TextGame folder and reach desired level
     String dir = System.getProperty("user.dir") + "/Data/Levels/" + fileName + ".txt";
-    System.out.println(dir);
 	 	return fileToString(dir);
   }
 

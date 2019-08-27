@@ -7,9 +7,7 @@ public class Maze {
 
 	//makes empty maze of dimension (m x n)
 	public Maze(int[] dimension) {
-		System.out.println("Filling matrix");
 		matrix = new int[dimension[0]][dimension[1]];
-		System.out.println("Defining row/column");
 		row = dimension[0];
 		column = dimension[1];
 	}

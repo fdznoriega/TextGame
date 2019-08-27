@@ -69,7 +69,7 @@ public class MazeInteractor {
     //path TextGame folder and reach desired level
     String dir = System.getProperty("user.dir") + "/Data/Levels/" + fileName + ".txt";
     System.out.println(dir);
-	 	return fileToString(dir + "/Data/Levels/" + fileName + ".txt");
+	 	return fileToString(dir);
   }
 
   //finds and turns text file into string given a file name

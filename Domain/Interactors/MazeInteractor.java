@@ -18,6 +18,7 @@ public class MazeInteractor {
     //turn file into string content
     String content;
     int[] d;
+    Maze wipMaze;
     try {
       content = levelFileToString(fileName);
     }
@@ -36,13 +37,15 @@ public class MazeInteractor {
     //make empty matrix from those dimensions
     //fill zero matrix
     try {
-      Maze wipMaze = new Maze(d);
+      wipMaze = new Maze(d);
       wipMaze.matrix = transcribeMatrix(d, content);
     }
     catch(Exception e) {
       mOut.showMatrixFailure();
       return;
     }
+    //assign completed maze to the interactor
+    this.maze = wipMaze;
     //show success
     mOut.showInitializeSuccess();
   }
@@ -56,6 +59,8 @@ public class MazeInteractor {
     return new int[] {0,0};
   }
 
+
+  // -- Private Methods -- \\
   //turns files under level into string
   private static String levelFileToString(String fileName) {
     //path TextGame folder and reach desired level

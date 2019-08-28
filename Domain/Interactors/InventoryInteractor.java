@@ -10,39 +10,6 @@ public class InventoryInteractor {
   public Inventory inven;
   public IInventoryInteractorOutput invenInteractorOut;
 
-  //returns 0/1 (false, true), and index of empty space (int; -1 = no empty space)
-  private int[] bagIsFull() {
-    int counter = 0;
-    while(counter < inven.bag.length) {
-      if(inven.bag[counter] == null) {
-           return new int[] {0, counter};
-      }
-      counter++;
-    }
-    return new int[] {1, -1};
-  }
-
-  //same as inventoryIsFull()
-  private int[] equipmentIsFull() {
-    int counter = 0;
-    while(counter < inven.equipment.length) {
-      if(inven.equipment[counter] == null) {
-           return new int[] {0, counter};
-      }
-      counter++;
-    }
-    return new int[] {1, -1};
-  }
-
-  private boolean isItemInBag(Item item) {
-    for(int counter = 0; counter < inven.bag.length; counter++) {
-      if(inven.bag[counter] != null && inven.bag[counter].equals(item)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   public void insertItem(Item item) {
     int[] fullAndIndex = bagIsFull();
     int bagIsFull = fullAndIndex[0];
@@ -121,5 +88,38 @@ public class InventoryInteractor {
     invenInteractorOut.showSuccess();
   }
 
+  // -- Private Methods -- \\
+  //returns 0/1 (false, true), and index of empty space (int; -1 = no empty space)
+  private int[] bagIsFull() {
+    int counter = 0;
+    while(counter < inven.bag.length) {
+      if(inven.bag[counter] == null) {
+           return new int[] {0, counter};
+      }
+      counter++;
+    }
+    return new int[] {1, -1};
+  }
+
+  //same as inventoryIsFull()
+  private int[] equipmentIsFull() {
+    int counter = 0;
+    while(counter < inven.equipment.length) {
+      if(inven.equipment[counter] == null) {
+           return new int[] {0, counter};
+      }
+      counter++;
+    }
+    return new int[] {1, -1};
+  }
+
+  private boolean isItemInBag(Item item) {
+    for(int counter = 0; counter < inven.bag.length; counter++) {
+      if(inven.bag[counter] != null && inven.bag[counter].equals(item)) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }

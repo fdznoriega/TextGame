@@ -47,30 +47,30 @@ public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeIn
   }
 
   public void showInitializeSuccess() {
-    System.out.println("Maze Initialized");
+    System.out.println(">Maze Initialized");
   }
 
   public void showDimensionSuccess() {
-    System.out.println("Dimensions calculated");
+    System.out.println(">Dimensions calculated");
   }
 
   public void showMatrixSuccess() {
-    System.out.println("Matrix setup success");
+    System.out.println(">Matrix setup success");
   }
 
   public void showMatrixFailure() {
-    System.out.println("Matrix setup failure");
+    System.out.println(">Matrix setup failure");
   }
 
   public void showDimensionFailure() {
-    System.out.println("Dimensions not calculated");
+    System.out.println(">Dimensions not calculated");
   }
 
   public void showReadFailure() {
-    System.out.println("Could not read file");
+    System.out.println(">Could not read file");
   }
 
   public void showReadSuccess() {
-    System.out.println("File read successfully");
+    System.out.println(">File read successfully");
   }
 }

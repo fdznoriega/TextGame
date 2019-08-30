@@ -19,6 +19,9 @@ public class MazeTester {
     int[] spawnLocation = mInteractor.findSpawn();
     //top left corner = 0,0
     System.out.println(spawnLocation[0] +  " , " + spawnLocation[1]);
+    //get the dimensions
+    int[] d = mInteractor.fetchDimension();
+    System.out.println("Dimensions: " + d[0] + " , " + d[1]);
 
 
   }

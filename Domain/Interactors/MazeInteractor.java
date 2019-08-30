@@ -64,6 +64,11 @@ public class MazeInteractor {
     return null;
   }
 
+  //fetches dimensions of the maze
+  public int[] fetchDimension() {
+    return new int[] { maze.row, maze.column };
+  }
+
 
   // -- Private Methods -- \\
   //turns files under level into string

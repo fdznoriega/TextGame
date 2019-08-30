@@ -22,7 +22,7 @@ public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeIn
   }
 
   public void showBagIsFull() {
-    System.out.println(">Bag is full.");
+    System.out.println(">Bag is full");
   }
 
   public void showEquipmentIsFull() {
@@ -73,4 +73,14 @@ public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeIn
   public void showReadSuccess() {
     System.out.println(">File read successfully");
   }
+
+  public void showFindSpawnFailure() {
+    System.out.println(">Could not find spawn");
+  }
+  public void showFindSpawnSuccess() {
+    System.out.println(">Found spawn successfully");
+  }
+
+
+
 }

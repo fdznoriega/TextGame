@@ -15,6 +15,10 @@ public class MazeTester {
     //Print it out.
     String mazeDuplicate = mInteractor.maze.toString();
     System.out.println(mazeDuplicate);
+    //Find the spawn
+    int[] spawnLocation = mInteractor.findSpawn();
+    //top left corner = 0,0
+    System.out.println(spawnLocation[0] +  " , " + spawnLocation[1]);
 
 
   }

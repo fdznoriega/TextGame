@@ -11,4 +11,6 @@ public interface IMazeInteractorOutput {
   void showDimensionFailure();
   void showReadFailure();
   void showReadSuccess();
+  void showFindSpawnFailure();
+  void showFindSpawnSuccess();
 }

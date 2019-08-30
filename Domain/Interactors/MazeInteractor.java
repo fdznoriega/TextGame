@@ -50,13 +50,18 @@ public class MazeInteractor {
     mOut.showInitializeSuccess();
   }
 
-  //find location given id -- WIP METHOD
-  public int[] locateSpace(int id) {
-    switch(id) {
-      case 1: //spawn
-      case 4: //treasure
+  //find spawn of maze. Key is given to be 1.
+  public int[] findSpawn() {
+    for(int r = 0; r < maze.row; r++) {
+      for(int c = 0; c < maze.column; c++) {
+        if(maze.matrix[r][c] == 1) {
+          mOut.showFindSpawnSuccess();
+          return new int[] {r, c};
+        }
+      }
     }
-    return new int[] {0,0};
+    mOut.showFindSpawnFailure();
+    return null;
   }
 
 

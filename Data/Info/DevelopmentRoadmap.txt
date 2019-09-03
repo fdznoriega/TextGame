@@ -3,7 +3,7 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--debug Maze entity and interactor in MazeTester.java
+-player interactor
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.

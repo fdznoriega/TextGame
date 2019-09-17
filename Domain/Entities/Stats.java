@@ -8,13 +8,21 @@ public class Stats {
   public int attack;
   public int defense;
   public int speed;
+  public int lvl;
+	public int xp;
+	public int gold;
+
+
   //constructor
-  public Stats(int mHP, int a, int d, int s) {
+  public Stats(int mHP, int a, int d, int s, int l, int x, int g) {
     this.maxHp = mHP;
     this.currentHp = this.maxHp;
     this.attack = a;
     this.defense = d;
     this.speed = s;
+    this.lvl = l;
+    this.xp = x;
+    this.gold = g;
   }
 
   public String ToString() {

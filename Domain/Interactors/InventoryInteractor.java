@@ -5,7 +5,7 @@ import Domain.Entities.Item;
 import Domain.Entities.ItemType;
 import Domain.Interactors.IInventoryInteractorOutput;
 
-public class InventoryInteractor {
+public class InventoryInteractor implements IInventoryInteractor {
 
   public Inventory inven;
   public IInventoryInteractorOutput invenInteractorOut;

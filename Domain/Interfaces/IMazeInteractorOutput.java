@@ -1,4 +1,4 @@
-package Domain.Interactors;
+package Domain.Interfaces;
 
 import Domain.Entities.Maze;
 

@@ -33,16 +33,6 @@ public class InventoryTester {
     //Put em in an array
     Item[] itemArr = new Item[] { i1, i2, i3, i4, i5, i6, i7, i8, i9, i10 };
     i.bag = itemArr;
-    /*
-    //Test Inventory methods
-    System.out.println(">Testing to string methods");
-    System.out.println(">Full toString()");
-    System.out.println(i.toString());
-    System.out.println(">bagToString()");
-    System.out.println(i.bagToString());
-    System.out.println(">equipmentToString()");
-    System.out.println(i.equipmentToString());
-    */
     //Make inventory interactor & output
     sopl(">TESTER: Fully defining inventory interactor");
     InventoryInteractor invenInteractor = new InventoryInteractor();

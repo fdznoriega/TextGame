@@ -1,2 +1,6 @@
 /.DS_Store
-/*.class
+/Domain/Entities/*.class
+/Domain/Interactors/*.class
+/Game/*.class
+/Tests/*.class
+/.gitignore

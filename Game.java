@@ -26,7 +26,7 @@ public class Game {
     int locationID = 0;
     int depthUnlocked = 1;
 
-    System.out.println(">Starting game...")
+    System.out.println(">Starting game...");
 
     //---------Load Map---------
     Map m1 = loadMap("level1");

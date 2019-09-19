@@ -2,6 +2,7 @@ package Domain.Interactors;
 
 import Domain.Entities.Maze;
 import Domain.Interfaces.IMazeInteractorOutput;
+import Domain.Interfaces.IMazeInteractor;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 //this interactor reads data from levels folder
 //another maze interactor could read data from another source.
-public class MazeInteractor {
+public class MazeInteractor implements IMazeInteractor {
 
   public Maze maze;
   public IMazeInteractorOutput mOut;

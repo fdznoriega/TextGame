@@ -1,6 +1,7 @@
 package Domain.Interactors;
 
 import Domain.Entities.Maze;
+import Domain.Interfaces.IMazeInteractorOutput;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;

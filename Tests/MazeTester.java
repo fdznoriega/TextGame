@@ -3,6 +3,7 @@ package Tests;
 import Domain.Entities.*;
 import Domain.Interactors.*;
 import Game.ConsoleUserInterface;
+import Domain.Interfaces.*;
 
 public class MazeTester {
   public static void main(String[] args) {

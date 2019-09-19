@@ -2,6 +2,7 @@
 package Tests;
 
 import Domain.Entities.Player;
+import Domain.Interactors.PlayerInteractor;
 
 public class PlayerTester {
 
@@ -15,6 +16,7 @@ public class PlayerTester {
     //Make player interactor
     PlayerInteractor pInteractor = new PlayerInteractor();
     //Connect pInteractor to player inventory and stats
+    /**
     pInteractor.p = this.p;
     pInteractor.invenInteractor.inven = this.p.inventory;
     //pInteractor.statInteractor.stat = this.p.stats;
@@ -22,6 +24,7 @@ public class PlayerTester {
     ConsoleUserInterface cui = new ConsoleUserInterface();
     pInteractor.invenInteractorOut = cui;
     //pInteractor.statInteractorOut = cui;
+    **/
 
   }
 }

@@ -1,9 +1,8 @@
 package Game;
 
-import Domain.Interactors.IInventoryInteractorOutput;
-import Domain.Interactors.IMazeInteractorOutput;
 import Domain.Entities.Inventory;
 import Domain.Entities.Maze;
+import Domain.Interfaces.*;
 
 //implements many interactors?
 public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeInteractorOutput {

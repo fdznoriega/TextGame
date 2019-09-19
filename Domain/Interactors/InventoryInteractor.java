@@ -3,7 +3,7 @@ package Domain.Interactors;
 import Domain.Entities.Inventory;
 import Domain.Entities.Item;
 import Domain.Entities.ItemType;
-import Domain.Interactors.IInventoryInteractorOutput;
+import Domain.Interfaces.IInventoryInteractorOutput;
 
 public class InventoryInteractor implements IInventoryInteractor {
 

@@ -8,8 +8,7 @@ public interface IStatsInteractorOutput {
   void showUpdateSuccess();
   void showUpdateFailure();
   //show increase of individual stats.
-  //void showIncrease...
-  //can i make this more abstract?
+  //can i make this more abstract? -- no because we want to be specific w player
   void showIncreaseCurrentHp();
   void showIncreaseMaxHp();
   void showIncreaseAttack();
@@ -19,7 +18,14 @@ public interface IStatsInteractorOutput {
   void showIncreaseExp();
   void showIncreaseGold();
   //show decrease of individual stats.
-  //void showDecrease...
+  void showDecreaseCurrentHp();
+  void showDecreaseMaxHp();
+  void showDecreaseAttack();
+  void showDecreaseDefense();
+  void showDecreaseSpeed();
+  void showDecreaseLevel();
+  void showDecreaseExp();
+  void showDecreaseGold();
 
 
 }

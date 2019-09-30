@@ -3,8 +3,8 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--stat interactor
--player interactor
+-IPlayerInteractor
+-PlayerInteractor
 --------Soon--------
 -Revamp item notation.
 -Revamp treasure system.

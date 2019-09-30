@@ -5,9 +5,15 @@ import Domain.Entities.Maze;
 import Domain.Interfaces.*;
 
 //implements many interactors?
-public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeInteractorOutput {
+public class ConsoleUserInterface implements
+  IInventoryInteractorOutput, IMazeInteractorOutput,
+  IStatsInteractorOutput {
 
-  //Inventory Interactor Section
+  private void sopl(String s) {
+    System.out.println(">>" + s);
+  }
+
+  //==========Inventory Interactor Section==========
   public void showBag(Inventory i) {
     System.out.println(i.bag.toString());
   }
@@ -40,7 +46,7 @@ public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeIn
     System.out.println(">Success");
   }
 
-  //Maze Interactor section
+  //==========Maze Interactor section==========
   public void showMaze(Maze m) {
     System.out.println(m.toString());
   }
@@ -76,10 +82,84 @@ public class ConsoleUserInterface implements IInventoryInteractorOutput, IMazeIn
   public void showFindSpawnFailure() {
     System.out.println(">Could not find spawn");
   }
+
   public void showFindSpawnSuccess() {
     System.out.println(">Found spawn successfully");
   }
 
+  //==========Stats Interactor Section==========
+
+  public void showUpdateSuccess() {
+    sopl("Stats updated");
+  }
+
+  public void showUpdateFailure() {
+    sopl("Stats not updated");
+  }
+
+  public void showIncreaseCurrentHp(int amt) {
+    sopl(amt + " HP gained!");
+  }
+
+  public void showIncreaseMaxHp(int amt) {
+    sopl("Max HP up by " + amt);
+  }
+
+  public void showIncreaseAttack(int amt) {
+    sopl("Attack up by " + amt);
+  }
+
+  public void showIncreaseDefense(int amt) {
+    sopl("Defense up by " + amt);
+  }
+
+  public void showIncreaseSpeed(int amt) {
+    sopl("Speed up by " + amt);
+  }
+
+  public void showIncreaseLevel() {
+    sopl("Level up!");
+  }
+
+  public void showIncreaseExp(int amt) {
+    sopl(amt + "EXP gained!");
+  }
+
+  public void showIncreaseGold(int amt) {
+    sopl(amt + "Gold gained!");
+  }
+
+  //show decrease of individual stats.
+  public void showDecreaseCurrentHp(int amt) {
+    sopl(amt + " damage taken");
+  }
+
+  public void showDecreaseMaxHp(int amt) {
+    sopl(amt + " Max HP lost");
+  }
+
+  public void showDecreaseAttack(int amt) {
+    sopl("Attack down by " + amt);
+  }
+
+  public void showDecreaseDefense(int amt) {
+    sopl("Defense down by " + amt);
+  }
+
+  public void showDecreaseSpeed(int amt) {
+    sopl("Speed down by " + amt);
+  }
+
+  public void showDecreaseLevel() {
+    sopl("Level down?!");
+  }
+
+  public void showDecreaseExp(int amt) {
+    sopl(amt + "EXP lost?!");
+  }
+  public void showDecreaseGold(int amt) {
+    sopl(amt + "Gold lost?!");
+  }
 
 
 }

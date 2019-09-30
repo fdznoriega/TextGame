@@ -7,25 +7,21 @@ package Domain.Interfaces;
 public interface IStatsInteractorOutput {
   void showUpdateSuccess();
   void showUpdateFailure();
-  //show increase of individual stats.
-  //can i make this more abstract? -- no because we want to be specific w player
-  void showIncreaseCurrentHp();
-  void showIncreaseMaxHp();
-  void showIncreaseAttack();
-  void showIncreaseDefense();
-  void showIncreaseSpeed();
+  void showIncreaseCurrentHp(int amt);
+  void showIncreaseMaxHp(int amt);
+  void showIncreaseAttack(int amt);
+  void showIncreaseDefense(int amt);
+  void showIncreaseSpeed(int amt);
   void showIncreaseLevel();
-  void showIncreaseExp();
-  void showIncreaseGold();
-  //show decrease of individual stats.
-  void showDecreaseCurrentHp();
-  void showDecreaseMaxHp();
-  void showDecreaseAttack();
-  void showDecreaseDefense();
-  void showDecreaseSpeed();
+  void showIncreaseExp(int amt);
+  void showIncreaseGold(int amt);
+  void showDecreaseCurrentHp(int amt);
+  void showDecreaseMaxHp(int amt);
+  void showDecreaseAttack(int amt);
+  void showDecreaseDefense(int amt);
+  void showDecreaseSpeed(int amt);
   void showDecreaseLevel();
-  void showDecreaseExp();
-  void showDecreaseGold();
-
+  void showDecreaseExp(int amt);
+  void showDecreaseGold(int amt);
 
 }

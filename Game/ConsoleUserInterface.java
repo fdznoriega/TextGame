@@ -9,6 +9,7 @@ public class ConsoleUserInterface implements
   IInventoryInteractorOutput, IMazeInteractorOutput,
   IStatsInteractorOutput {
 
+  //method to format stuff in system.out.println(argument);
   private void sopl(String s) {
     System.out.println(">>" + s);
   }

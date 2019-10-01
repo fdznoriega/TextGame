@@ -21,6 +21,7 @@ public class StatsTester {
     System.out.println("UPDATING STATS");
     si.setStats(s1);
     System.out.println(si.s.toString());
+    //==========CURRENT HP TESTING==========
     //Try update current hp in all 3 directions.
     //Neutral
     System.out.println("CHANGING CURRENT HP TO 15");
@@ -38,6 +39,13 @@ public class StatsTester {
     System.out.println("INCREASING CURRENT HP TO MAX HP + 1");
     si.setCurrentHp(si.s.maxHp + 1);
     System.out.println(si.s.toString());
+    //==========MAX HP TESTING==========
+    //==========ATTACK TESTING==========
+    //==========DEFENSE TESTING==========
+    //==========SPEED TESTING==========
+    //==========LEVEL TESTING==========
+    //==========EXP TESTING==========
+    //==========GOLD TESTING==========
 
 
 

@@ -98,6 +98,10 @@ public class ConsoleUserInterface implements
     sopl("Stats not updated");
   }
 
+  public void showNoChange() {
+    sopl("No change");
+  }
+
   public void showHpAlreadyMax() {
     sopl("Current HP already at max");
   }
@@ -126,8 +130,15 @@ public class ConsoleUserInterface implements
     sopl("Speed up by " + amt);
   }
 
-  public void showIncreaseLevel() {
-    sopl("Level up!");
+  public void showIncreaseLevel(int amt) {
+    if(amt == 1) {
+      sopl("Level up!");
+    }
+    else {
+      sopl("Level increased by " + amt);
+    }
+
+
   }
 
   public void showIncreaseExp(int amt) {
@@ -159,8 +170,9 @@ public class ConsoleUserInterface implements
     sopl("Speed down by " + amt);
   }
 
-  public void showDecreaseLevel() {
-    sopl("Level down?!");
+  public void showDecreaseLevel(int amt) {
+    if(amt == 1) { sopl("Level down?!");         }
+    else         { sopl("Level down by " + amt); }
   }
 
   public void showDecreaseExp(int amt) {

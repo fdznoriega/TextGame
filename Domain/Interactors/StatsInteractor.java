@@ -57,30 +57,65 @@ public class StatsInteractor implements IStatsInteractor {
   }
 
   public void setMaxHp(int mHp) {
+    switch(compare(s.maxHp, mHp)) {
+      case  1: out.showIncreaseMaxHp(mHp - s.maxHp);  break;
+      case  0: out.showNoChange();                    break;
+      case -1: out.showDecreaseMaxHp(s.maxHp - mHp);  break;
+    }
     s.maxHp = mHp;
   }
 
   public void setAttack(int att) {
+    switch(compare(s.attack, att)) {
+      case  1: out.showIncreaseAttack(att - s.attack); break;
+      case  0: out.showNoChange();                     break;
+      case -1: out.showDecreaseAttack(s.attack - att); break;
+    }
     s.attack = att;
   }
 
   public void setDefense(int def) {
+    switch(compare(s.defense, def)) {
+      case  1: out.showIncreaseDefense(def - s.defense); break;
+      case  0: out.showNoChange();                       break;
+      case -1: out.showDecreaseDefense(s.defense - def); break;
+    }
     s.defense = def;
   }
 
   public void setSpeed(int spd) {
+    switch(compare(s.speed, spd)) {
+      case  1: out.showIncreaseSpeed(spd - s.speed); break;
+      case  0: out.showNoChange();                   break;
+      case -1: out.showDecreaseSpeed(s.speed - spd); break;
+    }
     s.speed = spd;
   }
 
   public void setXp(int x) {
+    switch(compare(s.xp, x)) {
+      case  1: out.showIncreaseExp(x - s.xp); break;
+      case  0: out.showNoChange();            break;
+      case -1: out.showDecreaseExp(s.xp - x); break;
+    }
     s.xp = x;
   }
 
   public void setLvl(int l) {
+    switch(compare(s.lvl, l)) {
+      case  1: out.showIncreaseLevel(l - s.lvl); break;
+      case  0: out.showNoChange();               break;
+      case -1: out.showDecreaseLevel(s.lvl - l); break;
+    }
     s.lvl = l;
   }
 
   public void setGold(int g) {
+    switch(compare(s.gold, g)) {
+      case  1: out.showIncreaseGold(g - s.gold); break;
+      case  0: out.showNoChange();               break;
+      case -1: out.showDecreaseGold(s.gold - g); break;
+    }
     s.gold = g;
   }
 

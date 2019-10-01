@@ -15,7 +15,8 @@ public class MazeInteractor implements IMazeInteractor {
   public Maze maze;
   public IMazeInteractorOutput mOut;
 
-  //initializes maze from given level text file.
+  //initializes maze from given level text file
+  //consider how to make abstract
   public void initializeMaze(String fileName) {
     //turn file into string content
     String content;

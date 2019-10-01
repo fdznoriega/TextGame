@@ -7,13 +7,16 @@ import Domain.Interfaces.IStatsInteractorOutput;
 
 public class StatsInteractor implements IStatsInteractor {
   public Stats s;
-  public IStatsInteractorOutput sOut;
+  public IStatsInteractorOutput out;
 
   //methods to implement
   public void setStats(Stats newStats) {
     s = newStats;
+    out.showUpdateSuccess();
   }
 
+  // NEXT TIME: logic to see whether HP increased or decreased and then
+  //            apply the correct output.
   public void setCurrentHp(int cHp) {
     s.currentHp = cHp;
   }

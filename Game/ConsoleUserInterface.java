@@ -98,8 +98,16 @@ public class ConsoleUserInterface implements
     sopl("Stats not updated");
   }
 
+  public void showHpAlreadyMax() {
+    sopl("Current HP already at max");
+  }
+
+  public void showFullyHealed() {
+    sopl("Fully healed");
+  }
+
   public void showIncreaseCurrentHp(int amt) {
-    sopl(amt + " HP gained!");
+    sopl(amt + " HP gained");
   }
 
   public void showIncreaseMaxHp(int amt) {

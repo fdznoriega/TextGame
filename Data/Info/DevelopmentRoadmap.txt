@@ -4,9 +4,11 @@ WIP: rewriting the entire code w better design.
 
 --------Next Time--------
 -StatsInteractor Tester
+  -logic for all stat increase/decrease
 -IPlayerInteractor
 -PlayerInteractor
 --------Soon--------
+-roll mechanic: lower hp = higher % of success. successful roll = move twice.
 -Revamp item notation.
 -Revamp treasure system.
 -Create a shop system.

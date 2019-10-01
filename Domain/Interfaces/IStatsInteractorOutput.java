@@ -7,6 +7,8 @@ package Domain.Interfaces;
 public interface IStatsInteractorOutput {
   void showUpdateSuccess();
   void showUpdateFailure();
+  void showFullyHealed();
+  void showHpAlreadyMax();
   void showIncreaseCurrentHp(int amt);
   void showIncreaseMaxHp(int amt);
   void showIncreaseAttack(int amt);

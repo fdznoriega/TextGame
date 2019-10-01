@@ -25,11 +25,14 @@ public class Stats {
     this.gold = g;
   }
 
-  public String ToString() {
-    return "HP: " + HpRatioToString() + " | " +
-           "Attack: " + this.attack + " | " +
-           "Defense: " + this.defense + " | " +
-           "Speed: " + this.speed;
+  public String toString() {
+    return "HP: "       + HpRatioToString()   + " | " +
+           "Attack: "   + this.attack         + " | " +
+           "Defense: "  + this.defense        + " | " +
+           "Speed: "    + this.speed          + " | " +
+           "Level: "    + this.lvl            + " | " +
+           "EXP: "      + this.xp             + " | " +
+           "GOLD: "     + this.gold;
   }
   public String HpRatioToString()    { return currentHp + "/" + maxHp; }
 

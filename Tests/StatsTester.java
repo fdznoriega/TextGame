@@ -26,20 +26,26 @@ public class StatsTester {
     //Neutral
     System.out.println("CHANGING CURRENT HP TO 15");
     si.setCurrentHp(15);
-    System.out.println(si.s.toString());
+    System.out.println(si.s.HpRatioToString());
     //Up too high
     System.out.println("INCREASING CURRENT HP TO 20");
     si.setCurrentHp(20);
-    System.out.println(si.s.toString());
+    System.out.println(si.s.HpRatioToString());
     //Down
     System.out.println("DECREASING CURRENT HP TO 10");
     si.setCurrentHp(10);
-    System.out.println(si.s.toString());
+    System.out.println(si.s.HpRatioToString());
     //now move up up to max + 1
     System.out.println("INCREASING CURRENT HP TO MAX HP + 1");
     si.setCurrentHp(si.s.maxHp + 1);
-    System.out.println(si.s.toString());
+    System.out.println(si.s.HpRatioToString());
     //==========MAX HP TESTING==========
+    System.out.println("INCREASING MAX HP TO 20");
+    si.setMaxHp(20);
+    System.out.println(si.s.HpRatioToString());
+    System.out.println("DECREASING MAX HP TO 10");
+    si.setMaxHp(10);
+    System.out.println(si.s.HpRatioToString());
     //==========ATTACK TESTING==========
     //==========DEFENSE TESTING==========
     //==========SPEED TESTING==========

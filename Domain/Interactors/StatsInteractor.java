@@ -62,6 +62,12 @@ public class StatsInteractor implements IStatsInteractor {
       case  0: out.showNoChange();                    break;
       case -1: out.showDecreaseMaxHp(s.maxHp - mHp);  break;
     }
+
+    //Check for case where max Hp is reduced and current hp must fall too.
+    if(mHp < s.currentHp) {
+      s.currentHp = mHp;
+    }
+
     s.maxHp = mHp;
   }
 

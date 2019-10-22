@@ -47,11 +47,68 @@ public class StatsTester {
     si.setMaxHp(10);
     System.out.println(si.s.HpRatioToString());
     //==========ATTACK TESTING==========
+    System.out.println("INCREASING ATTACK TO 10");
+    si.setAttack(10);
+    System.out.println(si.s.attack);
+    System.out.println("DECREASING ATTACK TO 5");
+    si.setAttack(5);
+    System.out.println(si.s.attack);
+    System.out.println("RESETTING ATTACK TO 5");
+    si.setAttack(5);
+    System.out.println(si.s.attack);
     //==========DEFENSE TESTING==========
+    System.out.println("INCREASING DEFENSE TO 10");
+    si.setDefense(10);
+    System.out.println(si.s.defense);
+    System.out.println("DECREASING DEFENSE TO 5");
+    si.setDefense(5);
+    System.out.println(si.s.defense);
+    System.out.println("RESETTING DEFENSE TO 5");
+    si.setDefense(5);
+    System.out.println(si.s.defense);
     //==========SPEED TESTING==========
+    System.out.println("INCREASING SPEED TO 10");
+    si.setSpeed(10);
+    System.out.println(si.s.speed);
+    System.out.println("DECREASING SPEED TO 5");
+    si.setSpeed(5);
+    System.out.println(si.s.speed);
+    System.out.println("RESETTING SPEED TO 5");
+    si.setSpeed(5);
+    System.out.println(si.s.speed);
     //==========LEVEL TESTING==========
+    System.out.println("INCREASING LEVEL TO 10");
+    si.setLvl(10);
+    System.out.println(si.s.lvl);
+    System.out.println("DECREASING LEVEL TO 5");
+    si.setLvl(5);
+    System.out.println(si.s.lvl);
+    System.out.println("RESETTING LEVEL TO 5");
+    si.setLvl(5);
+    System.out.println(si.s.lvl);
+    System.out.println("INCREASING LEVEL BY 1");
+    si.setLvl(si.s.lvl + 1);
+    System.out.println(si.s.lvl);
     //==========EXP TESTING==========
+    System.out.println("INCREASING EXP TO 10");
+    si.setXp(10);
+    System.out.println(si.s.xp);
+    System.out.println("DECREASING EXP TO 5");
+    si.setXp(5);
+    System.out.println(si.s.xp);
+    System.out.println("RESETTING EXP TO 5");
+    si.setXp(5);
+    System.out.println(si.s.xp);
     //==========GOLD TESTING==========
+    System.out.println("INCREASING GOLD TO 10");
+    si.setGold(10);
+    System.out.println(si.s.gold);
+    System.out.println("DECREASING GOLD TO 5");
+    si.setGold(5);
+    System.out.println(si.s.gold);
+    System.out.println("RESETTING GOLD TO 5");
+    si.setGold(5);
+    System.out.println(si.s.gold);
 
 
 

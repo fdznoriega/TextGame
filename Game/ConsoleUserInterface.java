@@ -142,11 +142,11 @@ public class ConsoleUserInterface implements
   }
 
   public void showIncreaseExp(int amt) {
-    sopl(amt + "EXP gained!");
+    sopl(amt + " EXP gained!");
   }
 
   public void showIncreaseGold(int amt) {
-    sopl(amt + "Gold gained!");
+    sopl(amt + " Gold gained!");
   }
 
   //show decrease of individual stats.
@@ -155,7 +155,7 @@ public class ConsoleUserInterface implements
   }
 
   public void showDecreaseMaxHp(int amt) {
-    sopl(amt + " Max HP lost");
+    sopl("Max HP down by " + amt);
   }
 
   public void showDecreaseAttack(int amt) {
@@ -176,10 +176,10 @@ public class ConsoleUserInterface implements
   }
 
   public void showDecreaseExp(int amt) {
-    sopl(amt + "EXP lost?!");
+    sopl(amt + " EXP lost?!");
   }
   public void showDecreaseGold(int amt) {
-    sopl(amt + "Gold lost?!");
+    sopl(amt + " Gold lost?!");
   }
 
 

@@ -3,8 +3,7 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--IPlayerInteractor -> spend some time thinking this through. pivotal step.
--PlayerInteractor  -> see above.
+-player tester. bugfix toString
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.
 -Revamp item notation.

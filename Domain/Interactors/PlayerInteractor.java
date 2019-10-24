@@ -9,13 +9,12 @@ import Domain.Interactors.InventoryInteractor;
 public class PlayerInteractor /**implements IPlayerInteractor **/ {
 
   public Player p;
-  //public IPlayerInteractorOutput pOut;
   public InventoryInteractor invenInteractor;
-  //public StatsInteractor statInteractor;
+  public StatsInteractor statInteractor;
 
   public PlayerInteractor() {
     invenInteractor.inven = p.inventory;
-    //statInteractor.stats = p.stats;
+    statInteractor.s = p.stats;
   }
 
 

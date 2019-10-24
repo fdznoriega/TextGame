@@ -10,8 +10,9 @@ public class PlayerTester {
     //Make player
     Player p = new Player();
     //Check toString vals
-    System.out.println(">Checking toString methods");
+    System.out.println(">Checking stats to string");
     System.out.println(p.statsToString());
+    System.out.println(">Checking complete player to string");
     System.out.println(p.toString());
     //Make player interactor
     PlayerInteractor pInteractor = new PlayerInteractor();

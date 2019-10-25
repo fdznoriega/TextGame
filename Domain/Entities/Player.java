@@ -16,22 +16,13 @@ public class Player {
 		stats = new Stats(10, 5, 5, 5, 1, 0 , 0);
 	}
 
-	//string of players stats
-	public String statsToString() {
-		String name = "[ Player: ";
-		String pHp = "HP: " + this.stats.HpRatioToString() + " | ";
-		String lvl = "LVL: " + this.stats.lvl + " | ";
-		String xp = "EXP: " + this.stats.xp + " | ";
-		String att = "ATT: " + this.stats.attack + " | ";
-		String def = "DEF: " + this.stats.defense + " | ";
-		String spd = "SPD: " + this.stats.speed + " | ";
-		String gold = "G: " + this.stats.gold + " ] ";
-		return name + pHp + lvl + xp + att + def + spd + xp + gold;
-	}
-
 	//full player toString
 	public String toString() {
-		return statsToString() + "\n" + inventory.toString();
+		String s = "";
+		s += "[ Player : ";
+		s += stats.toString();
+		s += " ] " +  "\n" + inventory.toString();
+		return s;
 	}
 
 }

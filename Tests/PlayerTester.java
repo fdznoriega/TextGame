@@ -15,11 +15,11 @@ public class PlayerTester {
     System.out.println(">Checking complete player to string");
     System.out.println(p.toString());
     //Make player interactor
-    //PlayerInteractor pInteractor = new PlayerInteractor();
+    PlayerInteractor pInteractor = new PlayerInteractor();
     //Connect pInteractor to player inventory and stats
-    /**
     pInteractor.p = this.p;
     pInteractor.invenInteractor.inven = this.p.inventory;
+    /**
     //pInteractor.statInteractor.stat = this.p.stats;
     //Connect inventory interactor and stat interactor to outputs
     ConsoleUserInterface cui = new ConsoleUserInterface();

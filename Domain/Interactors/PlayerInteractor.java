@@ -17,8 +17,4 @@ public class PlayerInteractor /**implements IPlayerInteractor **/ {
     statInteractor.s = p.stats;
   }
 
-
-
-
-
 }

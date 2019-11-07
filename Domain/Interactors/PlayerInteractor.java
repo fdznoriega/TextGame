@@ -6,13 +6,16 @@ import Domain.Interactors.InventoryInteractor;
 
 //player has stats and inventory which are manipulated by other classes
 //pInteractor holds these other interactors and is a "manager"
-public class PlayerInteractor /**implements IPlayerInteractor **/ {
+public class PlayerInteractor {
 
   public Player p;
   public InventoryInteractor invenInteractor;
   public StatsInteractor statInteractor;
 
-  public PlayerInteractor() {
+  public PlayerInteractor(Player np) {
+    p = np;
+    invenInteractor = new InventoryInteractor();
+    statInteractor = new StatsInteractor();
     invenInteractor.inven = p.inventory;
     statInteractor.s = p.stats;
   }

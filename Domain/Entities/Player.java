@@ -5,7 +5,7 @@ import Domain.Entities.Inventory;
 public class Player {
 
 	public String name;
-	public Inventory inventory; //bag and equipment
+	public Inventory inventory;
 	public Stats stats; //universal: hp, at, df, spd, lvl, xp, gold
 
 

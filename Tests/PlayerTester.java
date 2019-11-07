@@ -3,6 +3,7 @@ package Tests;
 
 import Domain.Entities.Player;
 import Domain.Interactors.PlayerInteractor;
+import Game.ConsoleUserInterface;
 
 public class PlayerTester {
 
@@ -14,18 +15,14 @@ public class PlayerTester {
     System.out.println(p.stats.toString());
     System.out.println(">Checking complete player to string");
     System.out.println(p.toString());
-    //Make player interactor
-    PlayerInteractor pInteractor = new PlayerInteractor();
-    //Connect pInteractor to player inventory and stats
-    pInteractor.p = this.p;
-    pInteractor.invenInteractor.inven = this.p.inventory;
-    /**
-    //pInteractor.statInteractor.stat = this.p.stats;
+    //Player interactor connects all pieces internally in constructor
+    System.out.println(">Setting player to player interactor");
+    PlayerInteractor pInteractor = new PlayerInteractor(p);
     //Connect inventory interactor and stat interactor to outputs
+    System.out.println(">Setting UI to player interactor");
     ConsoleUserInterface cui = new ConsoleUserInterface();
-    pInteractor.invenInteractorOut = cui;
-    //pInteractor.statInteractorOut = cui;
-    **/
+    //Now we can play with the pInteractor
+    
 
   }
 }

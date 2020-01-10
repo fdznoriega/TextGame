@@ -1,6 +1,7 @@
 package Domain.Entities;
 
 import Domain.Entities.Inventory;
+import Domain.Entities.Stats;
 
 public class Player {
 

@@ -22,7 +22,10 @@ public class PlayerTester {
     System.out.println(">Setting UI to player interactor");
     ConsoleUserInterface cui = new ConsoleUserInterface();
     //Now we can play with the pInteractor
-    
+    System.out.println(">Running setCurrentHp(10)");
+    pInteractor.setCurrentHp(10);
+    System.out.println(">Running clearEquipment()");
+    pInteractor.clearEquipment();
 
   }
 }

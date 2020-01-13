@@ -3,15 +3,16 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--bug fix new helper methods
+-go back and create stronger naming conventions. Working with player tester is
+ a nightmare at the moment. Fixing this will make writing code easier.
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.
 -Revamp item notation.
 -Revamp treasure system.
 -Create a shop system.
 -boss battle.
--use threads to check game state.
--game master class that oversees the whole operation
+-use threads to check game state?
+-game master class that oversees the whole operation?
 --------Low Priority--------
 -Add a shop so that the player can purchase items.
 -Randomly generated .txt files that can be completed.
@@ -26,3 +27,4 @@ WIP: rewriting the entire code w better design.
  -add a save() function which saves the player's data.
  -add a load() function which loads player data.
  -add an actual UI instead of using terminal.
+ -music by me!

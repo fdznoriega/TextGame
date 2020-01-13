@@ -8,11 +8,10 @@ public class StatsTester {
 
   public static void main(String[] args) {
     //Setup
-    ConsoleUserInterface cui = new ConsoleUserInterface();
     Stats s = new Stats(10, 5, 5, 5, 1, 0, 0);
     StatsInteractor si = new StatsInteractor();
     si.s = s;
-    si.out = cui;
+    si.out = new ConsoleUserInterface();
     //show base stats
     System.out.println("SHOWING CURRENT STATS");
     System.out.println(si.s.toString());

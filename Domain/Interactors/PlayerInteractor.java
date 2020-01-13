@@ -2,6 +2,7 @@ package Domain.Interactors;
 
 //import ...
 import Domain.Entities.Player;
+import Domain.Interfaces.IPlayerInteractorOutput;
 import Domain.Interactors.InventoryInteractor;
 import Domain.Interactors.StatsInteractor;
 import Domain.Entities.Stats;
@@ -11,58 +12,64 @@ import Domain.Entities.Item;
 //pInteractor holds these other interactors and is a "manager"
 public class PlayerInteractor {
 
-  public Player p;
+  public Player player;
+  public IPlayerInteractorOutput output;
   public InventoryInteractor invenInteractor;
-  public StatsInteractor statInteractor;
+  public StatsInteractor statsInteractor;
 
-  public PlayerInteractor(Player np) {
-    p = np;
+  // connect all components in the constructor?
+  public PlayerInteractor(Player playerIn) {
+    this.player = playerIn;
+    //construct a inventory interactor
     invenInteractor = new InventoryInteractor();
-    statInteractor = new StatsInteractor();
-    invenInteractor.inven = p.inventory;
-    statInteractor.s = p.stats;
+    invenInteractor.inven = player.inventory;
+    invenInteractor.invenInteractorOut = this.output;
+    statsInteractor = new StatsInteractor();
+    statsInteractor.s = player.stats;
+    statsInteractor.out =this.output;
   }
 
   // we want to be able to access inventory and stat functions quickly,
   // so lets make helper functions to guide the code in the right direction
-  // === before: pInteractor.statInteractor.setMaxHp(num)
+  // === before: pInteractor.statsInteractor.setMaxHp(num)
   // === after: pInteractor.setMaxHp(num)
 
   // Helper Stats Methods ...
   public void setStats(Stats s) {
-    this.statInteractor.setStats(s);
+    this.statsInteractor.setStats(s);
   }
 
   public void setCurrentHp(int cHp) {
-    this.statInteractor.setCurrentHp(cHp);
+    System.out.println(">Helper Function: setCurrentHp()");
+    statsInteractor.setCurrentHp(cHp);
   }
 
   public void setMaxHp(int mHp) {
-    this.statInteractor.setMaxHp(mHp);
+    this.statsInteractor.setMaxHp(mHp);
   }
 
   public void setAttack(int att) {
-    this.statInteractor.setAttack(att);
+    this.statsInteractor.setAttack(att);
   }
 
   public void setDefense(int def) {
-    this.statInteractor.setDefense(def);
+    this.statsInteractor.setDefense(def);
   }
 
   public void setSpeed(int spd) {
-    this.statInteractor.setSpeed(spd);
+    this.statsInteractor.setSpeed(spd);
   }
 
   public void setXp(int x) {
-    this.statInteractor.setXp(x);
+    this.statsInteractor.setXp(x);
   }
 
   public void setLvl(int l) {
-    this.statInteractor.setLvl(l);
+    this.statsInteractor.setLvl(l);
   }
 
   public void setGold(int g) {
-    this.statInteractor.setGold(g);
+    this.statsInteractor.setGold(g);
   }
 
   // Helper Inventory Methods ...

@@ -178,7 +178,7 @@ public class ConsoleUserInterface implements
   public void showDecreaseExp(int amt) {
     sopl(amt + " EXP lost?!");
   }
-  
+
   public void showDecreaseGold(int amt) {
     sopl(amt + " Gold lost?!");
   }

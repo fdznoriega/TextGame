@@ -17,18 +17,19 @@ public class PlayerTester {
     System.out.println(p1.toString());
     //Player interactor connects all pieces internally in constructor
     System.out.println(">Create player interactor & set variables");
-    PlayerInteractor pInteractor = new PlayerInteractor(p1);
-    pInteractor.output = new ConsoleUserInterface();
-    /*
-    //Connect inventory interactor and stat interactor to outputs
-    System.out.println(">Setting UI to player interactor");
-    ConsoleUserInterface cui = new ConsoleUserInterface();
-    //Now we can play with the pInteractor
+    PlayerInteractor pInteractor = new PlayerInteractor(p1, new ConsoleUserInterface());
+    //Confirm connections
+    System.out.println(pInteractor.statsInteractor.stats.toString());
+    System.out.println(pInteractor.invenInteractor.inventory.toString());
+    //Demo Methods
+
+    // PROBLEM: interactors have already been created but we only added
+    // output to pInteractor.output. Looks like we need to pass in an
+    // output to the player interactor constructor
     System.out.println(">Running setCurrentHp(10)");
     pInteractor.setCurrentHp(10);
     System.out.println(">Running clearEquipment()");
     pInteractor.clearEquipment();
-    */
 
   }
 }

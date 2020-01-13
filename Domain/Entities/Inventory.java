@@ -3,8 +3,13 @@ package Domain.Entities;
 
 public class Inventory {
 
-  public Item[] bag = new Item[10]; //limit: 10 items
-  public Item[] equipment = new Item[3];   //limit: 3 items
+  public Item[] bag; //limit: 10 items
+  public Item[] equipment;   //limit: 3 items
+
+  public Inventory() {
+    bag = new Item[10];
+    equipment = new Item[3];
+  }
 
   public String toString() {
     String string = "";

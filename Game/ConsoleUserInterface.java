@@ -11,81 +11,81 @@ public class ConsoleUserInterface implements
 
   //method to format stuff in system.out.println(argument);
   private void sopl(String s) {
-    System.out.println(">>" + s);
+    System.out.println("GAME: " + s);
   }
 
   //==========Inventory Interactor Section==========
   public void showBag(Inventory i) {
-    System.out.println(i.bag.toString());
+    sopl(i.bagToString());
   }
 
   public void showEquipment(Inventory i) {
-    System.out.println(i.equipment.toString());
+    sopl(i.equipmentToString());
   }
 
   public void showInventory(Inventory i) {
-    System.out.println(i.toString());
+    sopl(i.toString());
   }
 
   public void showBagIsFull() {
-    System.out.println(">Bag is full");
+    sopl("Bag is full");
   }
 
   public void showEquipmentIsFull() {
-    System.out.println(">Equipment is full");
+    sopl("Equipment is full");
   }
 
   public void showCannotEquip() {
-    System.out.println(">Could not equip item");
+    sopl("Could not equip item");
   }
 
   public void showItemNotFound() {
-    System.out.println(">Could not find item");
+    sopl("Could not find item");
   }
 
   public void showSuccess() {
-    System.out.println(">Success");
+    sopl("Success");
   }
 
   //==========Maze Interactor section==========
   public void showMaze(Maze m) {
-    System.out.println(m.toString());
+    sopl(m.toString());
   }
 
   public void showInitializeSuccess() {
-    System.out.println(">Maze Initialized");
+    sopl("Maze Initialized");
   }
 
   public void showDimensionSuccess() {
-    System.out.println(">Dimensions calculated");
+    sopl("Dimensions calculated");
   }
 
   public void showMatrixSuccess() {
-    System.out.println(">Matrix setup success");
+    sopl("Matrix setup success");
   }
 
   public void showMatrixFailure() {
-    System.out.println(">Matrix setup failure");
+    sopl("Matrix setup failure");
   }
 
   public void showDimensionFailure() {
-    System.out.println(">Dimensions not calculated");
+    sopl("Dimensions not calculated");
   }
 
   public void showReadFailure() {
-    System.out.println(">Could not read file");
+    sopl("Could not read file");
   }
 
   public void showReadSuccess() {
-    System.out.println(">File read successfully");
+    sopl("File read successfully");
   }
 
   public void showFindSpawnFailure() {
-    System.out.println(">Could not find spawn");
+    sopl("Could not find spawn");
   }
 
   public void showFindSpawnSuccess() {
-    System.out.println(">Found spawn successfully");
+    sopl("Found spawn successfully");
   }
 
   //==========Stats Interactor Section==========
@@ -171,8 +171,12 @@ public class ConsoleUserInterface implements
   }
 
   public void showDecreaseLevel(int amt) {
-    if(amt == 1) { sopl("Level down?!");         }
-    else         { sopl("Level down by " + amt); }
+    if(amt == 1) {
+      sopl("Level down?!");
+    }
+    else {
+      sopl("Level down by " + amt);
+    }
   }
 
   public void showDecreaseExp(int amt) {

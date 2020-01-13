@@ -3,7 +3,6 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--continue testing player interactor
 -standardize console user interface's output format
 -start thinking about relationship between maze interactor and player interactor
 --------Soon--------

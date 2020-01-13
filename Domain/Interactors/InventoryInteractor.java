@@ -7,19 +7,19 @@ import Domain.Interfaces.IInventoryInteractorOutput;
 
 public class InventoryInteractor implements IInventoryInteractor {
 
-  public Inventory inven;
-  public IInventoryInteractorOutput invenInteractorOut;
+  public Inventory inventory;
+  public IInventoryInteractorOutput output;
 
   public void insertItem(Item item) {
     int[] fullAndIndex = bagIsFull();
     int bagIsFull = fullAndIndex[0];
     int indexOfEmptySpace = fullAndIndex[1];
     if(bagIsFull == 1) {
-      invenInteractorOut.showBagIsFull();
+      output.showBagIsFull();
     }
     else {
-      inven.bag[indexOfEmptySpace] = item;
-      invenInteractorOut.showSuccess();
+      inventory.bag[indexOfEmptySpace] = item;
+      output.showSuccess();
     }
   }
 
@@ -27,73 +27,73 @@ public class InventoryInteractor implements IInventoryInteractor {
   //equipped items moved from bag to equip slot
   public void equipItem(Item item) {
     if(!isItemInBag(item)) {
-      invenInteractorOut.showItemNotFound();
+      output.showItemNotFound();
       return;
     }
     if(item.type != ItemType.Equip) {
-      invenInteractorOut.showCannotEquip();
+      output.showCannotEquip();
       return;
     }
     int[] fullAndIndex = equipmentIsFull();
     int equipmentIsFull = fullAndIndex[0];
     int indexOfEmptySpace = fullAndIndex[1];
     if(equipmentIsFull == 1) {
-      invenInteractorOut.showEquipmentIsFull();
+      output.showEquipmentIsFull();
     }
     else {
-      inven.equipment[indexOfEmptySpace] = item;
+      inventory.equipment[indexOfEmptySpace] = item;
       removeItem(item);
-      //invenInteractorOut.showSuccess();
+      //output.showSuccess();
     }
 
   }
 
   public void removeItem(Item item) {
-    for(int i = 0; i < inven.bag.length; i++) {
-      if(inven.bag[i] != null && inven.bag[i].equals(item)) {
-        inven.bag[i] = null;
-        invenInteractorOut.showSuccess();
+    for(int i = 0; i < inventory.bag.length; i++) {
+      if(inventory.bag[i] != null && inventory.bag[i].equals(item)) {
+        inventory.bag[i] = null;
+        output.showSuccess();
         return;
       }
     }
-    invenInteractorOut.showItemNotFound();
+    output.showItemNotFound();
   }
 
   public void unequipItem(Item item) {
-    if(item != null && inven.equipment.length > 0) {
-      for(int i = 0; i < inven.equipment.length; i++) {
-        if(inven.equipment[i] != null) {
-          if(inven.equipment[i].equals(item)) {
-            inven.equipment[i] = null;
-            invenInteractorOut.showSuccess();
+    if(item != null && inventory.equipment.length > 0) {
+      for(int i = 0; i < inventory.equipment.length; i++) {
+        if(inventory.equipment[i] != null) {
+          if(inventory.equipment[i].equals(item)) {
+            inventory.equipment[i] = null;
+            output.showSuccess();
             return;
           }
         }
       }
     }
-    invenInteractorOut.showItemNotFound();
+    output.showItemNotFound();
   }
 
   public void clearBag() {
-    for(int i = 0; i < inven.bag.length; i++) {
-      inven.bag[i] = null;
+    for(int i = 0; i < inventory.bag.length; i++) {
+      inventory.bag[i] = null;
     }
-    invenInteractorOut.showSuccess();
+    output.showSuccess();
   }
 
   public void clearEquipment() {
-    for(int i = 0; i < inven.equipment.length; i++) {
-      inven.equipment[i] = null;
+    for(int i = 0; i < inventory.equipment.length; i++) {
+      inventory.equipment[i] = null;
     }
-    invenInteractorOut.showSuccess();
+    output.showSuccess();
   }
 
   // -- Private Methods -- \\
   //returns 0/1 (false, true), and index of empty space (int; -1 = no empty space)
   private int[] bagIsFull() {
     int counter = 0;
-    while(counter < inven.bag.length) {
-      if(inven.bag[counter] == null) {
+    while(counter < inventory.bag.length) {
+      if(inventory.bag[counter] == null) {
            return new int[] {0, counter};
       }
       counter++;
@@ -104,8 +104,8 @@ public class InventoryInteractor implements IInventoryInteractor {
   //same as inventoryIsFull()
   private int[] equipmentIsFull() {
     int counter = 0;
-    while(counter < inven.equipment.length) {
-      if(inven.equipment[counter] == null) {
+    while(counter < inventory.equipment.length) {
+      if(inventory.equipment[counter] == null) {
            return new int[] {0, counter};
       }
       counter++;
@@ -114,8 +114,8 @@ public class InventoryInteractor implements IInventoryInteractor {
   }
 
   private boolean isItemInBag(Item item) {
-    for(int counter = 0; counter < inven.bag.length; counter++) {
-      if(inven.bag[counter] != null && inven.bag[counter].equals(item)) {
+    for(int counter = 0; counter < inventory.bag.length; counter++) {
+      if(inventory.bag[counter] != null && inventory.bag[counter].equals(item)) {
         return true;
       }
     }

@@ -40,8 +40,8 @@ public class InventoryTester {
     //----------this can be changed into any other kind of output----------
     ConsoleUserInterface cui = new ConsoleUserInterface();
     //---------------------------------------------------------------------
-    invenInteractor.inven = i;
-    invenInteractor.invenInteractorOut = cui;
+    invenInteractor.inventory = i;
+    invenInteractor.output = cui;
     sopl(">TESTER: Testing methods");
 
     //Inserting when full

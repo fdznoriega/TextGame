@@ -22,8 +22,8 @@ public class PlayerInteractor {
     this.player = playerIn;
     //construct a inventory interactor
     invenInteractor = new InventoryInteractor();
-    invenInteractor.inven = player.inventory;
-    invenInteractor.invenInteractorOut = this.output;
+    invenInteractor.inventory = player.inventory;
+    invenInteractor.output = this.output;
     statsInteractor = new StatsInteractor();
     statsInteractor.s = player.stats;
     statsInteractor.out =this.output;

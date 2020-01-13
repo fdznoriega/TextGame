@@ -25,8 +25,8 @@ public class PlayerInteractor {
     invenInteractor.inventory = player.inventory;
     invenInteractor.output = this.output;
     statsInteractor = new StatsInteractor();
-    statsInteractor.s = player.stats;
-    statsInteractor.out =this.output;
+    statsInteractor.stats = player.stats;
+    statsInteractor.output =this.output;
   }
 
   // we want to be able to access inventory and stat functions quickly,

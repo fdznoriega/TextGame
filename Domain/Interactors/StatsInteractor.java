@@ -6,8 +6,8 @@ import Domain.Interfaces.IStatsInteractor;
 import Domain.Interfaces.IStatsInteractorOutput;
 
 public class StatsInteractor implements IStatsInteractor {
-  public Stats s;
-  public IStatsInteractorOutput out;
+  public Stats stats;
+  public IStatsInteractorOutput output;
 
   //returns: 1 for new > current ; 0 for new = current ; -1 new < current
   private int compare(int currentVal, int newVal) {
@@ -25,104 +25,104 @@ public class StatsInteractor implements IStatsInteractor {
 
   //methods to implement
   public void setStats(Stats newStats) {
-    s = newStats;
-    out.showUpdateSuccess();
+    stats = newStats;
+    output.showUpdateSuccess();
   }
 
   // NEXT TIME: logic to see whether HP increased or decreased and then
   //            apply the correct output.
   public void setCurrentHp(int cHp) {
     //ex: a potion heals 10 hp and you have 8 / 10.
-    if((cHp > s.maxHp)) {
-      if(s.currentHp == s.maxHp) {
-        out.showHpAlreadyMax();
+    if((cHp > stats.maxHp)) {
+      if(stats.currentHp == stats.maxHp) {
+        output.showHpAlreadyMax();
       }
       else {
-        out.showIncreaseCurrentHp(s.maxHp - s.currentHp);
-        s.currentHp = s.maxHp;
+        output.showIncreaseCurrentHp(stats.maxHp - stats.currentHp);
+        stats.currentHp = stats.maxHp;
       }
       return;
     }
 
 
-    switch(compare(s.currentHp, cHp)) {
+    switch(compare(stats.currentHp, cHp)) {
       //X health gained
-      case  1: out.showIncreaseCurrentHp(cHp - s.currentHp); break;
+      case  1: output.showIncreaseCurrentHp(cHp - stats.currentHp); break;
       //nothing happened because currentHp already max hp
-      case  0: out.showHpAlreadyMax();                       break;
+      case  0: output.showHpAlreadyMax();                       break;
       //X damage taken
-      case -1: out.showDecreaseCurrentHp(s.currentHp - cHp); break;
+      case -1: output.showDecreaseCurrentHp(stats.currentHp - cHp); break;
     }
-    s.currentHp = cHp;
+    stats.currentHp = cHp;
   }
 
   public void setMaxHp(int mHp) {
-    switch(compare(s.maxHp, mHp)) {
-      case  1: out.showIncreaseMaxHp(mHp - s.maxHp);  break;
-      case  0: out.showNoChange();                    break;
-      case -1: out.showDecreaseMaxHp(s.maxHp - mHp);  break;
+    switch(compare(stats.maxHp, mHp)) {
+      case  1: output.showIncreaseMaxHp(mHp - stats.maxHp);  break;
+      case  0: output.showNoChange();                    break;
+      case -1: output.showDecreaseMaxHp(stats.maxHp - mHp);  break;
     }
 
     //Check for case where max Hp is reduced and current hp must fall too.
-    if(mHp < s.currentHp) {
-      s.currentHp = mHp;
+    if(mHp < stats.currentHp) {
+      stats.currentHp = mHp;
     }
 
-    s.maxHp = mHp;
+    stats.maxHp = mHp;
   }
 
   public void setAttack(int att) {
-    switch(compare(s.attack, att)) {
-      case  1: out.showIncreaseAttack(att - s.attack); break;
-      case  0: out.showNoChange();                     break;
-      case -1: out.showDecreaseAttack(s.attack - att); break;
+    switch(compare(stats.attack, att)) {
+      case  1: output.showIncreaseAttack(att - stats.attack); break;
+      case  0: output.showNoChange();                     break;
+      case -1: output.showDecreaseAttack(stats.attack - att); break;
     }
-    s.attack = att;
+    stats.attack = att;
   }
 
   public void setDefense(int def) {
-    switch(compare(s.defense, def)) {
-      case  1: out.showIncreaseDefense(def - s.defense); break;
-      case  0: out.showNoChange();                       break;
-      case -1: out.showDecreaseDefense(s.defense - def); break;
+    switch(compare(stats.defense, def)) {
+      case  1: output.showIncreaseDefense(def - stats.defense); break;
+      case  0: output.showNoChange();                       break;
+      case -1: output.showDecreaseDefense(stats.defense - def); break;
     }
-    s.defense = def;
+    stats.defense = def;
   }
 
   public void setSpeed(int spd) {
-    switch(compare(s.speed, spd)) {
-      case  1: out.showIncreaseSpeed(spd - s.speed); break;
-      case  0: out.showNoChange();                   break;
-      case -1: out.showDecreaseSpeed(s.speed - spd); break;
+    switch(compare(stats.speed, spd)) {
+      case  1: output.showIncreaseSpeed(spd - stats.speed); break;
+      case  0: output.showNoChange();                   break;
+      case -1: output.showDecreaseSpeed(stats.speed - spd); break;
     }
-    s.speed = spd;
+    stats.speed = spd;
   }
 
   public void setXp(int x) {
-    switch(compare(s.xp, x)) {
-      case  1: out.showIncreaseExp(x - s.xp); break;
-      case  0: out.showNoChange();            break;
-      case -1: out.showDecreaseExp(s.xp - x); break;
+    switch(compare(stats.xp, x)) {
+      case  1: output.showIncreaseExp(x - stats.xp); break;
+      case  0: output.showNoChange();            break;
+      case -1: output.showDecreaseExp(stats.xp - x); break;
     }
-    s.xp = x;
+    stats.xp = x;
   }
 
   public void setLvl(int l) {
-    switch(compare(s.lvl, l)) {
-      case  1: out.showIncreaseLevel(l - s.lvl); break;
-      case  0: out.showNoChange();               break;
-      case -1: out.showDecreaseLevel(s.lvl - l); break;
+    switch(compare(stats.lvl, l)) {
+      case  1: output.showIncreaseLevel(l - stats.lvl); break;
+      case  0: output.showNoChange();               break;
+      case -1: output.showDecreaseLevel(stats.lvl - l); break;
     }
-    s.lvl = l;
+    stats.lvl = l;
   }
 
   public void setGold(int g) {
-    switch(compare(s.gold, g)) {
-      case  1: out.showIncreaseGold(g - s.gold); break;
-      case  0: out.showNoChange();               break;
-      case -1: out.showDecreaseGold(s.gold - g); break;
+    switch(compare(stats.gold, g)) {
+      case  1: output.showIncreaseGold(g - stats.gold); break;
+      case  0: output.showNoChange();               break;
+      case -1: output.showDecreaseGold(stats.gold - g); break;
     }
-    s.gold = g;
+    stats.gold = g;
   }
 
 

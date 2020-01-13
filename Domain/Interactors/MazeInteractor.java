@@ -13,7 +13,7 @@ import java.io.IOException;
 public class MazeInteractor implements IMazeInteractor {
 
   public Maze maze;
-  public IMazeInteractorOutput mOut;
+  public IMazeInteractorOutput output;
 
   //initializes maze from given level text file
   //consider how to make abstract
@@ -26,7 +26,7 @@ public class MazeInteractor implements IMazeInteractor {
       content = levelFileToString(fileName);
     }
     catch(Exception e) {
-      mOut.showReadFailure();
+      output.showReadFailure();
       return;
     }
     //get dimensions of that content
@@ -34,7 +34,7 @@ public class MazeInteractor implements IMazeInteractor {
       d = stringMatrixDimension(content);
     }
     catch(NullPointerException e) {
-      mOut.showDimensionFailure();
+      output.showDimensionFailure();
       return;
     }
     //make empty matrix from those dimensions
@@ -44,13 +44,13 @@ public class MazeInteractor implements IMazeInteractor {
       wipMaze.matrix = transcribeMatrix(d, content);
     }
     catch(Exception e) {
-      mOut.showMatrixFailure();
+      output.showMatrixFailure();
       return;
     }
     //assign completed maze to the interactor
     this.maze = wipMaze;
     //show success
-    mOut.showInitializeSuccess();
+    output.showInitializeSuccess();
   }
 
   //find spawn of maze. Key is given to be 1.
@@ -58,12 +58,12 @@ public class MazeInteractor implements IMazeInteractor {
     for(int r = 0; r < maze.row; r++) {
       for(int c = 0; c < maze.column; c++) {
         if(maze.matrix[r][c] == 1) {
-          mOut.showFindSpawnSuccess();
+          output.showFindSpawnSuccess();
           return new int[] {r, c};
         }
       }
     }
-    mOut.showFindSpawnFailure();
+    output.showFindSpawnFailure();
     return null;
   }
 

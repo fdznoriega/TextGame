@@ -10,7 +10,7 @@ public class MazeTester {
     //Setup the output
     ConsoleUserInterface cui = new ConsoleUserInterface();
     MazeInteractor mInteractor = new MazeInteractor();
-    mInteractor.mOut = cui;
+    mInteractor.output = cui;
     //Initialize Maze
     mInteractor.initializeMaze("level2");
     //Print it out.

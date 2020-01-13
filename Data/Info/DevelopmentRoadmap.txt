@@ -3,8 +3,9 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--go back and create stronger naming conventions. Working with player tester is
- a nightmare at the moment. Fixing this will make writing code easier.
+-continue testing player interactor
+-standardize console user interface's output format
+-start thinking about relationship between maze interactor and player interactor
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.
 -Revamp item notation.

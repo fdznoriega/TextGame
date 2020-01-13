@@ -22,10 +22,6 @@ public class PlayerTester {
     System.out.println(pInteractor.statsInteractor.stats.toString());
     System.out.println(pInteractor.invenInteractor.inventory.toString());
     //Demo Methods
-
-    // PROBLEM: interactors have already been created but we only added
-    // output to pInteractor.output. Looks like we need to pass in an
-    // output to the player interactor constructor
     System.out.println(">Running setCurrentHp(10)");
     pInteractor.setCurrentHp(10);
     System.out.println(">Running clearEquipment()");

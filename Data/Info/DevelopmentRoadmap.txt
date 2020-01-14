@@ -9,6 +9,7 @@ WIP: rewriting the entire code w better design.
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.
 -Revamp item notation.
+-design item dictionary/storage. implement text file.
 -Revamp treasure system.
 -Create a shop system.
 -boss battle.

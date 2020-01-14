@@ -29,8 +29,7 @@ public class StatsInteractor implements IStatsInteractor {
     output.showUpdateSuccess();
   }
 
-  // NEXT TIME: logic to see whether HP increased or decreased and then
-  //            apply the correct output.
+  // changes current Hp. Will do nothing if HP is increased and already max.
   public void setCurrentHp(int cHp) {
     //ex: a potion heals 10 hp and you have 8 / 10.
     if((cHp > stats.maxHp)) {

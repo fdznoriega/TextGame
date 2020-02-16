@@ -3,7 +3,7 @@ package Domain.Entities;
 public class Maze {
 
 	public int[][] matrix;		//matrix of ints
-	public int row, column;	//dimensions of matrix
+	public int row, column;		//dimensions of matrix
 
 	//makes empty maze of dimension (m x n)
 	public Maze(int[] dimension) {

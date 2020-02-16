@@ -3,8 +3,7 @@ Here is what needs to get done:
 WIP: rewriting the entire code w better design.
 
 --------Next Time--------
--start thinking about relationship between maze interactor and player interactor
- together, they could make a 'board master'?
+-game director WIP
 -design game loop and related components
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.

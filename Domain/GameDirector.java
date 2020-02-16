@@ -1,24 +1,28 @@
+import Domain.Entities.Direction;
 
-// player controller
-// take an input from X source. console will be implemented first
-// decide what to do with input from X source.
-// output result to the player/user
+// Game Director
+// 1. take input from X source
+// 2. move elements around
+// 3. output result
 
 
-public class PlayerController {
+public class GameDirector {
 
   public Player player;
-  public IPlayerControllerInput input;
-  public IPlayerControllerOutput output;
+  public Maze maze;
+  public PlayerInteractor pInteractor;
+  public MazeInteractor mInteractor;
+  public IGameDirectorInput input;
+  public IGameDirectorOutput output;
 
   // movement calls the player can make
-  public void movePlayer() {
-
+  public void movePlayer(Direction d) {
+    //uses maze interactor to move player in desired direction
   }
 
   // menu calls the player/user can make
   public void openSettingsMenu() {
-
+    //
   }
 
   // inventory calls the player/user can make

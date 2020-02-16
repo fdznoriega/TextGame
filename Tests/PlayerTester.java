@@ -27,7 +27,7 @@ public class PlayerTester {
     System.out.println(">Running clearEquipment()");
     pInteractor.clearEquipment();
     System.out.println(">Running showBag()");
-    pInteractor.output.showBag(pInteractor.player.inventory);
+    pInteractor.output.showBag(pInteractor.showBag());
 
   }
 }

@@ -18,9 +18,9 @@ public class PlayerInteractor {
   public StatsInteractor statsInteractor;
 
   // connect all components in the constructor?
-  public PlayerInteractor(Player playerIn, IPlayerInteractorOutput outputGiven) {
-    this.player = playerIn;
-    this.output = outputGiven;
+  public PlayerInteractor(Player p, IPlayerInteractorOutput o) {
+    this.player = p;
+    this.output = o;
     //construct each interactor
     invenInteractor = new InventoryInteractor();
     invenInteractor.inventory = player.inventory;
@@ -30,12 +30,11 @@ public class PlayerInteractor {
     statsInteractor.output = this.output;
   }
 
-  // we want to be able to access inventory and stat functions quickly,
-  // so lets make helper functions to guide the code in the right direction
+
+  // Helper Stats Methods ...
   // === before: pInteractor.statsInteractor.setMaxHp(num)
   // === after: pInteractor.setMaxHp(num)
 
-  // Helper Stats Methods ...
   public void setStats(Stats s) {
     this.statsInteractor.setStats(s);
   }

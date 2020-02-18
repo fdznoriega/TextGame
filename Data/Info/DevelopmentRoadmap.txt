@@ -4,7 +4,7 @@ WIP: rewriting the entire code w better design.
 note: inspired by Etrian Odyssey?
 
 --------Next Time--------
--abstract text file to "path", "wall", "treasure", "fountain"
+-revise maze to use tiles
 -game director WIP
 -design game loop and related components
 --------Soon--------

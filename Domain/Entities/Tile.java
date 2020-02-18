@@ -1,5 +1,7 @@
 package Domain.Entities;
 
+import Domain.Entities.TileType;
+
 // the maze is composed of tiles.
 // current tile IDs:
 // 0 - Wall

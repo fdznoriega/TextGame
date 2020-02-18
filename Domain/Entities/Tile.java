@@ -19,4 +19,9 @@ import Domain.Entities.TileType;
 public class Tile {
   TileType type;
   int id;
+
+  public String toString() {
+    return "[ " + type + " | " + id + " ]";
+  }
+  
 }

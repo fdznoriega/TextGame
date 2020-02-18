@@ -1,13 +1,16 @@
 package Domain.Entities;
 
+import Domain.Entities.Tile;
+
+//a maze is a matrix of tiles
 public class Maze {
 
-	public int[][] matrix;		//matrix of ints
+	public Tile[][] matrix;		//matrix of ints
 	public int row, column;		//dimensions of matrix
 
 	//makes empty maze of dimension (m x n)
 	public Maze(int[] dimension) {
-		matrix = new int[dimension[0]][dimension[1]];
+		matrix = new Tile[dimension[0]][dimension[1]];
 		row = dimension[0];
 		column = dimension[1];
 	}
@@ -21,7 +24,7 @@ public class Maze {
 					//System.out.println();
 					info += "\n";
 				}
-				info += matrix[i][j] + " ";
+				info += matrix[i][j].toString() + " ";
 			}
 		}
 		//System.out.println();

@@ -14,6 +14,11 @@ public class Maze {
 		column = dimension[1];
 	}
 
+	// makes a maze given some level text file?
+	public Maze(String fileName) {
+		
+	}
+
 	//Prints the Maze.
 	public String toString() {
 		String info = "";

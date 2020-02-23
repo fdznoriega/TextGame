@@ -50,14 +50,14 @@ public class MazeInteractor implements IMazeInteractor {
         endPoint = i;
       }
       if(content.charAt(i) == '(') {
-        // scan and find length of thing.
+        // scan and find length
         String almostTile = "";
         while(content.charAt(i) != ')') {
           almostTile += String.valueOf(content.charAt(i));
           i += 1;
         }
         almostTile += ")";
-        // (AA,1) = 6 chars
+        // almostTile -> (AA,1)
         Tile t = new Tile(almostTile);
         tiles.add(t);
       }
@@ -87,6 +87,22 @@ public class MazeInteractor implements IMazeInteractor {
     }
 
   }
+
+  /** Redesigned Load method example
+  public void load(String fileName) {
+    Maze m;
+    try {
+      m = new Maze(fileName);
+      this.maze = m;
+    }
+    catch (IOException e) {
+      output some error
+      return null;
+    }
+
+  }
+
+  **/
 
   //find spawn of maze. Key is given to be 1.
   //TO DO

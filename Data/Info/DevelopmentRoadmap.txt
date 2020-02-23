@@ -4,9 +4,8 @@ WIP: rewriting the entire code w better design.
 note: inspired by Etrian Odyssey?
 
 --------Next Time--------
--revamp in progress -> Tile system.
--translate text input maze to tile maze
--game director WIP
+-maze creation (cont)
+-game director
 -design game loop and related components
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.

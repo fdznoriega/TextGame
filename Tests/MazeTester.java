@@ -12,17 +12,7 @@ public class MazeTester {
     MazeInteractor mInteractor = new MazeInteractor();
     mInteractor.output = cui;
     //Initialize Maze
-    mInteractor.initializeMaze("level1");
-    //Print it out.
-    String mazeDuplicate = mInteractor.maze.toString();
-    System.out.println(mazeDuplicate);
-    //Find the spawn
-    int[] spawnLocation = mInteractor.findSpawn();
-    //top left corner = 0,0
-    System.out.println(spawnLocation[0] +  " , " + spawnLocation[1]);
-    //get the dimensions
-    int[] d = mInteractor.fetchDimension();
-    System.out.println("Dimensions: " + d[0] + " , " + d[1]);
+    mInteractor.createFromFile("level1");
 
 
   }

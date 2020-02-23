@@ -7,7 +7,7 @@ All values used in the project will be here.
 (TileType, ID) where...
 EN = Enemy
 EV = Environment
-TS = Treasure!
+TS = Treasure
 BS = Boss
 SP = Spawn
 And ID is an int

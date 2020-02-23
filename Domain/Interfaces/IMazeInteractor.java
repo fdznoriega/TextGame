@@ -3,7 +3,7 @@ package Domain.Interfaces;
 //import ...
 
 public interface IMazeInteractor {
-  void initializeMaze(String fileName);
+  void createFromFile(String fileName);
   int[] findSpawn();
   int[] fetchDimension();
 }

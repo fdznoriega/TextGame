@@ -1,12 +1,15 @@
 package Domain.Interactors;
 
 import Domain.Entities.Maze;
+import Domain.Entities.TileType;
+import Domain.Entities.Tile;
 import Domain.Interfaces.IMazeInteractorOutput;
 import Domain.Interfaces.IMazeInteractor;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.IOException;
+import java.util.ArrayList;
 
 //this interactor reads data from levels folder
 //another maze interactor could read data from another source.
@@ -27,6 +30,8 @@ public class MazeInteractor implements IMazeInteractor {
     String content;
     int[] d;
     Maze wipMaze;
+    ArrayList<Tile> tiles = new ArrayList<Tile>();
+
     try {
       content = levelToString(fileName);
     }
@@ -44,9 +49,21 @@ public class MazeInteractor implements IMazeInteractor {
       if(content.charAt(i) == ']') {
         endPoint = i;
       }
+      if(content.charAt(i) == '(') {
+        // scan and find length of thing.
+        String almostTile = "";
+        while(content.charAt(i) != ')') {
+          almostTile += String.valueOf(content.charAt(i));
+          i += 1;
+        }
+        almostTile += ")";
+        // (AA,1) = 6 chars
+        Tile t = new Tile(almostTile);
+        tiles.add(t);
+      }
       if(content.charAt(i) == '\n') {
         row++;
-        // enter inner loop to find columns
+        // inner loop to find columns
         int j = 0;
         while(j < i && !columnChecked) {
           if(content.charAt(j) == '(') {
@@ -59,18 +76,14 @@ public class MazeInteractor implements IMazeInteractor {
 
     }
     // check to see if edges found found
-    System.out.println(startingPoint + "," + endPoint);
-    System.out.println(row + "," + column);
-
     if(startingPoint == -1 || endPoint == -1) {
       output.showMatrixFailure();
       return;
     }
-    // read tiles
-    for(int i = startingPoint; i < endPoint; i++) {
-      if(content.charAt(i) == '(') {
-        // read tile
-      }
+
+    // check tiles
+    for(int i = 0; i < tiles.size(); i++) {
+      System.out.println(tiles.get(i).toString());
     }
 
   }

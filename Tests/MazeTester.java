@@ -12,6 +12,8 @@ public class MazeTester {
     MazeInteractor mInteractor = new MazeInteractor();
     mInteractor.output = cui;
     //Initialize Maze
+    Tile t = new Tile("(EN,1)");
+    System.out.println(t.toString());
     mInteractor.createFromFile("level1");
 
 

@@ -2,10 +2,9 @@ package Domain.Entities;
 
 import Domain.Entities.Tile;
 
-//a maze is a matrix of tiles
 public class Maze {
 
-	public Tile[][] matrix;		//matrix of ints
+	public Tile[][] matrix;
 	public int row, column;		//dimensions of matrix
 
 	//makes empty maze of dimension (m x n)

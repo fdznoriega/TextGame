@@ -18,9 +18,11 @@ package Domain.Entities;
 // Boss
 //  Jazz Band
 //  Mom's Flan
-//  Not-So Friendly Dragon
+//  Not-So-Friendly Dragon
+// Spawn examples
+//  ... spawn?
 
 
 public enum TileType {
-  Environment, Enemy, Treasure, Boss;
+  Environment, Enemy, Treasure, Boss, Spawn;
 }

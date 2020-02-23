@@ -2,6 +2,42 @@ Reference:
 
 All values used in the project will be here.
 
+===== REEEEEEEEVAMP! ======
+
+(TileType, ID) where...
+EN = Enemy
+EV = Environment
+TS = Treasure!
+BS = Boss
+SP = Spawn
+And ID is an int
+
+Below categories will soon be in their own files, where I will define
+stats and such.
+
+===== Enemy =====
+1: Spider
+2: Skeleton
+3: Stray Dornewt
+
+===== Environment =====
+0: Wall
+1: Path
+2: Fountain
+
+===== Treasure =====
+1: Sword
+2: Armor
+3: Potion or something idk
+
+===== Boss =====
+1: Troll
+2: Stained Carpet
+
+===== Spawn =====
+1: Spawn. NO OTHER ID.
+
+
 -----Inventory/Equipment Reference-----
 0: Nothing in space.
 1: Potion
@@ -9,32 +45,7 @@ All values used in the project will be here.
 3: Sword
 4: Armor
 
------Map Notation-----
-0 - Wall tile.
-1 - Start tile.
-2 - Walking tile.
-3 - Enemy tile.
-4 - Treasure tile.
-5 - Refresh/Fountain tile.
-6 - Boss tile.
-
 Ideas:
------Revamped Treasure Notation-----
-Approach 1: Giving the player what I want them to have.
-Approach 2: Giving the player what they don't have
-Approach 3: Giving the player anything.
-
-Approach 1 works best if the game will not be randomly generated so let's do that.
-Treasure tile: 4.
-4X means Treasure that gives X where X is:
-1: Potion
-2: Key
-3: Sword
-4: Armor
-
-For now, there will only be 1 kind of sword and 1 kind of armor, but what
-if I had more than 1? I could write 431 for 1, and 432 for another. This
-feels kind of sloppy but would work because I would not have more than 10 swords.
 
 -----Battle Functionality-----
 When battle tiles are triggered, enemies will appear and fight the player.

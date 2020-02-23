@@ -1,14 +1,15 @@
 NEW IDEAS:
 
-[ (EV,0) (EV,1) (EV,1)
-  (EV,0) (EV,1) (EV,1)
-  (EV,0) (EV,1) (EV,1) ]
+[ (BS,1) (EV,0) (EV,0)
+  (EV,3) (EN,1) (EV,0)
+  (EV,0) (EV,1) (EV,0) ]
 
 Tile Representation: (TileType, ID)
 EV = Environment
 EN = Enemy
 BS = Boss
 # = ID
+[] = start/stop reading
 
 
 OLD IDEAS:

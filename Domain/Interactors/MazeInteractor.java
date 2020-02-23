@@ -128,7 +128,7 @@ public class MazeInteractor implements IMazeInteractor {
   private static int[][] transcribeMatrix(int[] d, String content) {
     int r = 0;
 		int c = 0;
-    int[][] matrix = new int[d[0]][d[1]];
+    int[][] matrix = new Tile[d[0]][d[1]];
 		for(int i = 0; i < content.length(); i++) {
 			//"]" is the EOF flag, so break.
 			char currentChar = content.charAt(i);
@@ -151,6 +151,18 @@ public class MazeInteractor implements IMazeInteractor {
 			}
 		}
     return matrix;
+  }
+
+  // converts string item into tile item
+  private static Tile stringToTile(String s) {
+    switch(s) {
+      case '0': return new Tile ;
+      case 'W':
+      case 'B':
+      case 'E':
+      case 'T':
+      case 'F':
+    }
   }
 
 }

@@ -1,3 +1,18 @@
+NEW IDEAS:
+
+[ (EV,0) (EV,1) (EV,1)
+  (EV,0) (EV,1) (EV,1)
+  (EV,0) (EV,1) (EV,1) ]
+
+Tile Representation: (TileType, ID)
+EV = Environment
+EN = Enemy
+BS = Boss
+# = ID
+
+
+OLD IDEAS:
+
 0 6 0 3 0
 2 5 0 2 0
 2 0 2 2 2

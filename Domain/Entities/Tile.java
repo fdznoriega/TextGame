@@ -18,10 +18,11 @@ import Domain.Entities.TileType;
 
 public class Tile {
   TileType type;
+  boolean walkable;
   int id;
 
   public String toString() {
     return "[ " + type + " | " + id + " ]";
   }
-  
+
 }

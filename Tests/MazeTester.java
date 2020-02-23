@@ -12,7 +12,7 @@ public class MazeTester {
     MazeInteractor mInteractor = new MazeInteractor();
     mInteractor.output = cui;
     //Initialize Maze
-    mInteractor.initializeMaze("level2");
+    mInteractor.initializeMaze("level1");
     //Print it out.
     String mazeDuplicate = mInteractor.maze.toString();
     System.out.println(mazeDuplicate);

@@ -21,7 +21,6 @@ public class Maze {
 
 	//Prints the Maze.
 	public String toString() {
-		System.out.println("Hey");
 		if(this == null) {
 			return "";
 		}

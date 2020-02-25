@@ -55,9 +55,9 @@ public class MazeInteractor implements IMazeInteractor {
         Tile t = new Tile(almostTile);
         tiles.add(t);
       }
-      else if(content.charAt(i) == '\n') {
+      else if(content.charAt(i) == '\n' || content.charAt(i) == ']') {
         row++;
-        // inner loop to find columns
+        // count columns
         int j = 0;
         while(j < i && !columnChecked) {
           if(content.charAt(j) == '(') {
@@ -72,10 +72,10 @@ public class MazeInteractor implements IMazeInteractor {
       }
     }
     // we only create maps from square matrices so check for it:
-    if(row != column) {
-      output.showMatrixNotSquare();
-      return;
-    }
+    // if(row != column) {
+    //   output.showMatrixNotSquare();
+    //   return;
+    // }
     // create an empty maze which will be filled.
     Maze m = new Maze(new int[] {row, column});
     // iterate through empty maze and insert proper values

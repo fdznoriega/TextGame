@@ -11,7 +11,7 @@ public class ConsoleUserInterface implements
 
   //method to format stuff in system.out.println(argument);
   private void sopl(String s) {
-    System.out.println("GAME: " + s);
+    System.out.println("SYS: " + s);
   }
 
   //==========Inventory Interactor Section==========
@@ -52,24 +52,20 @@ public class ConsoleUserInterface implements
     sopl(m.toString());
   }
 
-  public void showInitializeSuccess() {
-    sopl("Maze Initialized");
+  public void loadSuccess() {
+    sopl("Maze loaded");
   }
 
-  public void showDimensionSuccess() {
-    sopl("Dimensions calculated");
+  public void showFileToStringFailure() {
+    sopl("Could not convert file to string");
   }
 
-  public void showMatrixSuccess() {
-    sopl("Matrix setup success");
+  public void showEdgesNotFound() {
+    sopl("Matrix edges not found");
   }
 
-  public void showMatrixFailure() {
-    sopl("Matrix setup failure");
-  }
-
-  public void showDimensionFailure() {
-    sopl("Dimensions not calculated");
+  public void showMatrixNotSquare() {
+    sopl("Level matrix is not square.");
   }
 
   public void showReadFailure() {

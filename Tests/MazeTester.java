@@ -12,9 +12,13 @@ public class MazeTester {
     MazeInteractor mInteractor = new MazeInteractor();
     mInteractor.output = cui;
     //Initialize Maze
+    System.out.println("Testing tile constructor");
     Tile t = new Tile("(EN,1)");
     System.out.println(t.toString());
-    mInteractor.createFromFile("level1");
+    // test load maze method
+    mInteractor.load("level1");
+    String s = mInteractor.maze.toString();
+    System.out.println(s);
 
 
   }

@@ -1,6 +1,11 @@
 package Domain.Entities;
 
 import Domain.Entities.Tile;
+import java.util.ArrayList;
+import java.nio.file.Files;
+import java.io.IOException;
+
+
 
 public class Maze {
 
@@ -14,13 +19,12 @@ public class Maze {
 		column = dimension[1];
 	}
 
-	// makes a maze given some level text file?
-	public Maze(String fileName) {
-		
-	}
-
 	//Prints the Maze.
 	public String toString() {
+		System.out.println("Hey");
+		if(this == null) {
+			return "";
+		}
 		String info = "";
 		for(int i = 0; i < this.row; i++) {
 			for(int j = 0; j < this.column; j++) {

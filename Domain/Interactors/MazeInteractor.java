@@ -23,12 +23,14 @@ public class MazeInteractor implements IMazeInteractor {
     // check if null
     if(content == null) {
       output.showFileToStringFailure();
+      this.maze = null;
       return;
     }
     // find edges of string [  ] that indicate maze notation
     int[] e = findEdges(content);
     if(e == null) {
       output.showEdgesNotFound();
+      this.maze = null;
       return;
     }
     // iterate from first edge to last edge to obtain:
@@ -41,6 +43,7 @@ public class MazeInteractor implements IMazeInteractor {
     boolean columnChecked = false;
     ArrayList<Tile> tiles = new ArrayList<Tile>();
     for(int i = leftEdge; i < rightEdge; i++) {
+      // if '(' then scan up to ')' and generate/add tile to tiles
       if(content.charAt(i) == '(') {
         // scan and find length
         String almostTile = "";
@@ -55,6 +58,7 @@ public class MazeInteractor implements IMazeInteractor {
         Tile t = new Tile(almostTile);
         tiles.add(t);
       }
+      // if '\n' or ']' then row + 1. count columns ONCE
       else if(content.charAt(i) == '\n' || content.charAt(i) == ']') {
         row++;
         // count columns
@@ -67,18 +71,14 @@ public class MazeInteractor implements IMazeInteractor {
         }
         columnChecked = true;
       }
+      // any other char is irrelevant.
       else {
         // nothing.
       }
     }
-    // we only create maps from square matrices so check for it:
-    // if(row != column) {
-    //   output.showMatrixNotSquare();
-    //   return;
-    // }
     // create an empty maze which will be filled.
     Maze m = new Maze(new int[] {row, column});
-    // iterate through empty maze and insert proper values
+    // iterate through empty maze and insert values from tiles
     int fullCount = 0;
     for(int i = 0; i < row; i++) {
       for(int j = 0; j < column; j++) {
@@ -86,13 +86,12 @@ public class MazeInteractor implements IMazeInteractor {
         fullCount += 1;
       }
     }
-    // now we have filled the maze.
+    // update this.maze
     output.loadSuccess();
     this.maze = m;
   }
 
-  //find spawn of maze. Key is given to be 1.
-  //TO DO
+  //find spawn of maze. TileType : Spawn | ID : 1
   public int[] findSpawn() {
     return null;
   }

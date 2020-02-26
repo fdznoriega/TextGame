@@ -17,6 +17,7 @@ public class MazeInteractor implements IMazeInteractor {
   public Maze maze;
   public IMazeInteractorOutput output;
 
+  // initializes maze given a filename
   public void load(String fileName) {
     // convert the file into a string
     String content = levelToString(fileName);
@@ -93,6 +94,20 @@ public class MazeInteractor implements IMazeInteractor {
 
   //find spawn of maze. TileType : Spawn | ID : 1
   public int[] findSpawn() {
+    if(this.maze == null) {
+      output.showMazeNotInitialized();
+      return null;
+    }
+    Maze m = this.maze;
+    for(int i = 0; i < m.row; i++) {
+      for(int j = 0; j < m.column; j++) {
+        Tile t = m.matrix[i][j];
+        if(t.type == TileType.Spawn && t.id == 1) {
+          return new int[] {i,j};
+        }
+      }
+    }
+    output.showFindSpawnFailure();
     return null;
   }
 

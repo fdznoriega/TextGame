@@ -8,6 +8,12 @@ public class Tile {
   public TileType type;
   public int id;
 
+  // basic constructor
+  public Tile(TileType t, int i) {
+    this.type = t;
+    this.id = i;
+  }
+  
   // format: (AA,1)
   public Tile(String s) {
     String inner = "";

@@ -8,6 +8,8 @@ public interface IMazeInteractorOutput {
   void showFileToStringFailure();
   void showEdgesNotFound();
   void showMatrixNotSquare();
+  void showFindSpawnFailure();
+  void showMazeNotInitialized();
 
 
 

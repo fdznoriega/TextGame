@@ -68,20 +68,12 @@ public class ConsoleUserInterface implements
     sopl("Level matrix is not square.");
   }
 
-  public void showReadFailure() {
-    sopl("Could not read file");
-  }
-
-  public void showReadSuccess() {
-    sopl("File read successfully");
-  }
-
   public void showFindSpawnFailure() {
     sopl("Could not find spawn");
   }
 
-  public void showFindSpawnSuccess() {
-    sopl("Found spawn successfully");
+  public void showMazeNotInitialized() {
+    sopl("Maze not initialized");
   }
 
   //==========Stats Interactor Section==========

@@ -28,6 +28,10 @@ public class MazeTester {
     mInteractor.load("Line");
     s = mInteractor.maze.toString();
     System.out.println(s);
+    // test find spawn
+    int[] l = mInteractor.findSpawn();
+    System.out.println(l[0] + ":" + l[1]);
+
 
 
   }

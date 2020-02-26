@@ -7,7 +7,7 @@ software which can be implemented in more than one way. Once I
 create a console based implementation, a web-based one should be
 feasible. Perhaps even a voice only implementation in the future.
 
-# Redesign vs Old Version
+## Redesign vs Old Version
 The redesign is found in the "clean-redesign" branch, and the
 original concept is found in the "master" branch.
 

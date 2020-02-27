@@ -4,7 +4,9 @@ WIP: rewriting the entire code w better design.
 note: inspired by Etrian Odyssey?
 
 --------Next Time--------
--game director
+-game director:
+  - method that checks if moving in a direction is ok given some Direction
+  - write move(Direction d) to update the player's location
 -design game loop and related components
 --------Soon--------
 -roll mechanic: lower hp = higher % of success. successful roll = move twice.

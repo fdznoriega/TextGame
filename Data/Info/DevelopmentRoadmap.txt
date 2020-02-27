@@ -26,7 +26,7 @@ note: inspired by Etrian Odyssey?
 -Consider making numbers on grid larger to have more types of things. Divide
  them by using the space bar as the buffer. First number could indicate type,
  while the second number could indicate type of type.
- -add a save() function which saves the player's data.
- -add a load() function which loads player data.
- -add an actual UI instead of using terminal.
- -music by me!
+-add a save() function which saves the player's data.
+-add a load() function which loads player data.
+-add an actual UI instead of using terminal.
+-music by me!

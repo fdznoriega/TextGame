@@ -17,7 +17,7 @@ public class PlayerInteractor {
   public InventoryInteractor invenInteractor;
   public StatsInteractor statsInteractor;
 
-  // connect all components in the constructor?
+  // connect all components in the constructor
   public PlayerInteractor(Player p, IPlayerInteractorOutput o) {
     this.player = p;
     this.output = o;

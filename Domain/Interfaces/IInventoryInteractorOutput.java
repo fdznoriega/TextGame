@@ -11,5 +11,9 @@ public interface IInventoryInteractorOutput {
   void showEquipmentIsFull();
   void showCannotEquip();
   void showItemNotFound();
-  void showSuccess();
+  void showEquipmentCleared();
+  void showBagCleared();
+  void showItemInserted();
+  void showItemRemoved();
+  void showItemUnequipped();
 }

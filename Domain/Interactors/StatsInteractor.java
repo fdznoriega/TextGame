@@ -43,7 +43,6 @@ public class StatsInteractor implements IStatsInteractor {
       return;
     }
 
-
     switch(compare(stats.currentHp, cHp)) {
       //X health gained
       case  1:

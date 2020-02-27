@@ -43,8 +43,24 @@ public class ConsoleUserInterface implements
     sopl("Could not find item");
   }
 
-  public void showSuccess() {
-    sopl("Success");
+  public void showEquipmentCleared() {
+    sopl("Equipment cleared");
+  }
+
+  public void showBagCleared() {
+    sopl("Bag cleared");
+  }
+
+  public void showItemInserted() {
+    sopl("Item inserted");
+  }
+
+  public void showItemRemoved() {
+    sopl("Item removed");
+  }
+
+  public void showItemUnequipped() {
+    sopl("Item uneqipped");
   }
 
   //==========Maze Interactor section==========

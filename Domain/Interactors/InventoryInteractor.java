@@ -19,7 +19,7 @@ public class InventoryInteractor implements IInventoryInteractor {
     }
     else {
       inventory.bag[indexOfEmptySpace] = item;
-      output.showSuccess();
+      output.showItemInserted();
     }
   }
 
@@ -52,7 +52,7 @@ public class InventoryInteractor implements IInventoryInteractor {
     for(int i = 0; i < inventory.bag.length; i++) {
       if(inventory.bag[i] != null && inventory.bag[i].equals(item)) {
         inventory.bag[i] = null;
-        output.showSuccess();
+        output.showItemRemoved();
         return;
       }
     }
@@ -65,7 +65,7 @@ public class InventoryInteractor implements IInventoryInteractor {
         if(inventory.equipment[i] != null) {
           if(inventory.equipment[i].equals(item)) {
             inventory.equipment[i] = null;
-            output.showSuccess();
+            output.showItemUnequipped();
             return;
           }
         }
@@ -78,14 +78,14 @@ public class InventoryInteractor implements IInventoryInteractor {
     for(int i = 0; i < inventory.bag.length; i++) {
       inventory.bag[i] = null;
     }
-    output.showSuccess();
+    output.showBagCleared();
   }
 
   public void clearEquipment() {
     for(int i = 0; i < inventory.equipment.length; i++) {
       inventory.equipment[i] = null;
     }
-    output.showSuccess();
+    output.showEquipmentCleared();
   }
 
   // -- Private Methods -- \\

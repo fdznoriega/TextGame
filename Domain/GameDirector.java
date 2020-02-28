@@ -21,27 +21,59 @@ public class GameDirector {
     this.location = mInteractor.findSpawn();
   }
 
-  // movement calls the player can make
+  // checks if moving in direction d is ok
   public void movePlayer(Direction d) {
-    //uses maze interactor to move player in desired direction
-    if(d.equals(Direction.North)) {
-      //check if null or wall
+    int row = this.maze.row;
+    int column = this.maze.column;
+    switch(d) {
+      case 1: d == Direction.North;
+              // check if space above is in array
+              try {
+                maze.matrix[location[0] - 1][location[1]];
+                location[0] = location[0] - 1;
+              }
+              catch(IOException) {
+                output.showCannotMoveNorth();
+                return false;
+              }
+              break;
+      case 2: d == Direction.South;
+              // check if space above is in array
+              try {
+                maze.matrix[location[0] + 1][location[1]];
+                location[0] = location[0] + 1;
+              }
+              catch(IOException) {
+                output.showCannotMoveSouth();
+                return false;
+              }
+              break;
+      case 3: d == Direction.East;
+              // check if space above is in array
+              try {
+                maze.matrix[location[0]][location[1] + 1];
+                location[0] = location[1] + 1;
+              }
+              catch(IOException) {
+                output.showCannotMoveEast();
+                return false;
+              }
+              break;
+      case 4: d == Direction.West;
+              // check if space above is in array
+              try {
+                maze.matrix[location[0]][location[1] - 1];
+                location[0] = location[1] - 1;
+              }
+              catch(IOException) {
+                output.showCannotMoveWest();
+                return false;
+              }
+              break;
+      default: return false;
     }
-    else if(d.equals(Direction.South)) {
 
-    }
-    else if(d.equals(Direction.East)) {
-
-    }
-    else if(d.equals(Direction.West)) {
-
-    }
-    else {
-      //output error
-      return;
-    }
   }
-
   // menu calls the player/user can make
   public void openSettingsMenu() {
     //
@@ -57,6 +89,10 @@ public class GameDirector {
   }
 
   public void equipItem() {
+
+  }
+
+  public static void main(String[] args) {
 
   }
 

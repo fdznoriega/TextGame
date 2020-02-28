@@ -43,7 +43,6 @@ public class InventoryInteractor implements IInventoryInteractor {
     else {
       inventory.equipment[indexOfEmptySpace] = item;
       removeItem(item);
-      //output.showSuccess();
     }
 
   }

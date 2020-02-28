@@ -38,7 +38,7 @@ public class GameDirector {
               }
               break;
       case 2: d == Direction.South;
-              // check if space above is in array
+              // check if space below is in array
               try {
                 maze.matrix[location[0] + 1][location[1]];
                 location[0] = location[0] + 1;
@@ -49,7 +49,7 @@ public class GameDirector {
               }
               break;
       case 3: d == Direction.East;
-              // check if space above is in array
+              // check if space right is in array
               try {
                 maze.matrix[location[0]][location[1] + 1];
                 location[0] = location[1] + 1;
@@ -60,7 +60,7 @@ public class GameDirector {
               }
               break;
       case 4: d == Direction.West;
-              // check if space above is in array
+              // check if space left is in array
               try {
                 maze.matrix[location[0]][location[1] - 1];
                 location[0] = location[1] - 1;

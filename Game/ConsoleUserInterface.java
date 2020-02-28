@@ -7,7 +7,8 @@ import Domain.Interfaces.*;
 //implements many interactors?
 public class ConsoleUserInterface implements
   IInventoryInteractorOutput, IMazeInteractorOutput,
-  IStatsInteractorOutput, IPlayerInteractorOutput {
+  IStatsInteractorOutput, IPlayerInteractorOutput,
+  IGameDirectorOutput {
 
   //method to format stuff in system.out.println(argument);
   private void sopl(String s) {
@@ -190,6 +191,22 @@ public class ConsoleUserInterface implements
   public void showDecreaseGold(int amt) {
     sopl(amt + " Gold lost?!");
   }
+
+  // === Game Director Output ===
+  public void showCannotMoveNorth() {
+    sopl("Could not move north");
+  }
+  public void showCannotMoveSouth() {
+    sopl("Could not move south");
+  }
+  public void showCannotMoveEast() {
+    sopl("Could not move east");
+  }
+  public void showCannotMoveWest() {
+    sopl("Could not move west");
+  }
+
+
 
 
 }

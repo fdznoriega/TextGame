@@ -1,4 +1,16 @@
+package Domain;
+
+import java.io.IOException;
 import Domain.Entities.Direction;
+import Domain.Interactors.PlayerInteractor;
+import Domain.Entities.Player;
+import Domain.Interactors.MazeInteractor;
+import Domain.Entities.Maze;
+import Domain.Entities.Tile;
+import Domain.Interfaces.IGameDirectorOutput;
+// import Domain.Interfaces.IGameDirectorInput;
+
+
 
 // Game Director
 // 1. take input from X source
@@ -13,7 +25,7 @@ public class GameDirector {
   public Maze maze;
   public PlayerInteractor pInteractor;
   public MazeInteractor mInteractor;
-  public IGameDirectorInput input;
+  // public IGameDirectorInput input;
   public IGameDirectorOutput output;
 
   // set player location
@@ -25,52 +37,53 @@ public class GameDirector {
   public void movePlayer(Direction d) {
     int row = this.maze.row;
     int column = this.maze.column;
+    Tile check; // may not initialize and error will be caught
     switch(d) {
-      case 1: d == Direction.North;
-              // check if space above is in array
-              try {
-                maze.matrix[location[0] - 1][location[1]];
-                location[0] = location[0] - 1;
+      case North:
+              // check above
+              check = maze.matrix[location[0] - 1][location[1]];
+              if(check != null) {
+                this.location[0] = location[0] - 1;
               }
-              catch(IOException) {
+              else {
                 output.showCannotMoveNorth();
-                return false;
+                return;
               }
               break;
-      case 2: d == Direction.South;
-              // check if space below is in array
-              try {
-                maze.matrix[location[0] + 1][location[1]];
-                location[0] = location[0] + 1;
+      case South:
+              // check below
+              check = maze.matrix[location[0] + 1][location[1]];
+              if(check != null) {
+                this.location[0] = location[0] + 1;
               }
-              catch(IOException) {
+              else {
                 output.showCannotMoveSouth();
-                return false;
+                return;
               }
               break;
-      case 3: d == Direction.East;
-              // check if space right is in array
-              try {
-                maze.matrix[location[0]][location[1] + 1];
-                location[0] = location[1] + 1;
+      case East:
+              // check right
+              check = maze.matrix[location[0]][location[1] + 1];
+              if(check != null) {
+                this.location[1] = location[1] + 1;
               }
-              catch(IOException) {
+              else {
                 output.showCannotMoveEast();
-                return false;
+                return;
               }
               break;
-      case 4: d == Direction.West;
-              // check if space left is in array
-              try {
-                maze.matrix[location[0]][location[1] - 1];
-                location[0] = location[1] - 1;
+      case West:
+              // check left
+              check = maze.matrix[location[0]][location[1] - 1];
+              if(check != null) {
+                this.location[1] = location[1] - 1;
               }
-              catch(IOException) {
+              else {
                 output.showCannotMoveWest();
-                return false;
+                return;
               }
               break;
-      default: return false;
+      default: return;
     }
 
   }
@@ -93,6 +106,7 @@ public class GameDirector {
   }
 
   public static void main(String[] args) {
+    GameDirector d;
 
   }
 

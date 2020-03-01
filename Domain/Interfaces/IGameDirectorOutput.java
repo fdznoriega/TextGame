@@ -1,6 +1,6 @@
 package Domain.Interfaces;
 
-public interface IGameDirectorOutput {
+public interface IGameDirectorOutput extends IPlayerInteractorOutput {
   void showCannotMoveNorth();
   void showCannotMoveSouth();
   void showCannotMoveEast();

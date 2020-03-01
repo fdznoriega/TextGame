@@ -8,6 +8,7 @@ import Domain.Interactors.MazeInteractor;
 import Domain.Entities.Maze;
 import Domain.Entities.Tile;
 import Domain.Interfaces.IGameDirectorOutput;
+import Game.ConsoleUserInterface;
 // import Domain.Interfaces.IGameDirectorInput;
 
 
@@ -28,8 +29,16 @@ public class GameDirector {
   // public IGameDirectorInput input;
   public IGameDirectorOutput output;
 
+  // default constructor
+  public GameDirector() {
+    this.player = new Player();
+    this.output = new ConsoleUserInterface();
+    pInteractor = new PlayerInteractor(this.player, this.output);
+    mInteractor = new MazeInteractor();
+    mInteractor.output = new ConsoleUserInterface();
+  }
   // set player location
-  private void setInitialLocation() {
+  public void setLocationToSpawn() {
     this.location = mInteractor.findSpawn();
   }
 
@@ -106,7 +115,10 @@ public class GameDirector {
   }
 
   public static void main(String[] args) {
-    GameDirector d;
+    GameDirector g = new GameDirector();
+    g.pInteractor.setGold(100);
+    g.mInteractor.load("Square");
+
 
   }
 

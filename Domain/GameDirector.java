@@ -43,7 +43,7 @@ public class GameDirector {
   }
 
   // checks if moving in direction d is ok
-  public void movePlayer(Direction d) {
+  public void move(Direction d) {
     int row = this.maze.row;
     int column = this.maze.column;
     Tile check; // may not initialize and error will be caught
@@ -114,13 +114,6 @@ public class GameDirector {
 
   }
 
-  public static void main(String[] args) {
-    GameDirector g = new GameDirector();
-    g.pInteractor.setGold(100);
-    g.mInteractor.load("Square");
-
-
-  }
 
 
 

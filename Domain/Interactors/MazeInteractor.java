@@ -90,6 +90,8 @@ public class MazeInteractor implements IMazeInteractor {
     // update this.maze
     output.loadSuccess();
     this.maze = m;
+    this.maze.row = row;
+    this.maze.column = column;
   }
 
   //find spawn of maze. TileType : Spawn | ID : 1

@@ -9,9 +9,10 @@ import Domain.Entities.Maze;
 import Domain.Entities.Tile;
 import Domain.Entities.TileType;
 import Domain.Interfaces.IGameDirectorOutput;
-import Game.ConsoleUserInterface;
-// import Domain.Interfaces.IGameDirectorInput;
+import Domain.Interfaces.IGameDirectorInput;
 
+// remove this soon
+import Game.ConsoleUserInterface;
 
 
 // Game Director
@@ -27,7 +28,7 @@ public class GameDirector {
   public Maze maze;
   public PlayerInteractor pInteractor;
   public MazeInteractor mInteractor;
-  // public IGameDirectorInput input;
+  public IGameDirectorInput input;
   public IGameDirectorOutput output;
 
   // default constructor
@@ -38,6 +39,12 @@ public class GameDirector {
     mInteractor = new MazeInteractor();
     mInteractor.output = new ConsoleUserInterface();
   }
+
+  // what i want game director to look like
+  // public GameDirector(IGameDirectorInput input, IGameDirectorOutput output) {
+  //
+  // }
+
   // set player location
   public void setLocationToSpawn() {
     this.location = mInteractor.findSpawn();
@@ -48,12 +55,12 @@ public class GameDirector {
     int row = this.maze.row;
     int column = this.maze.column;
     int index;
-    System.out.println("Row: " + row + "; " + "Column: " + column);
     switch(d) {
       case North:
         index = location[0] - 1;
         if(index >= 0 && index < row) {
           this.location[0] -= 1;
+          output.showMovedNorth();
         }
         else {
           output.showCannotMoveNorth();
@@ -64,6 +71,8 @@ public class GameDirector {
         index = location[0] + 1;
         if(index >= 0 && index < row) {
           this.location[0] += 1;
+          output.showMovedSouth();
+
         }
         else {
           output.showCannotMoveSouth();
@@ -74,6 +83,8 @@ public class GameDirector {
         index = location[1] + 1;
         if(index >= 0 && index < column) {
           this.location[1] += 1;
+          output.showMovedEast();
+
         }
         else {
           output.showCannotMoveEast();
@@ -84,18 +95,19 @@ public class GameDirector {
         index = location[1] - 1;
         if(index >= 0 && index < column) {
           this.location[1] -= 1;
+          output.showMovedWest();
+
         }
         else {
           output.showCannotMoveWest();
         }
-
-
       default: return;
     }
 
   }
+
   // menu calls the player/user can make
-  public void openSettingsMenu() {
+  public void openSettings() {
     //
   }
 

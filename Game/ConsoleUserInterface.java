@@ -206,6 +206,25 @@ public class ConsoleUserInterface implements
     sopl("Could not move west");
   }
 
+  public void showMovedNorth() {
+    sopl("Moved North");
+  }
+
+  public void showMovedSouth() {
+    sopl("Moved South");
+  }
+
+  public void showMovedEast() {
+    sopl("Moved East");
+  }
+
+  public void showMovedWest() {
+    sopl("Moved West");
+  }
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-Package Game;
+package Game;
 
 import Domain.*;
 

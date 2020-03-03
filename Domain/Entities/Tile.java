@@ -13,7 +13,7 @@ public class Tile {
     this.type = t;
     this.id = i;
   }
-  
+
   // format: (AA,1)
   public Tile(String s) {
     String inner = "";
@@ -25,8 +25,11 @@ public class Tile {
         if(s.charAt(i) == ',') {
           // inner is the type so use the switch statement
           switch(inner) {
-            case "EV":
-                    t = TileType.Environment;
+            case "PA":
+                    t = TileType.Path;
+                    break;
+            case "OB":
+                    t = TileType.Obstacle;
                     break;
             case "EN":
                     t = TileType.Enemy;

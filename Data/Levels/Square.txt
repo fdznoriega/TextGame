@@ -1,5 +1,5 @@
-[ (EV,0) (BS,1) (EV,0) (EN,1) (EV,0)
-  (EV,1) (EV,2) (EV,0) (EV,1) (EV,0)
-  (EV,1) (EV,0) (EV,1) (EV,1) (EV,1)
-  (EN,1) (EV,1) (EN,1) (EV,0) (EV,1)
-  (EV,0) (EV,0) (SP,1) (EV,0) (TS,1) ]
+[ (OB,1) (BS,1) (OB,1) (EN,1) (OB,1)
+  (PA,1) (PA,1) (OB,1) (PA,1) (OB,1)
+  (PA,1) (OB,1) (PA,1) (PA,1) (PA,1)
+  (EN,1) (PA,1) (EN,1) (OB,1) (PA,1)
+  (OB,1) (OB,1) (SP,1) (OB,1) (TS,1) ]

@@ -7,6 +7,7 @@ import Domain.Entities.Player;
 import Domain.Interactors.MazeInteractor;
 import Domain.Entities.Maze;
 import Domain.Entities.Tile;
+import Domain.Entities.TileType;
 import Domain.Interfaces.IGameDirectorOutput;
 import Game.ConsoleUserInterface;
 // import Domain.Interfaces.IGameDirectorInput;
@@ -46,52 +47,16 @@ public class GameDirector {
   public void move(Direction d) {
     int row = this.maze.row;
     int column = this.maze.column;
-    Tile check; // may not initialize and error will be caught
     switch(d) {
       case North:
-              // check above
-              check = maze.matrix[location[0] - 1][location[1]];
-              if(check != null) {
-                this.location[0] = location[0] - 1;
-              }
-              else {
-                output.showCannotMoveNorth();
-                return;
-              }
-              break;
+
       case South:
-              // check below
-              check = maze.matrix[location[0] + 1][location[1]];
-              if(check != null) {
-                this.location[0] = location[0] + 1;
-              }
-              else {
-                output.showCannotMoveSouth();
-                return;
-              }
-              break;
+
       case East:
-              // check right
-              check = maze.matrix[location[0]][location[1] + 1];
-              if(check != null) {
-                this.location[1] = location[1] + 1;
-              }
-              else {
-                output.showCannotMoveEast();
-                return;
-              }
-              break;
+
       case West:
-              // check left
-              check = maze.matrix[location[0]][location[1] - 1];
-              if(check != null) {
-                this.location[1] = location[1] - 1;
-              }
-              else {
-                output.showCannotMoveWest();
-                return;
-              }
-              break;
+
+
       default: return;
     }
 

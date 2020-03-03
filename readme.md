@@ -2,8 +2,8 @@
 
 ## What is it?
 This is a text-based adventure game written in Java and designed
-with clean architecture/principles. The goal is to create
-software which can be implemented in more than one way. Once I
+with clean architecture/principles. The goal is to a
+game which can be implemented in more than one way. Once I
 create a console based implementation, a web-based one should be
 feasible. Perhaps even a voice only implementation in the future.
 

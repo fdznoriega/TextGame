@@ -1,4 +1,4 @@
-package Game;
+package Domain.IO;
 
 // import
 import java.util.Scanner;

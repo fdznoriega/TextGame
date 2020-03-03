@@ -2,7 +2,7 @@ package Tests;
 
 import Domain.Entities.Stats;
 import Domain.Interactors.StatsInteractor;
-import Game.ConsoleUserInterface;
+import Domain.IO.ConsoleUserInterface;
 
 public class StatsTester {
 

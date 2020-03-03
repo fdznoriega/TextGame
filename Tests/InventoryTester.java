@@ -5,7 +5,7 @@ import Domain.Entities.Item;
 import Domain.Entities.ItemType;
 import Domain.Interactors.InventoryInteractor;
 import Domain.Interfaces.*;
-import Game.ConsoleUserInterface;
+import Domain.IO.ConsoleUserInterface;
 
 public class InventoryTester {
 

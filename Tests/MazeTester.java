@@ -2,7 +2,7 @@ package Tests;
 
 import Domain.Entities.*;
 import Domain.Interactors.*;
-import Game.ConsoleUserInterface;
+import Domain.IO.ConsoleUserInterface;
 import Domain.Interfaces.*;
 
 public class MazeTester {

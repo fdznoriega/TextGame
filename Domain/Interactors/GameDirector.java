@@ -1,4 +1,4 @@
-package Domain;
+package Domain.Interactors;
 
 import java.io.IOException;
 import Domain.Entities.Direction;
@@ -11,8 +11,8 @@ import Domain.Entities.TileType;
 import Domain.Interfaces.IGameDirectorOutput;
 import Domain.Interfaces.IGameDirectorInput;
 
-// remove this soon
-import Game.ConsoleUserInterface;
+// remove this soon. it is being used in the empty constructor
+import Domain.IO.ConsoleUserInterface;
 
 
 // Game Director

@@ -4,7 +4,7 @@ package Tests;
 import Domain.Entities.Player;
 import Domain.Interactors.PlayerInteractor;
 
-import Game.ConsoleUserInterface;
+import Domain.IO.ConsoleUserInterface;
 
 public class PlayerTester {
 

@@ -1,4 +1,4 @@
-package Game;
+package Domain.IO;
 
 import Domain.Entities.Inventory;
 import Domain.Entities.Maze;

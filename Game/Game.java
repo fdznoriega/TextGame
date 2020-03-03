@@ -9,11 +9,9 @@ public class Game {
     //Player - stats, inven
     //Player interactor - modifies player's stats and inven
     //Game state - explore, battle, pause, game over
-
-    //Make a player
-    Player p1 = new Player();
-    int[] pLocation = new int[2];
-    ConsoleUserInterface cui = new ConsoleUserInterface();
+    System.out.println("game time");
+    GameDirector g;
+    // g = new GameDirector(new ConsoleUserInput(), new ConsoleUserInterface());
 
   }
 

@@ -17,6 +17,7 @@ public class GameDirectorTester {
     g.move(Direction.North);
     g.move(Direction.East);
     g.move(Direction.West);
+    System.out.println(g.location[0] +  ":" + g.location[1]);
 
 
 

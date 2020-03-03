@@ -47,14 +47,47 @@ public class GameDirector {
   public void move(Direction d) {
     int row = this.maze.row;
     int column = this.maze.column;
+    int index;
+    System.out.println("Row: " + row + "; " + "Column: " + column);
     switch(d) {
       case North:
-
+        index = location[0] - 1;
+        if(index >= 0 && index < row) {
+          this.location[0] -= 1;
+        }
+        else {
+          output.showCannotMoveNorth();
+          return;
+        }
+        break;
       case South:
-
+        index = location[0] + 1;
+        if(index >= 0 && index < row) {
+          this.location[0] += 1;
+        }
+        else {
+          output.showCannotMoveSouth();
+          return;
+        }
+        break;
       case East:
-
+        index = location[1] + 1;
+        if(index >= 0 && index < column) {
+          this.location[1] += 1;
+        }
+        else {
+          output.showCannotMoveEast();
+          return;
+        }
+        break;
       case West:
+        index = location[1] - 1;
+        if(index >= 0 && index < column) {
+          this.location[1] -= 1;
+        }
+        else {
+          output.showCannotMoveWest();
+        }
 
 
       default: return;

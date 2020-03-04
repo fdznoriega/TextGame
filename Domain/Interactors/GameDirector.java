@@ -47,6 +47,7 @@ public class GameDirector {
     this.output = output;
     pInteractor = new PlayerInteractor(this.player, output);
     mInteractor = new MazeInteractor();
+    mInteractor.output = output;
   }
 
   // set player location

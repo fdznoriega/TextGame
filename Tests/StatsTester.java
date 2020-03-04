@@ -2,7 +2,7 @@ package Tests;
 
 import Domain.Entities.Stats;
 import Domain.Interactors.StatsInteractor;
-import Domain.IO.ConsoleUserInterface;
+import Domain.IO.ConsoleOutput;
 
 public class StatsTester {
 
@@ -11,7 +11,7 @@ public class StatsTester {
     Stats stats = new Stats(10, 5, 5, 5, 1, 0, 0);
     StatsInteractor si = new StatsInteractor();
     si.stats = stats;
-    si.output = new ConsoleUserInterface();
+    si.output = new ConsoleOutput();
     //show base stats
     System.out.println("SHOWING CURRENT STATS");
     System.out.println(si.stats.toString());

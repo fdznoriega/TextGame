@@ -12,7 +12,7 @@ import Domain.Interfaces.IGameDirectorOutput;
 import Domain.Interfaces.IGameDirectorInput;
 
 // remove this soon. it is being used in the empty constructor
-import Domain.IO.ConsoleUserInterface;
+import Domain.IO.ConsoleOutput;
 
 
 // Game Director
@@ -34,10 +34,10 @@ public class GameDirector {
   // default constructor
   public GameDirector() {
     this.player = new Player();
-    this.output = new ConsoleUserInterface();
+    this.output = new ConsoleOutput();
     pInteractor = new PlayerInteractor(this.player, this.output);
     mInteractor = new MazeInteractor();
-    mInteractor.output = new ConsoleUserInterface();
+    mInteractor.output = new ConsoleOutput();
   }
 
   // what i want game director to look like?

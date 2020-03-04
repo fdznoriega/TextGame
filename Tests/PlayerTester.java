@@ -4,7 +4,7 @@ package Tests;
 import Domain.Entities.Player;
 import Domain.Interactors.PlayerInteractor;
 
-import Domain.IO.ConsoleUserInterface;
+import Domain.IO.ConsoleOutput;
 
 public class PlayerTester {
 
@@ -17,7 +17,7 @@ public class PlayerTester {
     //Player interactor connects all pieces internally in constructor
     System.out.println(">Create player interactor & set variables");
     // shorthand
-    PlayerInteractor pInteractor = new PlayerInteractor(p1, new ConsoleUserInterface());
+    PlayerInteractor pInteractor = new PlayerInteractor(p1, new ConsoleOutput());
     //Confirm connections
     System.out.println(pInteractor.statsInteractor.stats.toString());
     System.out.println(pInteractor.invenInteractor.inventory.toString());

@@ -5,7 +5,7 @@ import Domain.Entities.Maze;
 import Domain.Interfaces.*;
 
 //implements many interactors?
-public class ConsoleUserInterface implements
+public class ConsoleOutput implements
   IInventoryInteractorOutput, IMazeInteractorOutput,
   IStatsInteractorOutput, IPlayerInteractorOutput,
   IGameDirectorOutput {

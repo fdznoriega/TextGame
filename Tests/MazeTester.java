@@ -2,13 +2,13 @@ package Tests;
 
 import Domain.Entities.*;
 import Domain.Interactors.*;
-import Domain.IO.ConsoleUserInterface;
+import Domain.IO.ConsoleOutput;
 import Domain.Interfaces.*;
 
 public class MazeTester {
   public static void main(String[] args) {
     //Setup the output
-    ConsoleUserInterface cui = new ConsoleUserInterface();
+    ConsoleOutput cui = new ConsoleOutput();
     MazeInteractor mInteractor = new MazeInteractor();
     mInteractor.output = cui;
     //Initialize Maze

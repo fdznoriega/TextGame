@@ -4,7 +4,7 @@ package Domain.IO;
 import java.util.Scanner;
 import Domain.Interfaces.IGameDirectorInput;
 
-public class ConsoleUserInput implements IGameDirectorInput {
+public class ConsoleInput implements IGameDirectorInput {
 
   String text;
   // asks the user for an input
@@ -23,7 +23,7 @@ public class ConsoleUserInput implements IGameDirectorInput {
 
   // testing
   public static void main(String[] args) {
-    ConsoleUserInput cui = new ConsoleUserInput();
+    ConsoleInput cui = new ConsoleInput();
     cui.request();
     System.out.println(cui.text);
   }

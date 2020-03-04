@@ -5,7 +5,7 @@ import Domain.Entities.Item;
 import Domain.Entities.ItemType;
 import Domain.Interactors.InventoryInteractor;
 import Domain.Interfaces.*;
-import Domain.IO.ConsoleUserInterface;
+import Domain.IO.ConsoleOutput;
 
 public class InventoryTester {
 
@@ -38,7 +38,7 @@ public class InventoryTester {
     sopl(">TESTER: Fully defining inventory interactor");
     InventoryInteractor invenInteractor = new InventoryInteractor();
     //----------this can be changed into any other kind of output----------
-    ConsoleUserInterface cui = new ConsoleUserInterface();
+    ConsoleOutput cui = new ConsoleOutput();
     //---------------------------------------------------------------------
     invenInteractor.inventory = i;
     invenInteractor.output = cui;

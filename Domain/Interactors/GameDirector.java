@@ -40,10 +40,14 @@ public class GameDirector {
     mInteractor.output = new ConsoleUserInterface();
   }
 
-  // what i want game director to look like
-  // public GameDirector(IGameDirectorInput input, IGameDirectorOutput output) {
-  //
-  // }
+  // what i want game director to look like?
+  public GameDirector(IGameDirectorInput input, IGameDirectorOutput output) {
+    this.player = new Player();
+    this.input = input;
+    this.output = output;
+    pInteractor = new PlayerInteractor(this.player, output);
+    mInteractor = new MazeInteractor();
+  }
 
   // set player location
   public void setLocationToSpawn() {

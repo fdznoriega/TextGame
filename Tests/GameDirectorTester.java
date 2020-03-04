@@ -13,15 +13,10 @@ public class GameDirectorTester {
     g.mInteractor.load("Square");
     g.maze = g.mInteractor.maze;
     g.setLocationToSpawn();
-    System.out.println("LOC: " + g.location[0] +  ":" + g.location[1]);
     g.move(Direction.South);
-    System.out.println("LOC: " + g.location[0] +  ":" + g.location[1]);
     g.move(Direction.North);
-    System.out.println("LOC: " + g.location[0] +  ":" + g.location[1]);
     g.move(Direction.East);
-    System.out.println("LOC: " + g.location[0] +  ":" + g.location[1]);
     g.move(Direction.West);
-    System.out.println("LOC: " + g.location[0] +  ":" + g.location[1]);
 
 
 

@@ -36,12 +36,7 @@ public class InventoryTester {
     i.bag = itemArr;
     //Make inventory interactor & output
     sopl(">TESTER: Fully defining inventory interactor");
-    InventoryInteractor invenInteractor = new InventoryInteractor();
-    //----------this can be changed into any other kind of output----------
-    ConsoleOutput cui = new ConsoleOutput();
-    //---------------------------------------------------------------------
-    invenInteractor.inventory = i;
-    invenInteractor.output = cui;
+    InventoryInteractor invenInteractor = new InventoryInteractor(i, new ConsoleOutput());
     sopl(">TESTER: Testing methods");
 
     //Inserting when full

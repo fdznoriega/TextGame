@@ -10,6 +10,11 @@ public class InventoryInteractor implements IInventoryInteractor {
   public Inventory inventory;
   public IInventoryInteractorOutput output;
 
+  public InventoryInteractor(Inventory i, IInventoryInteractorOutput o) {
+    this.inventory = i;
+    this.output = o;
+  }
+
   public void insertItem(Item item) {
     int[] fullAndIndex = bagIsFull();
     int bagIsFull = fullAndIndex[0];

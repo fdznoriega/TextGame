@@ -12,7 +12,7 @@ public class GameDirectorTester {
     GameDirector g;
     // g = new GameDirector();
     g = new GameDirector(new ConsoleInput(), new ConsoleOutput());
-    g.pInteractor.setGold(100);
+    g.setGold(100);
     g.loadMap("Square");
     g.move(Direction.South);
     g.move(Direction.North);

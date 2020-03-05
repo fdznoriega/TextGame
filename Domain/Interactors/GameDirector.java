@@ -10,7 +10,8 @@ import Domain.Entities.Tile;
 import Domain.Entities.TileType;
 import Domain.Interfaces.IGameDirectorOutput;
 import Domain.Interfaces.IGameDirectorInput;
-
+import Domain.Entities.Item;
+import Domain.Entities.Stats;
 // remove this soon. it is being used in the empty constructor
 import Domain.IO.ConsoleOutput;
 
@@ -132,6 +133,60 @@ public class GameDirector {
   // helper methods
 
   // player interactor
+  public void setStats(Stats s) {
+    this.pInteractor.statsInteractor.setStats(s);
+  }
+
+  public void setCurrentHp(int cHp) {
+    this.pInteractor.statsInteractor.setCurrentHp(cHp);
+  }
+
+  public void setMaxHp(int mHp) {
+    this.pInteractor.statsInteractor.setMaxHp(mHp);
+  }
+
+  public void setAttack(int att) {
+    this.pInteractor.statsInteractor.setAttack(att);
+  }
+
+  public void setDefense(int def) {
+    this.pInteractor.statsInteractor.setDefense(def);
+  }
+
+  public void setSpeed(int spd) {
+    this.pInteractor.statsInteractor.setSpeed(spd);
+  }
+
+  public void setXp(int x) {
+    this.pInteractor.statsInteractor.setXp(x);
+  }
+
+  public void setLvl(int l) {
+    this.pInteractor.statsInteractor.setLvl(l);
+  }
+
+  public void setGold(int g) {
+    this.pInteractor.statsInteractor.setGold(g);
+  }
+
+  // Helper Inventory Methods ...
+  public void insertItem(Item item) {
+    this.pInteractor.invenInteractor.insertItem(item);
+  }
+  public void equipItem(Item item) {
+    this.pInteractor.invenInteractor.equipItem(item);
+  }
+  public void removeItem(Item item) {
+    this.pInteractor.invenInteractor.removeItem(item);
+  }
+  public void unequipItem(Item item) {
+    this.pInteractor.invenInteractor.unequipItem(item);
+  }
+  public void clearEquipment() {
+    this.pInteractor.invenInteractor.clearEquipment();
+  }
+
+
 
   // maze interactor
   public void loadMap(String fileName) {

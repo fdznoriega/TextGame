@@ -9,6 +9,11 @@ public class StatsInteractor implements IStatsInteractor {
   public Stats stats;
   public IStatsInteractorOutput output;
 
+  public StatsInteractor(Stats s, IStatsInteractorOutput o) {
+    this.stats = s;
+    this.output = o;
+  }
+
   //returns: 1 for new > current ; 0 for new = current ; -1 new < current
   private int compare(int currentVal, int newVal) {
     if(newVal > currentVal) {

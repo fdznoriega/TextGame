@@ -23,9 +23,7 @@ public class PlayerInteractor {
     this.output = o;
     //construct each interactor
     invenInteractor = new InventoryInteractor(this.player.inventory, this.output);
-    statsInteractor = new StatsInteractor();
-    statsInteractor.stats = player.stats;
-    statsInteractor.output = this.output;
+    statsInteractor = new StatsInteractor(this.player.stats, this.output);
   }
 
 

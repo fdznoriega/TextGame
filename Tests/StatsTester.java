@@ -9,9 +9,7 @@ public class StatsTester {
   public static void main(String[] args) {
     //Setup
     Stats stats = new Stats(10, 5, 5, 5, 1, 0, 0);
-    StatsInteractor si = new StatsInteractor();
-    si.stats = stats;
-    si.output = new ConsoleOutput();
+    StatsInteractor si = new StatsInteractor(stats, new ConsoleOutput());
     //show base stats
     System.out.println("SHOWING CURRENT STATS");
     System.out.println(si.stats.toString());

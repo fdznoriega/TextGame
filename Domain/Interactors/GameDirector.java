@@ -129,6 +129,18 @@ public class GameDirector {
 
   }
 
+  // helper methods
+
+  // player interactor
+
+  // maze interactor
+  public void loadMap(String fileName) {
+    this.mInteractor.load(fileName);
+    this.maze = this.mInteractor.maze;
+    this.location = this.mInteractor.findSpawn();
+  }
+
+
 
 
 

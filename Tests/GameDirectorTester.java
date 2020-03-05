@@ -13,9 +13,7 @@ public class GameDirectorTester {
     // g = new GameDirector();
     g = new GameDirector(new ConsoleInput(), new ConsoleOutput());
     g.pInteractor.setGold(100);
-    g.mInteractor.load("Square");
-    g.maze = g.mInteractor.maze;
-    g.setLocationToSpawn();
+    g.loadMap("Square");
     g.move(Direction.South);
     g.move(Direction.North);
     g.move(Direction.East);

@@ -21,7 +21,6 @@ public class PlayerInteractor {
   public PlayerInteractor(Player p, IPlayerInteractorOutput o) {
     this.player = p;
     this.output = o;
-    //construct each interactor
     invenInteractor = new InventoryInteractor(this.player.inventory, this.output);
     statsInteractor = new StatsInteractor(this.player.stats, this.output);
   }

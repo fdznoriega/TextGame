@@ -12,8 +12,6 @@ import Domain.Interfaces.IGameDirectorOutput;
 import Domain.Interfaces.IGameDirectorInput;
 import Domain.Entities.Item;
 import Domain.Entities.Stats;
-// remove this soon. it is being used in the empty constructor
-import Domain.IO.ConsoleOutput;
 
 
 // Game Director
@@ -32,16 +30,6 @@ public class GameDirector {
   public IGameDirectorInput input;
   public IGameDirectorOutput output;
 
-  // default constructor
-  public GameDirector() {
-    this.player = new Player();
-    this.output = new ConsoleOutput();
-    pInteractor = new PlayerInteractor(this.player, this.output);
-    mInteractor = new MazeInteractor();
-    mInteractor.output = new ConsoleOutput();
-  }
-
-  // what i want game director to look like?
   public GameDirector(IGameDirectorInput input, IGameDirectorOutput output) {
     this.player = new Player();
     this.input = input;
@@ -130,7 +118,7 @@ public class GameDirector {
 
   }
 
-  // helper methods
+  // === helper methods ===
 
   // player interactor
   public void setStats(Stats s) {
@@ -185,8 +173,6 @@ public class GameDirector {
   public void clearEquipment() {
     this.pInteractor.invenInteractor.clearEquipment();
   }
-
-
 
   // maze interactor
   public void loadMap(String fileName) {

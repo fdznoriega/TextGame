@@ -39,9 +39,23 @@ public class GameDirector {
     mInteractor.output = output;
   }
 
-  // set player location
-  public void setLocationToSpawn() {
-    this.location = mInteractor.findSpawn();
+  public void act() {
+    fetch();
+
+  }
+
+  // asks for an input and stores it.
+  private void fetch() {
+    this.input.request();
+  }
+
+  // reacts based on the type of input
+  private void react() {
+    // check what is currently in the input
+    String s = this.input.text;
+    switch(s) {
+      case "north":
+    }
   }
 
   // checks if moving in direction d is ok
@@ -101,20 +115,16 @@ public class GameDirector {
   }
 
   // menu calls the player/user can make
-  public void openSettings() {
+  public void openSettingsMenu() {
     //
   }
 
   // inventory calls the player/user can make
-  public void openInventory() {
+  public void openInventoryMenu() {
 
   }
 
   public void useItem() {
-
-  }
-
-  public void equipItem() {
 
   }
 
@@ -157,7 +167,6 @@ public class GameDirector {
     this.pInteractor.statsInteractor.setGold(g);
   }
 
-  // Helper Inventory Methods ...
   public void insertItem(Item item) {
     this.pInteractor.invenInteractor.insertItem(item);
   }

@@ -25,10 +25,12 @@ stats and such.
 1: Path
 2: Fountain
 
-===== Treasure =====
+===== Item =====
 1: Sword
 2: Armor
 3: Potion or something idk
+
+Treasure tiles will refer to ITEM index! No separate "treasure" file.
 
 ===== Boss =====
 1: Troll
@@ -36,14 +38,6 @@ stats and such.
 
 ===== Spawn =====
 1: Spawn. NO OTHER ID.
-
-
------Inventory/Equipment Reference-----
-0: Nothing in space.
-1: Potion
-2: Key
-3: Sword
-4: Armor
 
 Ideas:
 

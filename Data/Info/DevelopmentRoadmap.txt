@@ -8,8 +8,8 @@ inspired by Etrian Odyssey
   -add methods which take the input interface into account...how?
 -design game loop and related components
 --------Soon--------
--roll mechanic: lower hp = higher % of success. successful roll = move twice.
--Revamp item notation.
+-battle director
+ -roll mechanic: lower hp = higher % of success. successful roll = move twice.
 -design item dictionary/storage. implement text file.
 -Revamp treasure system.
 -Create a shop system.

@@ -1,7 +1,9 @@
 package Game;
 
-import Domain.*;
-
+import Domain.Entities.*;
+import Domain.Interactors.*;
+import Domain.Interfaces.*;
+import Domain.IO.*;
 
 public class Game {
 
@@ -11,7 +13,7 @@ public class Game {
     //Game state - explore, battle, pause, game over
     System.out.println("game time");
     GameDirector g;
-    // g = new GameDirector(new ConsoleUserInput(), new ConsoleUserInterface());
+    g = new GameDirector(new ConsoleInput(), new ConsoleOutput());
 
   }
 

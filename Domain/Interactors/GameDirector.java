@@ -39,11 +39,6 @@ public class GameDirector {
     mInteractor.output = output;
   }
 
-  public void act() {
-    fetch();
-
-  }
-
   // asks for an input and stores it.
   private void fetch() {
     this.input.request();
@@ -52,7 +47,7 @@ public class GameDirector {
   // reacts based on the type of input
   private void react() {
     // check what is currently in the input
-    String s = this.input.text;
+    String s = this.input.toString();
     switch(s) {
       case "north":
     }
@@ -170,15 +165,19 @@ public class GameDirector {
   public void insertItem(Item item) {
     this.pInteractor.invenInteractor.insertItem(item);
   }
+
   public void equipItem(Item item) {
     this.pInteractor.invenInteractor.equipItem(item);
   }
+
   public void removeItem(Item item) {
     this.pInteractor.invenInteractor.removeItem(item);
   }
+
   public void unequipItem(Item item) {
     this.pInteractor.invenInteractor.unequipItem(item);
   }
+
   public void clearEquipment() {
     this.pInteractor.invenInteractor.clearEquipment();
   }
@@ -190,14 +189,4 @@ public class GameDirector {
     this.location = this.mInteractor.findSpawn();
   }
 
-
-
-
-
-  // what can the player do:
-  // move player character in cardinal directions
-  // battle -> stats change but player does not change them
-  // open settings menu
-  // open inventory
-  // equip items
 }

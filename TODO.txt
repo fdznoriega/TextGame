@@ -1,0 +1,22 @@
+TODO
+
+=== Up Next
+GameDirector.java
+
+=== Future Features
+Battles
+  Attack -> use ATT to strike enemy. Dmg = ATT - enemy DEF
+  Roll -> lower hp = higher success rate. On success, move twice.
+  Boss -> big fight at end of dungeon
+  Items -> use items in inventory
+Town / Overworld Exploration
+  Shop -> purchase new items
+  Inn -> restore health
+Dungeon Exploration
+  Treasure -> deterministic drop? random from pool?
+  Stairs -> traverse floors
+System
+  Save -> save data & progress.
+  Load -> load...
+  UI -> after console implementation is done, make a real one.
+  Music duh

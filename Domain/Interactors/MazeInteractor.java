@@ -118,6 +118,11 @@ public class MazeInteractor implements IMazeInteractor {
     return new int[] { maze.row, maze.column };
   }
 
+  // fetch tile given coordinates
+  public Tile fetchTile(int[] coords) {
+    return maze.matrix[coords[0]][coords[1]];
+  }
+
 
   // -- Private Methods -- \\
   //turns files under level into string

@@ -4,6 +4,7 @@ TODO
 javac Domain/Entities/*.java Domain/Interactors/*.java Domain/Interfaces/*.java Domain/IO/*.java Tests/*.java
 
 === Up Next
+Make sure git works on latest OS.
 GameDirector.java
   Don't walk through obstacles
 Create input demo and run through a maze

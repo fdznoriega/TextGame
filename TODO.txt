@@ -1,7 +1,12 @@
 TODO
 
+== Current Complier Code
+javac Domain/Entities/*.java Domain/Interactors/*.java Domain/Interfaces/*.java Domain/IO/*.java Tests/*.java
+
 === Up Next
 GameDirector.java
+  Don't walk through obstacles
+Create input demo and run through a maze
 
 === Future Features
 Battles
@@ -18,5 +23,5 @@ Dungeon Exploration
 System
   Save -> save data & progress.
   Load -> load...
-  UI -> after console implementation is done, make a real one.
+  UI -> Make a real one with some library (JFX)
   Music duh

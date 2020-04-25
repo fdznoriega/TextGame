@@ -39,74 +39,75 @@ public class GameDirector {
     mInteractor.output = output;
   }
 
-  // asks for an input and stores it.
-  private void fetch() {
-    this.input.request();
-  }
-
-  // reacts based on the type of input
-  private void react() {
-    // check what is currently in the input
-    String s = this.input.toString();
-    switch(s) {
-      case "north":
-    }
-  }
-
   // checks if moving in direction d is ok
+
+
+  // workflow of move()
+  // 1. Check if desired location is steppable.
+  // 2. Step on desired location (update location)
+  // 3. Trigger action on new space.
   public void move(Direction d) {
+    int row = this.maze.row;
+    int column = this.maze.column;
+    // 1. Check if steppable
+    Boolean steppable = isSteppable(d);
+    if(!steppable) {
+      this.output.showCannotMove(d);
+      return;
+    }
+    // 2. Update direction
+    switch(d) {
+      case North: this.location[0] -= 1; break;
+      case South: this.location[0] += 1; break;
+      case East: this.location[1] += 1; break;
+      case West: this.location[1] -= 1; break;
+      default: return;
+    }
+    this.output.showMoved(d);
+    // 3. Act
+    Tile steppedOn = this.mInteractor.fetchTile(this.location);
+    event(steppedOn);
+    // if action completed, transform tile into walking tile...?
+  }
+
+  // 4/25/20 -> this function is a boundary checker.
+  public Boolean isSteppable(Direction d) {
+    int[] nextLocation = this.location;
     int row = this.maze.row;
     int column = this.maze.column;
     int index;
     switch(d) {
       case North:
-        index = location[0] - 1;
+        index = nextLocation[0] - 1;
         if(index >= 0 && index < row) {
-          this.location[0] -= 1;
-          output.showMovedNorth();
-        }
-        else {
-          output.showCannotMoveNorth();
-          return;
+          return true;
         }
         break;
       case South:
-        index = location[0] + 1;
+        index = nextLocation[0] + 1;
         if(index >= 0 && index < row) {
-          this.location[0] += 1;
-          output.showMovedSouth();
-
-        }
-        else {
-          output.showCannotMoveSouth();
-          return;
+          return true;
         }
         break;
       case East:
-        index = location[1] + 1;
+        index = nextLocation[1] + 1;
         if(index >= 0 && index < column) {
-          this.location[1] += 1;
-          output.showMovedEast();
-
-        }
-        else {
-          output.showCannotMoveEast();
-          return;
+          return true;
         }
         break;
       case West:
         index = location[1] - 1;
         if(index >= 0 && index < column) {
-          this.location[1] -= 1;
-          output.showMovedWest();
-
+          return true;
         }
-        else {
-          output.showCannotMoveWest();
-        }
-      default: return;
+      default: return false;
     }
+    return false;
+  }
 
+
+  public void event(Tile t) {
+    System.out.println(t.toString());
   }
 
   // menu calls the player/user can make

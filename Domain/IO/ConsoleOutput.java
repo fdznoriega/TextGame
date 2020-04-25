@@ -2,6 +2,7 @@ package Domain.IO;
 
 import Domain.Entities.Inventory;
 import Domain.Entities.Maze;
+import Domain.Entities.Direction;
 import Domain.Interfaces.*;
 
 //implements many interactors?
@@ -193,33 +194,14 @@ public class ConsoleOutput implements
   }
 
   // === Game Director Output ===
-  public void showCannotMoveNorth() {
-    sopl("Could not move north");
-  }
-  public void showCannotMoveSouth() {
-    sopl("Could not move south");
-  }
-  public void showCannotMoveEast() {
-    sopl("Could not move east");
-  }
-  public void showCannotMoveWest() {
-    sopl("Could not move west");
+  public void showCannotMove(Direction d) {
+    String msg = "Could not move " + d;
+    sopl(msg);
   }
 
-  public void showMovedNorth() {
-    sopl("Moved North");
-  }
-
-  public void showMovedSouth() {
-    sopl("Moved South");
-  }
-
-  public void showMovedEast() {
-    sopl("Moved East");
-  }
-
-  public void showMovedWest() {
-    sopl("Moved West");
+  public void showMoved(Direction d) {
+    String msg = "Moved " + d;
+    sopl(msg);
   }
 
 

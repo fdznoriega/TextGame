@@ -39,11 +39,7 @@ public class GameDirector {
     mInteractor.output = output;
   }
 
-  // checks if moving in direction d is ok
-
-
-  // 1. Check if desired location is steppable.
-  // 2. Step on desired location (update location)
+  // updates location in a direction if next tile is steppable
   public void move(Direction d) {
     // 1. Check if steppable
     Boolean steppable = isSteppable(d);
@@ -64,11 +60,31 @@ public class GameDirector {
 
   // can't step if boundary or obstacle
   public Boolean isSteppable(Direction d) {
-    if(outOfBounds(d)) {
+    if(outOfBounds(d) || isObstacle(d)) {
       return false;
     }
     else {
       return true;
+    }
+  }
+
+  public Boolean isObstacle(Direction d) {
+    Tile t;
+    int i = this.location[0];
+    int j = this.location[1];
+    switch(d) {
+      case North: i -= 1; break;
+      case South: i += 1; break;
+      case East: j += 1; break;
+      case West: j -= 1; break;
+      default: return true;
+    }
+    t = this.mInteractor.fetchTile(new int[] {i,j});
+    if(t.type == TileType.Obstacle) {
+      return true;
+    }
+    else {
+      return false;
     }
   }
 

@@ -70,39 +70,48 @@ public class GameDirector {
     // if action completed, transform tile into walking tile...?
   }
 
-  // 4/25/20 -> this function is a boundary checker.
+  // can't step if boundary or obstacle
   public Boolean isSteppable(Direction d) {
-    int[] nextLocation = this.location;
+    if(outOfBounds(d)) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  // returns true if moving in a direction puts us out of bounds
+  public Boolean outOfBounds(Direction d) {
     int row = this.maze.row;
     int column = this.maze.column;
     int index;
     switch(d) {
       case North:
-        index = nextLocation[0] - 1;
+        index = this.location[0] - 1;
         if(index >= 0 && index < row) {
-          return true;
+          return false;
         }
         break;
       case South:
-        index = nextLocation[0] + 1;
+        index = this.location[0] + 1;
         if(index >= 0 && index < row) {
-          return true;
+          return false;
         }
         break;
       case East:
-        index = nextLocation[1] + 1;
+        index = this.location[1] + 1;
         if(index >= 0 && index < column) {
-          return true;
+          return false;
         }
         break;
       case West:
-        index = location[1] - 1;
+        index = this.location[1] - 1;
         if(index >= 0 && index < column) {
-          return true;
+          return false;
         }
-      default: return false;
+      default: return true;
     }
-    return false;
+    return true;
   }
 
 

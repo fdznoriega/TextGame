@@ -42,13 +42,9 @@ public class GameDirector {
   // checks if moving in direction d is ok
 
 
-  // workflow of move()
   // 1. Check if desired location is steppable.
   // 2. Step on desired location (update location)
-  // 3. Trigger action on new space.
   public void move(Direction d) {
-    int row = this.maze.row;
-    int column = this.maze.column;
     // 1. Check if steppable
     Boolean steppable = isSteppable(d);
     if(!steppable) {
@@ -64,10 +60,6 @@ public class GameDirector {
       default: return;
     }
     this.output.showMoved(d);
-    // 3. Act
-    Tile steppedOn = this.mInteractor.fetchTile(this.location);
-    event(steppedOn);
-    // if action completed, transform tile into walking tile...?
   }
 
   // can't step if boundary or obstacle

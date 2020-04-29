@@ -4,9 +4,8 @@ TODO
 javac Domain/Entities/*.java Domain/Interactors/*.java Domain/Interfaces/*.java Domain/IO/*.java Tests/*.java
 
 === Up Next
-Research if helper methods under PlayerInteractor are optimal
-Create input demo and run through a maze
 Have stepping on tiles trigger actions
+Does game director need to take an input? If so, how do we store it abstractly? 
 
 === Future Features
 Battles
